@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="24px" viewBox="0 0 26 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>fastest</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fastest" transform="translate(1.000000, 0.000000)" stroke="#ECB900" stroke-width="2">
+            <path d="M0,23 L4.45714286,0.371428571" id="Path"></path>
+            <path d="M19.2,23 L23.6571429,0.371428571" id="Path" transform="translate(21.428571, 11.685714) scale(-1, 1) translate(-21.428571, -11.685714) "></path>
+            <g id="Path-2" stroke-dasharray="6" transform="translate(11.657143, 2.000000)">
+                <path d="M0.342857143,20.3142857 L0.342857143,0.595215944" id="path-1" stroke-dasharray="4,4"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>Mobile</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#2D4959" cx="15.2806723" cy="13.2595638" r="6.74043616"></circle>
+        <path d="M15,6.5 L15,5" id="Path-2" stroke="#2D4959"></path>
+        <path d="M13,4.25 L17,4.25" id="Path-3" stroke="#2D4959" stroke-width="2"></path>
+        <path d="M19.5,6.5 C20.1666667,5.83333333 20.8333333,5.83333333 21.5,6.5 C22.1666667,7.16666667 22.1666667,7.83333333 21.5,8.5 L19.5,6.5 Z" id="Path-5" fill="#2D4959"></path>
+        <path d="M8,6.5 C8.66666667,5.83333333 9.33333333,5.83333333 10,6.5 C10.6666667,7.16666667 10.6666667,7.83333333 10,8.5 L8,6.5 Z" id="Path-5" fill="#2D4959" transform="translate(9.250000, 7.250000) scale(-1, 1) translate(-9.250000, -7.250000) "></path>
+        <path d="M3,16.25 L7,16.25" id="Path-6" stroke="#2D4959"></path>
+        <path d="M1.5,13.25 L7,13.25" id="Path-6" stroke="#2D4959"></path>
+        <path d="M3,10.15 L7,10.15" id="Path-6" stroke="#2D4959"></path>
+        <polyline id="Path-7" stroke="#2D4959" points="15.25 8.5 15.25 13 18 14.5"></polyline>
+    </g>
+</svg>

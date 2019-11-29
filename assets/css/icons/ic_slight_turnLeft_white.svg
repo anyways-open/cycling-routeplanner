@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="261px" height="277px" viewBox="0 0 261 277" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_slight_turnRight_white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_slight_turnRight_white" transform="translate(169.000000, 111.500000) scale(-1, 1) translate(-169.000000, -111.500000) translate(40.000000, -54.000000)">
+            <g id="Group" transform="translate(129.000000, 165.500000) scale(-1, 1) translate(-129.000000, -165.500000) ">
+                <polygon id="Triangle" fill="#FFFFFF" fill-rule="nonzero" transform="translate(159.067248, 109.217042) scale(-1, 1) rotate(24.000000) translate(-159.067248, -109.217042) " points="91.567248 109.217042 226.567248 19.7170418 226.567248 198.717042"></polygon>
+                <path d="M0,129 C147.5,135.5 147.5,267.520884 147.5,330.5" id="Path-9" stroke="#FFFFFF" stroke-width="80" transform="translate(73.750000, 229.750000) scale(-1, 1) translate(-73.750000, -229.750000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

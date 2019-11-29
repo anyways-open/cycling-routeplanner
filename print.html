@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="msapplication-TileColor" content="#00808B">
+    <meta name="theme-color" content="#00808B">
+    <title>Iedereen Mobiel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet'/>
+    <link href='style/size_toggles.css' rel='stylesheet'/>
+    <link href='style/general_style.css' rel='stylesheet'/>
+    <link href='style/safari-fix.css' rel='stylesheet'/>
+    <script src="js/constants.js"></script>
+</head>
+
+<body class="nopadding">
+
+<script>
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older
+            return true;
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11
+            return true;
+        }
+        return false;
+    }
+
+    if (detectIE()) {
+        alert("Het programma dat je gebruikt om op het internet te gaan is te oud. Gelieve een andere brower te installeren. We sturen je door...");
+        window.location.replace("https://www.mozilla.org/en-US/firefox/new/");
+    }
+</script>
+
+<!-- The main content pane -->
+<div class="container-fluid nopadding" style="height: 100%">
+    <div class="row nopadding" style="height: 100%">
+
+        <!-- We start with no sidebar to give the map all the place it needs. It gets confused when it has to get bigger -->
+        <div class="col-lg-12 col-xs-12 col-sm-12 smooth-transition nopadding" id="content-pane"
+             style="display:flex; flex-direction: column; align-items: stretch; padding: 0;">
+
+
+            <!-- The big map -->
+            <div class="map-container container-fluid nopadding">
+                <div class="bottom-left-anchor nopadding">
+                    <!-- Unused ATM -->
+                </div>
+                <div id='map' style="height:100%; width: 100%"></div>
+                <script>
+                    mapboxgl.accessToken = mapboxAccessCode;
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'https://api.maptiler.com/c/57530131-c1b9-40f3-990b-a4ac7177ba23/styles/cycling-bright/style.json?key=RrAiXeTeoR4I64mRSxk8',
+                        center: [5.5027, 50.9632], // starting position [lng, lat]
+                        zoom: 14, // starting zoom
+                        preserveDrawingBuffer: true
+                    });
+
+                    map.addControl(new mapboxgl.NavigationControl());
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar on the right-->
+
+<div class="bottom-center-floating-buttons">
+    <!-- This small piece provides the 'add to home page' functionality-->
+    <!-- It is only visible on mobile -->
+    <div style="position: relative; left: -50%;">
+        <button id="btnAddToHomescreen" type="button" class="btn btn-warning"><img
+                src="./assets/img/add-to-home.svg" width="30px"/></button>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+<script src="js/bootstrap3-typeahead.min.js"></script>
+<script src="js/routeplanning.js"></script>
+<script src="js/strings.js"></script>
+<script src="js/uihelper.js"></script>
+<script src="js/exportroute.js"></script>
+<script>applyLanguage("nl");
+localStorage.lang = "nl";</script>
+
+
+<script>
+if (window.innerWidth <= 767) {
+    closeSidebar();
+} else {
+    openSidebar();
+}</script>
+<script>
+    // This scripts add the legend entries on the span with ID 'legend'"
+    var element = document.getElementById("legend");
+
+    // The data to add. Eventually, this can be changed to an overpass-query or external data set someday
+    var routes = [{ref: 1, name: "Termien - Centrum - C-mine", colour: "#fce34b"}, // The yellow is darkened a little for readability
+        {ref: 2, name: "Hasselt - Bokrijk - Centrum", colour: "#35b1f4"},
+        {ref: 3, name: "Bokrijk - Hasseltweg - Centrum - Synaps Park - Molenblook - Kattevennen", colour: "#24ef15"},
+        {ref: 4, name: "Winterslag (Industrie) - C-mine - Bret - Gelieren - Wiemesmeer", colour: "#efa639"},
+        {ref: 5, name: "LABIOMISTA - Driehoeven - Winterslag - Kolderbos - Sledderlo - Industrie-Zuid", colour: "#d8863e"},
+        {ref: 6, name: "Zwartberg - SportinGenk park - Campus Bret - Centrum", colour: "#9837C1"},
+        {ref: 7, name: "Cirkellijn", colour: "#b81e54"}];
+
+
+    function routeinfo(routeRef) {
+        console.log("Clicked route information for " + routeRef);
+    }
+
+
+    var contents = "<table class='table table-sm table-borderless'><tbody>";
+
+
+    for (var i in routes) {
+        var route = routes[i];
+        contents += "<tr onclick='routeinfo(" + route.ref + ")'><td><div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div></td><td><div class='legend-text'>" + route.name + "</div></td>"
+    }
+
+    contents += "</tbody></table>";
+    element.innerHTML = "<h5>" + contents + "</h5>";
+
+</script>
+</body>
+
+</html>

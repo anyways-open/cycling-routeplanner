@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>Mobile</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(4.000000, 3.000000)">
+            <circle id="Oval-2" stroke="#2D4959" cx="5" cy="3" r="1"></circle>
+            <circle id="Oval-2" stroke="#2D4959" cx="1" cy="16" r="1"></circle>
+            <circle id="Oval-2" stroke="#2D4959" cx="12" cy="6" r="1"></circle>
+            <circle id="Oval-2" stroke="#2D4959" cx="10" cy="14" r="1"></circle>
+            <circle id="Oval-2" stroke="#2D4959" cx="15" cy="1" r="1"></circle>
+            <circle id="Oval-2" stroke="#2D4959" cx="15" cy="11" r="2"></circle>
+            <circle id="Oval-2" stroke="#2D4959" cx="5.5" cy="9.5" r="2.5"></circle>
+            <path d="M1.5,15.5 L4.5,11.5" id="Path-9" stroke="#2D4959"></path>
+            <path d="M6,3 L11.5,5.5" id="Path-11" stroke="#2D4959"></path>
+            <path d="M9,13 L7,11" id="Path-12" stroke="#2D4959"></path>
+            <path d="M10.5,13.5 L13.5,12.5" id="Path-13" stroke="#2D4959"></path>
+            <path d="M13.5,10.5 L8,10" id="Path-15" stroke="#2D4959"></path>
+            <path d="M8,8 L11.5,6.5" id="Path-16" stroke="#2D4959"></path>
+            <path d="M12.5,6.5 L14,9" id="Path-17" stroke="#2D4959"></path>
+            <path d="M15,9 L15,2" id="Path-18" stroke="#2D4959"></path>
+        </g>
+        <path d="M9,10 L9,7" id="Path-10" stroke="#2D4959"></path>
+    </g>
+</svg>

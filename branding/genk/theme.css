@@ -1,0 +1,55 @@
+/** GENK BRANDING STYLE **/
+
+.logo-image {
+    background: url("./logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top
+}
+
+
+.close-button-small-screen {
+    background: #00808B;
+    color: #FFFFFF;
+}
+
+
+.profile-selection-button-non-active {
+    background: #00808B;
+    color: white;
+}
+
+.profile-selection-button-active {
+    background: #00808B;
+    color: #FFFFFF;
+}
+
+.profile-selection-button-active svg path,
+.profile-selection-button-active svg circle {
+    fill: white;
+    stroke: white;
+}
+
+.profile-selection-button-non-active svg path,
+.profile-selection-button-active svg circle{
+    fill: white;
+    stroke: white;
+}
+
+.electric-bike-speedup {
+    background: #00808B;
+    color: #FFFFFF;
+}
+
+.location-circle-container {
+    position: relative;
+    text-align: center;
+    color: #00808B;
+    padding-top: 7px;
+}
+
+.sidebar-colors {
+    background: #FFFFFF;
+    color: #00808B;
+}
+

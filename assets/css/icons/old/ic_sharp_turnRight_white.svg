@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="261px" height="301px" viewBox="0 0 261 301" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-359.000000, -409.000000)">
+            <g id="Group" transform="translate(399.000000, 433.000000)">
+                <polygon id="Triangle" fill="#FFFFFF" transform="translate(161.830486, 111.259274) scale(-1, 1) rotate(-30.000000) translate(-161.830486, -111.259274) " points="94.3304864 111.259274 229.330486 21.7592736 229.330486 200.759274"></polygon>
+                <path d="M4.54747351e-13,88.7654395 C86.5536576,33.883742 129.830486,10.2064388 129.830486,17.7335298 C129.830486,25.2606209 129.830486,111.682778 129.830486,277" id="Path-9" stroke="#FFFFFF" stroke-width="80" transform="translate(64.915243, 146.685886) scale(-1, 1) translate(-64.915243, -146.685886) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

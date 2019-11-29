@@ -1,0 +1,22 @@
+.map {
+    height: calc(100vh - 70px);
+    width: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+    .map {
+        height: calc(100vh - 70px - 80.9px);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .map {
+        height: calc(100vh - 80.9px - 101px);
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .map {
+        height: calc(100vh - 80.9px - 141px);
+    }
+}

@@ -1,0 +1,843 @@
+/***** Setup ******/
+
+@font-face {
+    font-family: Circular-Std-Book;
+    src: url(../fonts/circular-std-book-cufonfonts-webfont/CircularStd-Book.woff) format("woff");
+    /*font-weight: 400;*/
+    /*font-style: normal*/
+}
+
+@font-face {
+    font-family: Circular-Std-Bold;
+    src: url(../fonts/circular-std-book-cufonfonts-webfont/CircularStd-Bold.woff) format("woff");
+}
+
+html, body {
+    height: 100vh;
+    font-size: .95rem;
+}
+
+/** GENK COLOR STYLES **/
+
+
+/***** Specific elements - often used only once ****/
+
+#sidebarClose:before {
+    background-image: url(icons/close.svg);
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+    border-top-width: 0px;
+}
+
+/* CLosed by default: should point left */
+.sidebar-toggle-button {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(icons/arrow-left-thin.svg);
+}
+
+.sidebar-toggle-button-close {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(icons/arrow-right-thin.svg);
+}
+
+.location-input-group {
+    padding-left: 0;
+    padding-right: 5px;
+    border-bottom: 2px solid #FFFFFF !important;
+}
+
+#top-overlay-input {
+    margin-bottom: 1vh;
+}
+
+#sidebar-right-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 0 0 0;
+    z-index: 103;
+    overflow: hidden;
+}
+
+#sidebar-right-container .btn-lg {
+    font-size: 1rem;
+    border-radius: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.electricity-box {
+    /* For one readon or another, all the element need an explicit 'display: flex' on them */
+    align-items: center;
+    margin-left: 30%;
+}
+
+.map-container {
+    flex-grow: 1;
+    position: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.map-container .row {
+    flex-grow: 1;
+}
+
+.mapboxgl-ctrl-group > button {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+.mobile-buttons .btn-lg {
+    border-radius: 0px;
+    font-size: 1rem;
+}
+
+/** Very generic stuff **/
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.padding {
+    padding: 0 !important;
+    margin: 1vh !important;
+}
+
+/*
+.smooth-transition {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+*/
+
+.pointer {
+    cursor: pointer;
+}
+
+.container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Element on the upper-right of the map */
+.upper-right-anchor {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 0;
+    margin: 0;
+    z-index: 102;
+}
+
+.bottom-left-anchor {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    padding: 0;
+    margin: 0;
+    z-index: 102;
+}
+
+.image-button:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 4px;
+    margin-left: 4px;
+    vertical-align: text-top;
+    background: transparent no-repeat center center;
+}
+
+/******* TO CLEAN UP - Probably contains lots of dead code *******/
+
+.top-overlap-nav {
+    height: 4em;
+}
+
+.instructions-resume div {
+    display: inline;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.instructions-resume {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.instructions-resume-electric div {
+    display: inline;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.instructions-resume-electric {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.1rem;
+}
+
+#sidebar-right-container .container-fluid {
+    flex: 0 0 1%;
+}
+
+#sidebar-right-content {
+    flex: 1 0 1%;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar-right-container.hidden-sidebar {
+    width: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.bottom-right-floating-buttons {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    z-index: 102;
+}
+
+.bottom-left-floating-buttons {
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+    z-index: 102;
+}
+
+.bottom-center-floating-buttons {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    z-index: 102;
+}
+
+#btnAddToHomescreen {
+    display: none;
+}
+
+#swap-origin-destination-button:before {
+    background-image: url(icons/baseline-swap_vert-24px.svg);
+}
+
+.btn {
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #2D4959;
+}
+
+.form-control {
+    border: none;
+    background-color: #FFFFFF;
+    border-radius: 0;
+}
+
+.profile-explanation-icons {
+    text-align: center;
+}
+
+.profile-explanation-icons div img {
+    width: 60%;
+    padding: 0;
+    margin: 7%;
+    background-color: #ffffff;
+    border-radius: 90%;
+}
+
+.non-active {
+    background-color: #ffffff !important;
+    opacity: 0.3 !important
+}
+
+.profile-explanation-icons div {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.profile-explanation-icons div img {
+    width: 110%;
+}
+
+.profile-explanation-icons div div .indicator {
+    border-radius: 100%;
+    background-color: white;
+    height: 30%;
+    position: absolute !important;
+    top: 0;
+    right: -40%;
+    width: auto;
+    padding: 8%;
+
+}
+
+.profile-explanation {
+    font-family: Circular-Std-Book, sans-serif;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.profile-explanation h4 {
+    font-family: Circular-Std-Bold, sans-serif;
+}
+
+.profile-explanation-overview {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.profile-explanation p {
+    min-height: 20%;
+    text-align: center;
+}
+
+.route:hover path, .route:hover polyline {
+    fill: white;
+    stroke: white;
+}
+
+.route:hover circle {
+    stroke: white;
+}
+
+.svg {
+    fill: #2D4959;
+}
+
+.active {
+    color: white;
+    background-color: #00808B;
+}
+
+.active svg path {
+    fill: #ffffff;
+    stroke: #ffffff;
+}
+
+.active svg polyline,
+.active svg circle {
+    stroke: #ffffff;
+}
+
+.active circle {
+    stroke: white;
+}
+
+.route:hover {
+    background-color: #00808B;
+    color: white;
+}
+
+/*.currentLocation {*/
+.right-addon {
+    display: flex;
+    align-items: center;
+}
+
+.route-instructions {
+    overflow-y: hidden;
+    list-style: none;
+    overflow-x: hidden;
+    height: 100%;
+    overflow-y:auto;
+}
+
+.download-button-back {
+    display: flex;
+    align-items: center;
+    margin-left: 25%;
+    margin-bottom: 20px;
+    height: 60px;
+}
+
+.download-button {
+    background-color: #2D4959;
+    width: 180px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.download-button svg {
+    width: 15%;
+    height: 15%;
+    margin-right: 10px;
+}
+
+.download {
+    fill: white;
+    stroke: white;
+}
+
+.button-collapse-instructions {
+    width: 100%;
+    color: #2D4959;
+    border-radius: 0;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0 #00808B;
+}
+
+.btn-warning:focus {
+    box-shadow: 0 0 0 0 #00808B;
+}
+
+.btn-warning:active {
+    box-shadow: 0 0 0 0 #00808B;
+}
+
+.btn-warning:hover {
+    border-color: #00808B;
+}
+
+.button-collapse-instructions:hover, .lang_label:hover {
+    color: white;
+}
+
+.btn-group-toggle .active {
+    color: white !important;
+}
+
+.bottom-left-floating-buttons button {
+    color: #2D4959;
+    border: 1px solid #2D4959;
+    padding: 2px 5px 2px 2px;
+}
+
+.bottom-center-floating-buttons button {
+    color: #2D4959;
+    border: 1px solid #2D4959;
+    padding: 2px 5px 2px 2px;
+}
+
+.btn-group-toggle {
+    border: 0.3rem solid #00808B;
+    border-radius: .3rem;
+}
+
+.btn-warning:not(:disabled):not(.disabled).active {
+    background-color: #2D4959;
+    border-color: #2D4959;
+    color: white;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+}
+
+.bottom-left-floating-buttons button img {
+    padding: 0 0 0 0;
+    margin-right: 2px
+}
+
+.bottom-center-floating-buttons button img {
+    padding: 0 0 0 0;
+    margin-right: 2px
+}
+
+li {
+    border-bottom: 1px solid white;
+    padding: .2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdown-menu {
+    font-size: .85rem;
+}
+
+input[type="text"], textarea {
+    outline: none;
+    box-shadow: none !important;
+}
+
+#top-overlay-profile-buttons-mobile {
+    display: none;
+}
+
+.card-body {
+    padding-top: 0;
+}
+
+.btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active,
+.show > .btn-warning.dropdown-toggle {
+  color: #2D4959;
+  background-color: #2D4959;
+  border-color: #2D4959;
+}
+
+.btn-warning:not(:disabled):not(.disabled):active:focus, 
+.btn-warning:not(:disabled):not(.disabled).active:focus,
+.show > .btn-warning.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #00808B;
+}
+
+/* enable absolute positioning */
+/*.currentLocation {*/
+.right-addon {
+    position: relative;
+}
+
+/* style icon */
+.currentLocation img, #clearInputFieldToButton {
+    position: absolute;
+    padding: 10px;
+    width: 2.8rem;
+}
+
+/* align icon */
+.left-addon img {
+    left: 0;
+}
+
+.right-addon img {
+    right: 0;
+}
+
+/* add padding  */
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+    font-size: .85em;
+}
+
+/*.dropdown-menu {
+    display: block !important;
+}*/
+
+.type-stop {
+    border-bottom: none;
+}
+
+#chart-fast {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.route-instructions ul {
+    margin-left: 5px;
+}
+
+.route-instructions ul li {
+    background-size: 40px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 45px;
+    display: block;
+}
+
+.angle-Right {
+    background: url("./icons/ic_turnRight_white.svg") no-repeat left 9px;
+}
+
+.angle-Left {
+    background: url("./icons/ic_turnLeft_white.svg") no-repeat left 9px;
+}
+
+.angle-StraightOn {
+    background: url("./icons/ic_straightOn_white.svg") no-repeat left 9px;
+}
+
+.angle-SlightlyRight {
+    background: url("./icons/ic_slight_turnRight_white.svg") no-repeat left 9px;
+}
+
+.angle-SlightlyLeft {
+    background: url("./icons/ic_slight_turnLeft_white.svg") no-repeat left 9px;
+}
+
+.startpoint-li {
+    background: url("./icons/currentLocation_white.svg") no-repeat left 9px;
+    /*background-repeat: no-repeat;
+    background-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;*/
+}
+
+.endpoint-li {
+    background: url("./icons/ic_location_on_black_24px.svg") no-repeat left 9px;
+    /*background-repeat: no-repeat;
+    background-size: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: none;*/
+}
+
+#clearInputFieldFromButton, #clearInputFieldToButton {
+    display: none;
+}
+
+.profile-summary-explanation {
+    margin: auto;
+    margin-top: 20%;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+}
+
+.profile-summary {
+    height: 100%;
+    font-size: 10px;
+}
+
+.profile-summary svg {
+    height: 25%;
+    width: 25%;
+}
+
+.profile-summary svg path {
+    fill: white;
+    stroke: white;
+}
+
+.profile-summary svg polyline,
+.profile-summary svg circle {
+    stroke: white;
+}
+
+.electricity path {
+    fill: white;
+    stroke: white;
+}
+
+.electricity-box svg {
+    height: 15%;
+    width: 15%;
+    margin-right: 5px;
+}
+
+.time-electric {
+    font-size: 0.6em;
+}
+
+.profile-summary h5 {
+    margin: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.location-circle {
+    height: 30px;
+    width: 30px;
+}
+
+
+.location-circle-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.table-instruction-image {
+    text-align: center;
+
+}
+
+table tr td {
+    vertical-align: middle !important;
+}
+
+.legend-ref {
+    width: 2.5em;
+    border-radius: 0.1em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    /* background colour is done by a script */
+}
+
+.legend-text {
+    text-align: center;
+    font-weight: bold;
+}
+
+.height-zero {
+    height: 0;
+    display: none;
+}
+
+.marker {
+    background-image: url('../img/marker.svg');
+    background-size: cover;
+    width: 31px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    color: #00808B;
+}
+
+.marker-text {
+    display: flex;
+    margin-left: 11px;
+    margin-top: 5px;
+}
+
+.instructions {
+    background: white;
+    color: #2D4959;
+    padding-top: 0px;
+    margin-top: 4vh;
+}
+
+.instructions .row {
+    margin: 10px;
+}
+
+.instruction-icon {
+    padding-left: 5px;
+}
+
+.instruction-distance {
+    font-size: 0.75em;
+    color: #88acc3;
+}
+
+.instructions .location-circle-centered {
+    left: 15px;
+}
+
+.instructions-div {
+    height: 50vh;
+}
+
+.top-bar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+#sidebarHamburger::before {
+    background-image: url(icons/ic_menu_black_24px.svg);
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .mapboxgl-ctrl-group > button {
+        width: 35px;
+        height: 35px;
+    }
+
+    #swap-origin-destination-button {
+        top: 50%;
+        position: relative;
+    }
+
+    .top-overlay {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    #sidebar-right-container .btn-lg {
+        font-size: unset;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .btn-export {
+        font-size: 0;
+        padding: 2px 2px 0 2px;
+    }
+
+    .card {
+        margin-bottom: 50px;
+    }
+
+    .form-control {
+        line-height: 1;
+    }
+
+    .w-100-md {
+        width: 100% !important;
+    }
+
+    .margin-mobile {
+        margin-bottom: 5px;
+        padding-bottom: 2px;
+    }
+
+    .location-circle {
+        height: 25px;
+        width: 25px;
+    }
+
+    .mobile-buttons .btn-lg {
+        font-size: 0.85rem;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+    
+    .top-bar {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in  {
+        display: none;
+    }
+
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+        display: none;
+    }
+
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass {
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 400px) {
+    .mobile-buttons {
+        display: none;
+    }
+}

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="manifest" href="./manifest.json">
+    <script src="assets/js/jquery.3.3.1.min.js"></script>
+   
+    <script src="assets/js/constants.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+ 
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet'/>
+    <link href='assets/css/size_toggles.css' rel='stylesheet'/>
+    <link href='assets/css/general_style.css' rel='stylesheet'/>
+    <link href='assets/css/safari-fix.css' rel='stylesheet'/>
+    
+    <!-- Branding specific stuff below -->
+    <title>Plan je fietsroute!</title>
+    
+    <meta name="msapplication-TileColor" content="#ffc000">
+    <meta name="theme-color" content="#ffc000">
+    <linke href='branding/anyways/theme.css' rel='stylesheet'/>
+    <link rel="apple-touch-icon" sizes="180x180" href="branding/anyways/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="branding/anyways/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="branding/anyways/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="branding/anyways/favicon-16.png">
+    <link href='branding/anyways/theme.css' rel='stylesheet'/>
+    <script src="branding/anyways/brandedScript.js"></script>
+
+</head>
+
+<body class="nopadding">
+
+<!-- The main content pane -->
+<div class="container-fluid nopadding" style="height: 100%">
+    <div class="row nopadding" style="height: 100%">
+
+        <!-- We start with no sidebar to give the map all the place it needs. It gets confused when it has to get bigger -->
+        <div class="col-lg-12 col-xs-12 col-sm-12 smooth-transition nopadding" id="content-pane"
+             style="display:flex; flex-direction: column; align-items: stretch; padding: 0;">
+
+            <!-- The bar on top -->
+            <div class="container-fluid top-bar">
+
+                <div class="row row-eq-height">
+
+                    <div class="col-1 col-xs-10 logo logo-image">
+                    </div>
+                    <div class="col-9 xs-or-smaller">
+                    </div>
+                    <div class="col-1 xs-or-smaller" style="height: 100%">
+                        <button class="btn image-button" id="sidebarHamburger" onclick="toggleSidebar()"></button>
+                    </div>
+
+
+                      <!-- Input fields for all -->
+                    <div class="col-xs-5 col-sm-9 col-md-9">
+
+                        <div class="container-fluid">
+
+                            <div class="row" style="align-items: center">
+                                <div class="col-10 col-md-5 justify-content-start currentLocation right-addon location-input-group margin-mobile">
+                                    <div class="location-circle-container">
+                                        <img class="svg location-circle" src="assets/img/circle.svg"/>
+                                        <div class="location-circle-centered">A</div>
+                                    </div>
+                                    <input class="form-control typeahead geocoder-input" type="text" id="fromInput"
+                                           placeholder="Van" oninput="fromFieldInputDetected(this)">
+                                    <img id="useLocationInputFieldButton" src="./assets/img/currentLocation.svg"
+                                         onclick="useCurrentLocation()"/>
+                                    <img id="clearInputFieldFromButton" src="./assets/css/icons/ic_clear_black_24px.svg"
+                                         onclick="clearInputFieldFrom()"/>
+                                </div>
+                                <div class="col-1 col-md-1 justify-content-center">
+                                        <button class="btn btn-warning image-button" id="swap-origin-destination-button"
+                                        onclick="swapOriginDestination()"></button>
+                                </div>
+                                <div class="col-md-5 justify-content-center right-addon location-input-group margin-mobile">
+                                    <div class="location-circle-container">
+                                        <img class="svg location-circle" src="assets/img/circle.svg"/>
+                                        <div class="location-circle-centered">B</div>
+                                    </div>
+                                    <input class="form-control typeahead geocoder-input" type="text" id="toInput"
+                                           placeholder="Naar"
+                                           oninput="toFieldInputDetected(this)">
+                                    <img id="clearInputFieldToButton" src="./assets/css/icons/ic_clear_black_24px.svg"
+                                         onclick="clearInputFieldTo()"/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Show/hide sidebar button on the right -->
+                    <div class="col-1 sm-or-bigger" style="height: 100%">
+                        <button class="sidebar-toggle-button btn image-button padding"
+                                onclick="toggleSidebar()"></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- The big map -->
+            <div class="map-container container-fluid nopadding">
+                <div class="bottom-left-anchor nopadding">
+                    <!-- Unused ATM -->
+                </div>
+                <div id='map' style="height:100%; width: 100%"></div>
+                <script>
+                    mapboxgl.accessToken = mapboxAccessCode;
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        //style: 'mapbox://styles/ben-anyways/cjm7obna8e73u2rppk8pc49di',
+                        //style: 'mapbox://styles/ben-anyways/cjs66aa5d27yv1ftdyq1kvlgr',
+                        //style: 'mapbox://styles/ben-anyways/cj9zvkimu8wjl2spbq2ej7en0',
+                        //style: 'mapbox://styles/ben-anyways/cjm7obefs14442sp63lworwqg',
+                        //style: 'https://maps.tilehosting.com/styles/positron/style.json?key=RrAiXeTeoR4I64mRSxk8',
+                        //style: 'https://maps.tilehosting.com/c/57530131-c1b9-40f3-990b-a4ac7177ba23/styles/positron-cycling/style.json?key=RrAiXeTeoR4I64mRSxk8',
+                        //style: 'https://maps.tilehosting.com/c/57530131-c1b9-40f3-990b-a4ac7177ba23/styles/positron-cycling/style.json?key=RrAiXeTeoR4I64mRSxk8',
+                        //style: './style/streets.json',
+                        style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH',
+                        center: [5.5027, 50.9632], // starting position [lng, lat]
+                        zoom: 14, // starting zoom
+                        preserveDrawingBuffer: true
+                    });
+
+                    map.addControl(new mapboxgl.NavigationControl());
+                </script>
+            </div>
+
+
+            <!-- The three extra profile buttons. md-and-smaller only -->
+            <div class="md-or-smaller container-fluid nopadding mobile-buttons">
+                <div class="row pointer profile-selection-button-non-active nopadding"
+                     style="width:100%;">
+
+                    <!-- Beware: class names 'network-genk-button', 'fastest-button' ... are used in the script and not in the css. Don't remove 'em-->
+                    <div class="col-4 btn-lg text-center network-genk-button"
+                         onclick="sidebarDisplayProfileHtmlId('network-genk')">
+                    <span>
+                        <img class="svg" src="./assets/img/genk-networks.svg"/>
+                    </span>
+                        <br>
+                        <div>Fietsnet Genk</div>
+                    </div>
+                    <div class="col-4 btn-lg text-center network-button"
+                         onclick="sidebarDisplayProfileHtmlId('network')">
+                    <span>
+                        <img class="svg" src="./assets/img/network.svg"/>
+                    </span>
+                        <br>
+                        <div>Knooppunten</div>
+                    </div>
+                    <div class="col-4 btn-lg text-center fastest-button"
+                         onclick="sidebarDisplayProfileHtmlId('fastest')">
+                    <span>
+                        <img class="svg" src="assets/img/fast.svg"/>
+                    </span>
+                        <br>
+                        <div>Snel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar on the right-->
+<div id="sidebar-right-container"
+     class="col-lg-3 col-sm-12 hidden-sidebar smooth-transition">
+
+    <!-- All the sidebar content -->
+    <div id='sidebar-right-content'>
+
+        <!-- Profile selecting button + close button -->
+        <div style="display:flex; align-items: stretch">
+
+
+            <!-- Buttons selecting profile -->
+            <div class="container-fluid" style="flex-grow: 2">
+                <div class="row profile-selection-button-non-active pointer">
+
+
+                    <!-- Beware: class names 'network-genk-button', 'fastest-button' ... are used in the script and not in the css. Don't remove 'em-->
+                    <div class="col-4 btn-lg text-center network-genk-button"
+                         onclick="sidebarDisplayProfileHtmlId('network-genk')">
+                    <span>
+                        <img class="svg" src="./assets/img/genk-networks.svg"/>
+                    </span>
+                        <br>
+                        <div>Fietsnet Genk</div>
+                    </div>
+                    <div class="col-4 btn-lg text-center network-button"
+                         onclick="sidebarDisplayProfileHtmlId('network')">
+                    <span>
+                        <img class="svg" src="./assets/img/network.svg"/>
+                    </span>
+                        <br>
+                        <div>Knooppunten</div>
+                    </div>
+                    <div class="col-4 btn-lg text-center fastest-button"
+                         onclick="sidebarDisplayProfileHtmlId('fastest')">
+                    <span>
+                        <img class="svg" src="assets/img/fast.svg"/>
+                    </span>
+                        <br>
+                        <div>Snel</div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Close button. Only on small screens -->
+            <div class="md-or-smaller close-button-small-screen">
+                <div class="btn-lg image-button" id="sidebarClose"
+                        onclick="closeSidebar()"></div>
+            </div>
+
+        </div>
+
+        <!-- The actual content of the panes; three very similar pieces-->
+
+        <!-- Fastest  -->
+        <div id="fastest-summary" class="profile-summary sidebar-colors height-zero">
+            <div class="profile-summary-explanation">
+                <img class="svg" src="assets/img/fast.svg"/>
+                <h5 class="sub-title">Dit is de snelste route.</h5>
+            </div>
+        </div>
+
+        <div id="fastest-instruction" class="route-instructions sidebar-colors height-zero">
+            <div class="profile-explanation">
+                <div class="profile-explanation-overview">
+                    <div class="instructions-resume">
+                        <div class="distance">0 km</div>
+                        <div>
+                            <div class="time">0 min</div>
+                            <div class="electricity-box electric-bike-speedup" style="display:flex">
+                                <img class="svg electricity" src="assets/img/electricity.svg"><span
+                                    class="time-electric">0 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        Dit is de snelste route.
+                    </p>
+                </div>
+            </div>
+            <div class="instructions-div">
+                <div class="container instructions">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- network-genk -->
+        <div id="network-genk-summary" class="profile-summary sidebar-colors height-zero">
+            <div class="profile-summary-explanation">
+                <img class="svg" src="assets/img/genk-networks.svg"/>
+                <h5 class="sub-title">Fietsnet Genk bestaat uit routes die je aangenaam en snel naar je bestemming brengen.</h5>
+            </div>
+            <span id="legend">
+                    <!-- Actual content is seeded by a little script, see bottom --></span>
+        </div>
+        <div id="network-genk-instruction" class="route-instructions sidebar-colors height-zero">
+            <div class="profile-explanation">
+                <div class="profile-explanation-overview">
+                    <div class="instructions-resume">
+                        <div class="distance">0 km</div>
+                        <div>
+                            <div class="time">0 min</div>
+                            <div class="electricity-box electric-bike-speedup" style="display:flex">
+                                <img class="svg electricity" src="assets/img/electricity.svg"><span
+                                    class="time-electric">0 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        Fietsnet Genk bestaat uit routes die je aangenaam en snel naar je bestemming brengen.
+                    </p>
+                </div>
+            </div>
+            <div class="instructions-div">
+                <div class="container instructions">
+                </div>
+            </div>
+        </div>
+
+        <!-- network -->
+        <div id="network-summary" class="profile-summary sidebar-colors height-zero">
+            <div class="profile-summary-explanation">
+                <img class="svg" src="assets/img/network.svg"/>
+                <h5 class="sub-title">Dit is het bekende toeristische fietsknoopuntennetwerk. Je rijdt via de genummerde knooppunten.</h5>
+            </div>
+        </div>
+        <div id="network-instruction" class="route-instructions sidebar-colors height-zero">
+            <div class="profile-explanation">
+                <div class="profile-explanation-overview">
+                    <div class="instructions-resume">
+                        <div class="distance">0 km</div>
+                        <div>
+                            <div class="time">0 min</div>
+                            <div class="electricity-box electric-bike-speedup" style="display:flex">
+                                <img class="svg electricity" src="assets/img/electricity.svg"><span
+                                    class="time-electric">0 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        Dit is het bekende toeristische fietsknoopuntennetwerk. Je rijdt via de genummerde knooppunten.
+                    </p>
+                </div>
+            </div>
+            <div class="instructions-div">
+                <div class="container instructions">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Add to home page functionality -->
+<div class="bottom-center-floating-buttons">
+    <!-- This small piece provides the 'add to home page' functionality-->
+    <!-- It is only visible on mobile -->
+    <div style="position: relative; left: -50%;">
+        <button id="btnAddToHomescreen" type="button" class="btn btn-warning"><img
+                src="./assets/img/add-to-home.svg" width="30px"/></button>
+    </div>
+</div>
+
+<!-- All javascripts! -->
+
+<script src="assets/js/popper.1.14.3.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+<script src="assets/js/bootstrap.4.1.1.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+<script src="assets/js/detectIE.js"></script>
+<script src="assets/js/Chart.bundle.2.7.2.min.js"></script>
+<script src="assets/js/bootstrap3-typeahead.min.js"></script>
+<script src="assets/js/routeplanning.js"></script>
+<script src="assets/js/strings.js"></script>
+<script src="assets/js/uihelper.js"></script>
+<script src="assets/js/exportroute.js"></script>
+
+
+<script>  
+    if (detectIE()) {
+        alert("Het programma dat je gebruikt om op het internet te gaan is te oud. Gelieve een andere browser te installeren. We sturen je door...");
+        window.location.replace("https://www.mozilla.org/en-US/firefox/new/");
+    }
+
+    applyLanguage("nl");
+    localStorage.lang = "nl";
+
+    if (window.innerWidth <= 767) {
+        closeSidebar();
+    } else {
+        openSidebar();
+    }
+    applyBrand();
+
+    </script>
+
+
+</body>
+
+</html>
