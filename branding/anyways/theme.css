@@ -7,7 +7,13 @@
     background-position: center top    
 }
 
-   
+.profile-1-icon{
+    background:url("./logo.svg");
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-position: center top;
+}
+
 
 .close-button-small-screen {
     background: #ffc000;

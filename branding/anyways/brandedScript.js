@@ -1,5 +1,6 @@
 
 
 function applyBrand(){
-    console.log("No anyways specific branding yet");
+    profileConfigs["network-genk"].backendName = "bicycle.commute";
+    console.log("Monkey-patching network-genk to commute");
 }

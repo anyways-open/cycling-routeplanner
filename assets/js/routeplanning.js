@@ -106,7 +106,28 @@ var profileConfigs = {
     }
 };
 
+/**
+ * Map containing the html id's of the profile buttons
+ * @type {{"fastest-route": string, "relaxed-route": string, "other-route": string}}
+ */
+const profileButtonIds = {
+    "fastest-route": "fastest",
+    "network-route": "network",
+    "network-genk-route": "network-genk"
+};
+
 let selectedProfile = "network-genk";
+
+
+
+
+
+
+
+
+
+
+
 
 //set the corect language
 var userLang = navigator.language || navigator.userLanguage;
@@ -123,15 +144,7 @@ if (typeof(Storage) !== "undefined") {
     console.log("Sorry, your browser does not support Web Storage.");
 }
 
-/**
- * Map containing the html id's of the profile buttons
- * @type {{"fastest-route": string, "relaxed-route": string, "other-route": string}}
- */
-const profileButtonIds = {
-    "fastest-route": "fastest",
-    "network-route": "network",
-    "network-genk-route": "network-genk"
-};
+
 
 /**
  * Convert the time returned by the routing api to a string representation readable for humans
