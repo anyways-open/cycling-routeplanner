@@ -1,9 +1,98 @@
 
+var profileConfigs = {
+    "profile1": {
+        backendName: "bicycle.genk",
+        frontendName: "Fietsnet Genk",
+        frontendSubtitle: "Fietsnet Genk bestaat uit routes die je aangenaam en snel naar je bestemming brengen. ",
+        frontendExplanation: "Fietsnet Genk bestaat uit routes die je aangenaam en snel naar je bestemming brengen. ",
+        frontendLogo: "./branding/genk/genk-networks.svg",
+        
+        layers: {
+            "cyclenetworks": {
+                "default": {
+                    "line-opacity": 1
+                },
+                "route": {
+                    "line-opacity": 0.3
+                }
+            },
+            "cyclenetwork-tiles": false,
+            "cyclenetwork-tiles-high": false,
+            "cyclenodes-circles": false,
+            "cyclenodes-circles-high": false,
+            "cyclenodes-circles-center": false,
+            "cyclenodes-labels": false,
+            "cyclenodes-labels-high": false
+        },
+        routecolor: {
+            backend: true,
+            color: "#2D4959"
+        }
+    },
+    "profile2": {
+        backendName:  "bicycle.networks",
+        frontendName: "Knooppunten",
+        frontendSubtitle: "Dit is het bekende toeristische fietsknoopuntennetwerk. Je rijdt via de genummerde knooppunten.",
+        frontendExplanation: "Dit is het bekende toeristische fietsknoopuntennetwerk. Je rijdt via de genummerde knooppunten.",
+        frontendLogo: "./assets/img/network.svg",
+        
+        layers: {
+            "cyclenetworks": false,
+            "cyclenetwork-tiles": {
+                "default": {
+                    "line-opacity": 1
+                },
+                "route": {
+                    "line-opacity": 0.5
+                }
+            },
+            "cyclenetwork-tiles-high": {
+                "default": {
+                    "line-opacity": 1
+                },
+                "route": {
+                    "line-opacity": 0.5
+                }
+            },
+            "cyclenodes-circles": true,
+            "cyclenodes-circles-high": true,
+            "cyclenodes-circles-center": true,
+            "cyclenodes-labels": true,
+            "cyclenodes-labels-high": true
+        },
+        routecolor: {
+            backend: false,
+            color: "#2D4959"
+        }
+    },
+    "profile3": {
+        backendName: "bicycle.shortest",
+        frontendName: "Kortst",
+        frontendSubtitle: "Dit is de korste route",
+        frontendExplanation: "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
+        frontendLogo: "./assets/img/fast.svg",
+        layers: {
+            "cyclenetworks": false,
+            "cyclenetwork-tiles": false,
+            "cyclenetwork-tiles-high": false,
+            "cyclenodes-circles": false,
+            "cyclenodes-circles-high": false,
+            "cyclenodes-circles-center": false,
+            "cyclenodes-labels": false,
+            "cyclenodes-labels-high": false
+        },
+        routecolor: {
+            backend: false,
+            color: "#2D4959"
+        }
+    }
+};
+
 
  // This scripts add the legend entries on the span with ID 'legend'"
 function addLegendEntries(){
        
-    var element = document.getElementById("legend");
+    var element = document.getElementById("profile1-summary-extra");
 
     // The data to add. Eventually, this can be changed to an overpass-query or external data set someday
     var routes = [{ref: 1, name: "Termien - Centrum - C-mine", colour: "#fce34b"}, // The yellow is darkened a little for readability

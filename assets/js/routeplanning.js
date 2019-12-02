@@ -7,116 +7,26 @@ let language = "nl";
 //var labelLayer = "water_name_line";
 var labelLayer = "waterway-name";
 
-var state = {
-    routes: {
 
-    },
-    location1: undefined,
-    location1Marker: undefined,
-    location2: undefined,
-    location2Marker: undefined,
-    routeRequests: {}
-}
 
 // defines the available profiles.
-const availableProfiles = ["network-genk", "network", "fastest"];
+const availableProfiles = ["profile1", "profile2", "profile3"];
 // the configuration of the profiles.
 
-var profileConfigs = {
-    "network-genk": {
-        profileDivId: "network-genk-instruction",
-        summaryDivId: "network-genk-summary",
-        backendName: "bicycle.genk",
-        layers: {
-            "cyclenetworks": {
-                "default": {
-                    "line-opacity": 1
-                },
-                "route": {
-                    "line-opacity": 0.3
-                }
-            },
-            "cyclenetwork-tiles": false,
-            "cyclenetwork-tiles-high": false,
-            "cyclenodes-circles": false,
-            "cyclenodes-circles-high": false,
-            "cyclenodes-circles-center": false,
-            "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false
-        },
-        routecolor: {
-            backend: true,
-            color: "#2D495A"
-        },
-        instructions: false
-    },
-    "network": {
-        profileDivId: "network-instruction",
-        summaryDivId: "network-summary",
-        backendName:  "bicycle.networks",
-        layers: {
-            "cyclenetworks": false,
-            "cyclenetwork-tiles": {
-                "default": {
-                    "line-opacity": 1
-                },
-                "route": {
-                    "line-opacity": 0.5
-                }
-            },
-            "cyclenetwork-tiles-high": {
-                "default": {
-                    "line-opacity": 1
-                },
-                "route": {
-                    "line-opacity": 0.5
-                }
-            },
-            "cyclenodes-circles": true,
-            "cyclenodes-circles-high": true,
-            "cyclenodes-circles-center": true,
-            "cyclenodes-labels": true,
-            "cyclenodes-labels-high": true
-        },
-        routecolor: {
-            backend: false,
-            color: "#2D495A"
-        },
-        instructions: false
-    },
-    "fastest": {
-        profileDivId: "fastest-instruction",
-        summaryDivId: "fastest-summary",
-        backendName: "bicycle.shortest",
-        layers: {
-            "cyclenetworks": false,
-            "cyclenetwork-tiles": false,
-            "cyclenetwork-tiles-high": false,
-            "cyclenodes-circles": false,
-            "cyclenodes-circles-high": false,
-            "cyclenodes-circles-center": false,
-            "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false
-        },
-        routecolor: {
-            backend: false,
-            color: "#2D495A"
-        },
-        instructions: false
-    }
-};
+
 
 /**
  * Map containing the html id's of the profile buttons
  * @type {{"fastest-route": string, "relaxed-route": string, "other-route": string}}
  */
 const profileButtonIds = {
-    "fastest-route": "fastest",
-    "network-route": "network",
-    "network-genk-route": "network-genk"
+    "network-genk-route": "profile1",
+    "fastest-route": "profile2",
+    "network-route": "profile3"
+    
 };
 
-let selectedProfile = "network-genk";
+let selectedProfile = "profile1";
 
 
 
@@ -160,7 +70,7 @@ function timeToText(s) {
     }
     var h = Math.floor(s / 3600);
     var m = Math.floor((s % 3600) / 60);
-    return `${h} uur, ${m}`;
+    return `${h} uur, ${m}`;    
 }
 
 /**
@@ -303,7 +213,7 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
         }
 
         var localConfig = profileConfigs[profile];
-        var profileDivId = localConfig.profileDivId;
+        var profileDivId = profile+"-instruction";
         if (routeStops.length === 2) {
             let totaltimeElectr =  timeToText(routeStops[1].properties.time * 15 / 20 );
             $(`#${profileDivId} .distance`).html(`${roundToThree(routeStops[1].properties.distance / 1000)} km`);
@@ -527,162 +437,8 @@ function createMarker(loc, label) {
  * Add hillshades to the map once it's loaded
  */
 map.on('load', function () {
-    // map.addSource('dem', {
-    //     "type": "raster-dem",
-    //     "url": "mapbox://mapbox.terrain-rgb"
-    // });
-    // map.addLayer({
-    //     "id": "hillshading",
-    //     "source": "dem",
-    //     "type": "hillshade"
-    //     // insert below waterway-river-canal-shadow;
-    //     // where hillshading sits in the Mapbox Outdoors style
-    // }, );//'waterway-river-canal-shadow');
 
-    map.addSource('cyclenetworks-tiles', { 
-        type: 'vector',
-        // url: 'https://localhost:5001/cyclenetworks/mvt.json' /*/
-        url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks-test/mvt.json' //*/ 
-    });
-
-    map.addLayer({
-        "id": "cyclenetworks",
-        "type": "line",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenetwork-genk",
-        "layout": {
-            "visibility": "none",
-            "line-join": "round",
-            "line-cap": "round"
-          },
-          "paint": {
-            "line-color": ['get', 'cyclecolour'],
-            "line-width": 4
-          }
-    }, labelLayer);
-    
-    
-    map.addLayer({
-        "id": "cyclenetwork-tiles",
-        "type": "line",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenetwork",
-        "minzoom": 11,
-        "layout": {
-            "visibility": "none",
-            "line-join": "round"
-          },
-          "paint": {
-            "line-color": "#2D495A",
-            "line-width": 2,
-            "line-dasharray": [2, 2]
-          }
-    }, labelLayer);
-
-    map.addLayer({
-        "id": "cyclenetwork-tiles-high",
-        "type": "line",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenetwork",
-        "maxzoom": 11,
-        "layout": {
-            "visibility": "visible",
-            "line-join": "round"
-          },
-          "paint": {
-            "line-color": "#2D495A",
-            "line-width": 1
-          }
-    }, labelLayer);
-
-    map.addLayer({
-        "id": "cyclenodes-circles",
-        "type": "circle",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenodes",
-        "minzoom": 11,
-        "layout": {
-            "visibility": "none"
-        },
-        "paint": {
-            "circle-stroke-width": 2,
-            "circle-stroke-color": "#2D495A",
-            "circle-radius": 10,
-            "circle-color": "#000000",
-            "circle-opacity": 0
-        }
-    });
-
-    map.addLayer({
-        "id": "cyclenodes-circles-high",
-        "type": "circle",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenodes",
-        "maxzoom": 11,
-        "layout": {
-            "visibility": "visible"
-        },
-        "paint": {
-            "circle-stroke-width": 1,
-            "circle-stroke-color": "#2D495A",
-            "circle-radius": 7,
-            "circle-color": "#FFFFFF"
-        }
-    });
-
-    map.addLayer({
-        "id": "cyclenodes-circles-center",
-        "type": "circle",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenodes",
-        "minzoom": 11,
-        "layout": {
-            "visibility": "none"
-        },
-        "paint": {
-            "circle-radius": 10,
-            "circle-color": "#FFFFFF"
-        }
-    });
-
-    map.addLayer({
-        "id": "cyclenodes-labels-high",
-        "type": "symbol",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenodes",
-        "maxzoom": 11,
-        "layout": {
-            "visibility": "none",
-            "text-field": "{rcn_ref}",
-            "text-size": 7
-        },
-        "paint": {
-            "text-color": "#2D495A",
-            "text-halo-color": "#FFFFFF",
-            "text-halo-width": 2,
-            "text-halo-blur": 0
-        }
-    });
-
-    map.addLayer({
-        "id": "cyclenodes-labels",
-        "type": "symbol",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenodes",
-        "minzoom": 11,
-        "layout": {
-            "visibility": "none",
-            "text-field": "{rcn_ref}",
-            "text-size": 13
-        },
-        "paint": {
-            "text-color": "#2D495A",
-            "text-halo-color": "#FFFFFF",
-            "text-halo-width": 2,
-            "text-halo-blur": 0
-        }
-    });
-
+    AddMapLayers();
     sidebarDisplayProfile(selectedProfile);
     if (state.location1 || state.location2) {
         showLocationsOnMap();

@@ -319,6 +319,13 @@ html, body {
     text-align: center;
 }
 
+.large-summary-icon {
+    width: 50%;
+    padding-bottom: 5%;
+    padding-top: 5%
+    
+}
+
 .route:hover path, .route:hover polyline {
     fill: white;
     stroke: white;

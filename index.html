@@ -135,35 +135,36 @@
             </div>
 
 
-            <!-- The three extra profile buttons. md-and-smaller only -->
+            <!-- The three extra profile buttons, on the bottom of small screens. md-and-smaller only -->
             <div class="md-or-smaller container-fluid nopadding mobile-buttons">
                 <div class="row pointer profile-selection-button-non-active nopadding"
                      style="width:100%;">
 
-                    <!-- Beware: class names 'network-genk-button', 'fastest-button' ... are used in the script and not in the css. Don't remove 'em-->
-                    <div class="col-4 btn-lg text-center network-genk-button"
-                         onclick="sidebarDisplayProfileHtmlId('network-genk')">
+                    <!-- Beware: class names 'profile1-button', 'fastest-button' ... are used in the script and not in the css. Don't remove 'em-->
+                    <div class="col-4 btn-lg text-center profile1-button"
+                         onclick="sidebarDisplayProfileHtmlId('profile1')">
                     <span>
-                        <img class="svg" src="./assets/img/genk-networks.svg"/>
-                    </span>
+                         <img class="svg" id="profile1-small-logo-bottom" alt="profile1-small-logo-bottom"/>
+                   </span>
                         <br>
-                        <div>Fietsnet Genk</div>
+                        <div id="profile1-button-text-bottom">profile1-button-text-bottom</div>
                     </div>
-                    <div class="col-4 btn-lg text-center network-button"
-                         onclick="sidebarDisplayProfileHtmlId('network')">
+                    
+                    <div class="col-4 btn-lg text-center profile2-button"
+                         onclick="sidebarDisplayProfileHtmlId('profile2')">
                     <span>
-                        <img class="svg" src="./assets/img/network.svg"/>
+                         <img class="svg" id="profile2-small-logo-bottom" alt="profile2-small-logo-bottom"/>
                     </span>
                         <br>
-                        <div>Knooppunten</div>
+                        <div id="profile2-button-text-bottom">profile2-button-text-bottom</div>
                     </div>
-                    <div class="col-4 btn-lg text-center fastest-button"
-                         onclick="sidebarDisplayProfileHtmlId('fastest')">
+                    <div class="col-4 btn-lg text-center profile3-button"
+                         onclick="sidebarDisplayProfileHtmlId('profile3')">
                     <span>
-                        <img class="svg" src="assets/img/fast.svg"/>
-                    </span>
+                         <img class="svg" id="profile3-small-logo-bottom" alt="profile3-small-logo-bottom"/>
+                   </span>
                         <br>
-                        <div>Snel</div>
+                        <div id="profile3-button-text-bottom">profile3-button-text-bottom</div>
                     </div>
                 </div>
             </div>
@@ -187,30 +188,34 @@
                 <div class="row profile-selection-button-non-active pointer">
 
 
-                    <!-- Beware: class names 'network-genk-button', 'fastest-button' ... are used in the script and not in the css. Don't remove 'em-->
-                    <div class="col-4 btn-lg text-center network-genk-button"
-                         onclick="sidebarDisplayProfileHtmlId('network-genk')">
+                    <!-- Beware: class names 'profile1-button', 'fastest-button' ... are used in the script and not in the css. Don't remove 'em-->
+                    <div class="col-4 btn-lg text-center profile1-button"
+                         onclick="sidebarDisplayProfileHtmlId('profile1')">
                     <span>
-                        <img class="svg" src="./assets/img/genk-networks.svg"/>
+                        <img class="svg" id="profile1-small-logo" alt="profile1-small-logo"/>
                     </span>
                         <br>
-                        <div>Fietsnet Genk</div>
+                        <div id="profile1-button-text">profile1-button-text</div>
                     </div>
-                    <div class="col-4 btn-lg text-center network-button"
-                         onclick="sidebarDisplayProfileHtmlId('network')">
+                    
+                    <div class="col-4 btn-lg text-center profile2-button"
+                         onclick="sidebarDisplayProfileHtmlId('profile2')">
                     <span>
-                     
+                        <img class="svg" id="profile2-small-logo" alt="profile2-small-logo"/>
                     </span>
                         <br>
-                        <div>Knooppunten</div>
+                        <div id="profile2-button-text">profile1-button-text</div>
                     </div>
-                    <div class="col-4 btn-lg text-center fastest-button"
-                         onclick="sidebarDisplayProfileHtmlId('fastest')">
+                    
+                    
+                    
+                    <div class="col-4 btn-lg text-center profile3-button"
+                         onclick="sidebarDisplayProfileHtmlId('profile3')">
                     <span>
-                        <img class="svg" src="assets/img/fast.svg"/>
+                        <img class="svg" id="profile3-small-logo" alt="profile3-small-logo"/>
                     </span>
                         <br>
-                        <div>Snel</div>
+                        <div id="profile3-button-text">profile1-button-text</div>
                     </div>
 
 
@@ -227,15 +232,19 @@
 
         <!-- The actual content of the panes; three very similar pieces-->
 
-        <!-- Fastest  -->
-        <div id="fastest-summary" class="profile-summary sidebar-colors height-zero">
-            <div class="profile-summary-explanation">
-                <img class="svg" src="assets/img/fast.svg"/>
-                <h5 class="sub-title">Dit is de snelste route.</h5>
-            </div>
-        </div>
 
-        <div id="fastest-instruction" class="route-instructions sidebar-colors height-zero">
+
+
+        <div id="profile1-summary" class="profile-summary sidebar-colors height-zero">
+            <div class="profile-summary-explanation">
+                <img class="svg large-summary-icon" id="profile1-icon" alt="Profile 1 icon"/>
+                <h3 class="sub-title" id="profile1-subtitle">Profile1-subtitle</h3>
+            </div>
+            <span id="profile1-summary-extra"></span>
+        </div>
+        
+        
+        <div id="profile1-instruction" class="route-instructions sidebar-colors height-zero">
             <div class="profile-explanation">
                 <div class="profile-explanation-overview">
                     <div class="instructions-resume">
@@ -248,9 +257,7 @@
                             </div>
                         </div>
                     </div>
-                    <p>
-                        Dit is de snelste route.
-                    </p>
+                    <p id="profile1-paragraph">Profile1-paragraph</p>
                 </div>
             </div>
             <div class="instructions-div">
@@ -259,17 +266,20 @@
             </div>
         </div>
 
-
-        <!-- network-genk -->
-        <div id="network-genk-summary" class="profile-summary sidebar-colors height-zero">
+       
+        
+        
+        
+        <div id="profile2-summary" class="profile-summary sidebar-colors height-zero">
             <div class="profile-summary-explanation">
-                 <div class="profile-1-icon"></div>
-               <h5 class="sub-title">Fietsnet Genk bestaat uit routes die je aangenaam en snel naar je bestemming brengen.</h5>
+                <img class="svg large-summary-icon" id="profile2-icon" alt="Profile 1 icon"/>
+                <h3 class="sub-title" id="profile2-subtitle">profile2-subtitle</h3>
             </div>
-            <span id="legend">
-                    <!-- Actual content is seeded by a little script, see bottom --></span>
+            <span id="profile2-summary-extra"></span>
         </div>
-        <div id="network-genk-instruction" class="route-instructions sidebar-colors height-zero">
+        
+        
+        <div id="profile2-instruction" class="route-instructions sidebar-colors height-zero">
             <div class="profile-explanation">
                 <div class="profile-explanation-overview">
                     <div class="instructions-resume">
@@ -282,9 +292,7 @@
                             </div>
                         </div>
                     </div>
-                    <p>
-                        Fietsnet Genk bestaat uit routes die je aangenaam en snel naar je bestemming brengen.
-                    </p>
+                    <p id="profile2-paragraph">profile2-paragraph</p>
                 </div>
             </div>
             <div class="instructions-div">
@@ -292,15 +300,20 @@
                 </div>
             </div>
         </div>
-
-        <!-- network -->
-        <div id="network-summary" class="profile-summary sidebar-colors height-zero">
+       
+       
+        
+        
+        <div id="profile3-summary" class="profile-summary sidebar-colors height-zero">
             <div class="profile-summary-explanation">
-                <img class="svg" src="assets/img/network.svg"/>
-                <h5 class="sub-title">Dit is het bekende toeristische fietsknoopuntennetwerk. Je rijdt via de genummerde knooppunten.</h5>
+                <img class="svg large-summary-icon" id="profile3-icon" alt="Profile 1 icon"/>
+                <h3 class="sub-title" id="profile3-subtitle">profile3-subtitle</h3>
             </div>
+            <span id="profile3-summary-extra"></span>
         </div>
-        <div id="network-instruction" class="route-instructions sidebar-colors height-zero">
+        
+        
+        <div id="profile3-instruction" class="route-instructions sidebar-colors height-zero">
             <div class="profile-explanation">
                 <div class="profile-explanation-overview">
                     <div class="instructions-resume">
@@ -313,9 +326,7 @@
                             </div>
                         </div>
                     </div>
-                    <p>
-                        Dit is het bekende toeristische fietsknoopuntennetwerk. Je rijdt via de genummerde knooppunten.
-                    </p>
+                    <p id="profile3-paragraph">profile3-paragraph</p>
                 </div>
             </div>
             <div class="instructions-div">
@@ -323,6 +334,10 @@
                 </div>
             </div>
         </div>
+       
+       
+       
+       
 
     </div>
 </div>
@@ -347,13 +362,18 @@
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
 
-<script src="assets/js/detectIE.js"></script>
+<script src="assets/js/browserSpecifics.js"></script>
 <script src="assets/js/Chart.bundle.2.7.2.min.js"></script>
 <script src="assets/js/bootstrap3-typeahead.min.js"></script>
+
+<script src="assets/js/state.js"></script>
 <script src="assets/js/routeplanning.js"></script>
 <script src="assets/js/strings.js"></script>
+<script src="assets/js/layercontrol.js"></script>
+<script src="assets/js/sidebar.js"></script>
+<script src="assets/js/url.js"></script>
+<script src="assets/js/markers.js"></script>
 <script src="assets/js/uihelper.js"></script>
-<script src="assets/js/exportroute.js"></script>
 
 
 <script>  
@@ -361,16 +381,20 @@
         alert("Het programma dat je gebruikt om op het internet te gaan is te oud. Gelieve een andere browser te installeren. We sturen je door...");
         window.location.replace("https://www.mozilla.org/en-US/firefox/new/");
     }
+    
+    // Mobile browsers: add app-like button
+    addToHomeScreen();
 
-    applyLanguage("nl");
-    localStorage.lang = "nl";
 
     if (window.innerWidth <= 767) {
         closeSidebar();
     } else {
         openSidebar();
     }
+    loadBrandedTexts();
     applyBrand();
+    inlineAllSvgs();
+    
 
     </script>
 
