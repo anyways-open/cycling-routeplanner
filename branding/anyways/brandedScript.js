@@ -26,7 +26,7 @@ var profileConfigs = {
         },
         routecolor: {
             backend: true,
-            color: "#FF0000"
+            color: "#d9a300"
         }
     },
     "profile2": {
@@ -62,7 +62,7 @@ var profileConfigs = {
         },
         routecolor: {
             backend: false,
-            color: "#0000FF"
+            color: "#d9a300"
         }
     },
     "profile3": {
@@ -83,7 +83,7 @@ var profileConfigs = {
         },
         routecolor: {
             backend: false,
-            color: "#00FF00"
+            color: "#d9a300"
         }
     }
 };
