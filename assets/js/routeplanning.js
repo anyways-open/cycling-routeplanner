@@ -484,6 +484,7 @@ map.on('click', function (e) {
         }
         showLocationsOnMap();
     }
+    showOrHideClearButtons();
 });
 // Whenever we move around, update this in the URL
 map.on('dragend', updateUrlParams);
@@ -555,21 +556,6 @@ function initInputGeocoders() {
     });
 }
 
-/**
- * Convert a location to an adress.
- * @param location LatLng of the location to be converted.
- * @param callback Function to be called when conversion is complete
- */
-function reverseGeocode(location, callback) {
-    var lng = location[0];
-    var lat = location[1];
-    //$.getJSON(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=0`, function (data) {
-    $.getJSON(urls.reverseGeocoder.format(lng, lat), function (data) {
-        callback(data.features[0].text + " (" + data.features[0].place_name + ")");
-        //fromFieldInputDetected(document.getElementById("fromInput"));
-        //toFieldInputDetected(document.getElementById("toInput"));
-    });
-}
 
 /**
  * Use the current user location as a startpoint.

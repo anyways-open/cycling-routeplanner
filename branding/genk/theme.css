@@ -53,3 +53,9 @@
     color: #ffffff;
 }
 
+.location-input-group {
+    padding-left: 0;
+    padding-right: 5px;
+    border-bottom: 2px solid #2D4959 !important;
+}
+

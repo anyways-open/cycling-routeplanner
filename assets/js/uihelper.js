@@ -84,6 +84,7 @@ function inlineAllSvgs(){
         var imgID = $img.attr('id');
         var imgClass = $img.attr('class');
         var imgURL = $img.attr('src');
+        var imgOnClick = $img.attr('onclick');
 
         jQuery.get(imgURL, function (data) {
             // Get the SVG tag, ignore the rest
@@ -96,6 +97,11 @@ function inlineAllSvgs(){
             // Add replaced image's classes to the new SVG
             if (typeof imgClass !== 'undefined') {
                 $svg = $svg.attr('class', imgClass + ' replaced-svg');
+            }
+            
+            // Add replaced image's actions to the new svg
+            if (typeof imgOnClick !== 'undefined') {
+                $svg = $svg.attr('onclick', imgOnClick);
             }
 
             // Remove any invalid XML tags as per http://validator.w3.org

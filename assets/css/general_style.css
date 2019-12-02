@@ -43,12 +43,6 @@ html, body {
     background-image: url(icons/arrow-right-thin.svg);
 }
 
-.location-input-group {
-    padding-left: 0;
-    padding-right: 5px;
-    border-bottom: 2px solid #FFFFFF !important;
-}
-
 #top-overlay-input {
     margin-bottom: 1vh;
 }
@@ -517,12 +511,6 @@ input[type="text"], textarea {
     position: relative;
 }
 
-/* style icon */
-.currentLocation img, #clearInputFieldToButton {
-    position: absolute;
-    padding: 10px;
-    width: 2.8rem;
-}
 
 /* align icon */
 .left-addon img {
