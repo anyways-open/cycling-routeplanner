@@ -22,16 +22,14 @@
 
 
 .profile-selection-button-non-active {
-    background: #cc9000;
-    color: white;
+    background: #f1f4f8;
+    color: black;
 }
 
 .profile-selection-button-active {
-    background: #ffc000;
-    color: white;
+    background: #ffffff;
+    color: black;
 }
-
-
 
 
 /* Button icons: make them white or contrasting with the background colour */
@@ -54,7 +52,6 @@
 }
 
 
-
 .sidebar-colors {
    background-color: #ffc000;
    color: white;
@@ -70,12 +67,15 @@
     border-bottom: 2px solid #cc9000 !important; /*THe line under the input fields*/
 }
 
+.svg {
+    fill: rgba(255,192,0,.1);
+}
 
 /*The small 'A' or 'B' in the circle in the from/to fields */
 .location-circle-container {
     position: relative;
     text-align: center;
-    color: #cc9000;
+    color: #ffc000;
     padding-top: 7px;
 }
 
