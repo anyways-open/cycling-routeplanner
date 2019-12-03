@@ -89,6 +89,9 @@ var profileConfigs = {
     }
 };
 
+// TODO: also set custom start location.
+//8.64&lat=50.813588&lng=4.868640
+
 
 
 
