@@ -1,9 +1,9 @@
 
 var profileConfigs = {
     "profile1": {
-        backendName: "bicycle.commute",
-        frontendName: "Pendelen",
-        frontendSubtitle: "Een profiel gemaakt voor de dagelijkse pendelaar",
+        backendName: "bicycle2.balanced",
+        frontendName: "Gebalanceerd",
+        frontendSubtitle: "Een gebalanceerd profiel",
         frontendExplanation: "Een profiel gemaakt voor de dagelijkse pendelaar, die de voorkeur geeft aan veilige, verharde wegen",
         frontendLogo: "./branding/anyways/bird.svg",
         
@@ -30,10 +30,10 @@ var profileConfigs = {
         }
     },
     "profile2": {
-        backendName:  "bicycle.networks",
+        backendName:  "bicycle2.comfort_safety",
         frontendName: "Knooppunten",
-        frontendSubtitle: "Volgt het recreatieve knooppuntennetwerk",
-        frontendExplanation: "Een profiel gemaakt voor zondagse recreant, langs de mooie knooppuntennetwerken",
+        frontendSubtitle: "Een veilige, comfortabele route",
+        frontendExplanation: "Een profiel gemaakt om veilige, comfortabele routes te verkiezen. Ideaal om naar school te gaan",
         frontendLogo: "./assets/img/network.svg",
         
         layers: {
@@ -66,7 +66,7 @@ var profileConfigs = {
         }
     },
     "profile3": {
-        backendName: "bicycle.shortest",
+        backendName: "bicycle2.shortest",
         frontendName: "Kortst",
         frontendSubtitle: "De korste route waar gefietst kan worden",
         frontendExplanation: "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
@@ -92,4 +92,9 @@ var profileConfigs = {
 
 
 function applyBrand(){
+    
+    console.log("WARNING: monkey patching the endpoint to use staging")
+    production_urls.route = "https://staging.anyways.eu/routing-api"
+    
+    
 }
