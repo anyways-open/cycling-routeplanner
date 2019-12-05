@@ -1,7 +1,7 @@
 
 var profileConfigs = {
     "profile1": {
-        backendName: "bicycle2.comfort_safety_speed",
+        backendName: "bicycle.comfort_safety_speed",
         frontendName: "Gebalanceerd",
         frontendSubtitle: "Een gebalanceerd profiel",
         frontendExplanation: "Een profiel gemaakt voor de dagelijkse pendelaar, die de voorkeur geeft aan veilige, comfortabele wegen zonder veel tijd in te boeten",
@@ -31,7 +31,7 @@ var profileConfigs = {
         }
     },
     "profile2": {
-        backendName:  "bicycle2.comfort_safety",
+        backendName:  "bicycle.comfort_safety",
         frontendName: "Veilig",
         frontendSubtitle: "Een veilige, comfortabele route",
         frontendExplanation: "Een profiel gemaakt om veilige, comfortabele routes te verkiezen. Ideaal om naar school te gaan",
@@ -67,7 +67,7 @@ var profileConfigs = {
         }
     },
     "profile3": {
-        backendName: "bicycle2.shortest",
+        backendName: "bicycle.shortest",
         frontendName: "Kortst",
         frontendSubtitle: "De korste route waar gefietst kan worden",
         frontendExplanation: "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
