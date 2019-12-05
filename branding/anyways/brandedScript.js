@@ -16,6 +16,7 @@ var profileConfigs = {
                     "line-opacity": 0.3
                 }
             },
+            "cyclenetworks": false,
             "cyclenetwork-tiles": false,
             "cyclenetwork-tiles-high": false,
             "cyclenodes-circles": false,
@@ -25,7 +26,7 @@ var profileConfigs = {
             "cyclenodes-labels-high": false
         },
         routecolor: {
-            backend: true,
+            backend: false,
             color: "#d9a300"
         }
     },
@@ -87,6 +88,9 @@ var profileConfigs = {
         }
     }
 };
+
+// TODO: also set custom start location.
+//8.64&lat=50.813588&lng=4.868640
 
 
 
