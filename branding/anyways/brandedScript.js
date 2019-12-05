@@ -32,7 +32,7 @@ var profileConfigs = {
     },
     "profile2": {
         backendName:  "bicycle2.comfort_safety",
-        frontendName: "Knooppunten",
+        frontendName: "Veilig",
         frontendSubtitle: "Een veilige, comfortabele route",
         frontendExplanation: "Een profiel gemaakt om veilige, comfortabele routes te verkiezen. Ideaal om naar school te gaan",
         frontendLogo: "./assets/img/network.svg",
