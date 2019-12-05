@@ -1,10 +1,10 @@
 
 var profileConfigs = {
     "profile1": {
-        backendName: "bicycle2.balanced",
+        backendName: "bicycle2.comfort_safety_speed",
         frontendName: "Gebalanceerd",
         frontendSubtitle: "Een gebalanceerd profiel",
-        frontendExplanation: "Een profiel gemaakt voor de dagelijkse pendelaar, die de voorkeur geeft aan veilige, verharde wegen",
+        frontendExplanation: "Een profiel gemaakt voor de dagelijkse pendelaar, die de voorkeur geeft aan veilige, comfortabele wegen zonder veel tijd in te boeten",
         frontendLogo: "./branding/anyways/bird.svg",
         
         layers: {
