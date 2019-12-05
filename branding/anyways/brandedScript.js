@@ -97,8 +97,4 @@ var profileConfigs = {
 
 function applyBrand(){
     
-    console.log("WARNING: monkey patching the endpoint to use staging")
-    production_urls.route = "https://staging.anyways.eu/routing-api"
-    
-    
 }
