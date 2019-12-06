@@ -1,0 +1,137 @@
+/** ANYWAYS BRANDING STYLE **/
+
+@font-face {
+    font-family:HKGroteskPro;
+    font-weight:400;
+    src:url(./fonts/HK%20Grotesk%20Pro/HKGroteskPro-Regular.woff2) format("woff2"),
+    url(./fonts/HK%20Grotesk%20Pro/HKGroteskPro-Regular.woff) format("woff")
+   }
+   @font-face {
+    font-family:HKGroteskPro;
+    font-weight:600;
+    src:url(./fonts/HK%20Grotesk%20Pro/HKGroteskPro-Medium.woff2) format("woff2"),
+    url(./fonts/HK%20Grotesk%20Pro/HKGroteskPro-Medium.woff) format("woff")
+   }
+
+body {
+    margin:0;
+    font-family:HKGroteskPro,serif;
+    font-size:1.0625rem;
+    font-weight:400;
+    line-height:1.6;
+    color:#161c2d;
+    text-align:left;
+    background-color:#fff
+}
+
+.logo-image {
+    background:url("./logo.svg");
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-position: center top    
+}
+
+.profile-1-icon{
+    background:url("./logo.svg");
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-position: center top;
+}
+
+.close-button-small-screen {
+    background: rgb(241, 244, 248);
+    color: rgb(134, 154, 184);
+}
+
+.profile-selection-button-non-active {
+    background: white;
+    color: rgb(134, 154, 184);
+}
+
+.profile-selection-button-active {
+    background: #ecb900;
+    color: white;
+}
+
+.profile-explanation {    
+    font-family:HKGroteskPro,serif;
+}
+
+/* Button icons: make them white or contrasting with the background colour */
+
+/* Button icons (non-active): make them white or contrasting with the background colour */
+.profile-selection-button-non-active svg path,
+.profile-selection-button-non-active svg circle {
+    fill: rgb(134, 154, 184);
+    stroke: rgb(134, 154, 184);
+}
+
+.profile-selection-button-active svg path,
+.profile-selection-button-active svg circle {
+    fill: white;
+    stroke: white;
+}
+
+.electric-bike-speedup svg path,
+.electric-bike-speedup svg circle {
+    fill: white;
+    stroke: white;
+}
+
+.profile-summary svg path,
+.profile-summary svg circle {
+    fill: rgb(134, 154, 184);
+    stroke: rgb(134, 154, 184);
+}
+
+.electric-bike-speedup {
+    background-color: #ecb900;
+    color: white;
+}
+
+.sidebar-colors {
+   background-color: #ecb900;
+   color: white;
+}
+
+.form-control,
+.form-control::placeholder {
+    color: rgb(134, 154, 184);
+}
+
+.btn:hover {
+    background-color: rgb(134, 154, 184);
+}
+
+.location-input-group {
+    padding-left: 0;
+    padding-right: 5px;
+    border-bottom: 1px solid #d9e2ef !important; /*THe line under the input fields*/
+}
+
+.svg {
+    fill: rgba(255,192,0,.1);
+}
+
+.marker {
+    color: rgb(134, 154, 184);
+}
+
+.marker svg path,
+.marker svg circle {
+    fill: rgb(134, 154, 184);
+    stroke: rgb(134, 154, 184);
+}
+
+/*The small 'A' or 'B' in the circle in the from/to fields */
+.location-circle-container {
+    position: relative;
+    text-align: center;
+    color: #ffc000;
+    padding-top: 7px;
+}
+
+/* Cross in input field*/
+.location-input-group svg path {
+    stroke: #4e3908;
+}
