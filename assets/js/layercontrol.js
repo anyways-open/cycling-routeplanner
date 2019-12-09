@@ -20,7 +20,7 @@ function AddMapLayers(){
             "line-cap": "round"
           },
           "paint": {
-            "line-color": ['get', 'cyclecolour'],
+            "line-color": ['get', 'cycle_network_colour'],
             "line-width": 4
           }
     }, labelLayer);

@@ -152,19 +152,19 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
         var popularColors = {};
         for (let i in route) {
             if (route[i].properties === undefined ||
-                route[i].properties.cyclecolour === undefined) {
+                route[i].properties.cycle_network_colour === undefined) {
                 // nothing to see here.
-            } else if (route[i].properties.cyclecolour.length === 7) {
+            } else if (route[i].properties.cycle_network_colour.length === 7) {
                 // exactly one color.
-                var c = popularColors[route[i].properties.cyclecolour];
+                var c = popularColors[route[i].properties.cycle_network_colour];
                 if (c !== undefined) {
                     c++;
                 } else {
                     c = 0;
                 }
-                popularColors[route[i].properties.cyclecolour] = c;
+                popularColors[route[i].properties.cycle_network_colour] = c;
             } else {
-                var colors = route[i].properties.cyclecolour.split(',');
+                var colors = route[i].properties.cycle_network_colour.split(',');
                 colors.forEach(function(color) {
                     var c = popularColors[color];
                     if (c !== undefined) {
@@ -181,11 +181,11 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
             if (route[i].name === "Stop") {
                 routeStops.push(route[i]);
             }
-            if (route[i].properties.cyclecolour === undefined) {
-                route[i].properties.cyclecolour = routeColor;
-            } else if (route[i].properties.cyclecolour.length !== 7) {
-                if (route[i].properties.cyclecolour.length > 7) {
-                    var colors = route[i].properties.cyclecolour.split(',');
+            if (route[i].properties.cycle_network_colour === undefined) {
+                route[i].properties.cycle_network_colour = routeColor;
+            } else if (route[i].properties.cycle_network_colour.length !== 7) {
+                if (route[i].properties.cycle_network_colour.length > 7) {
+                    var colors = route[i].properties.cycle_network_colour.split(',');
                     // choose most popular color.
                     var popularity = 0;
                     var chosen = colors[0];
@@ -196,9 +196,9 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
                             popularity = c;
                         }
                     });
-                    route[i].properties.cyclecolour = chosen;
+                    route[i].properties.cycle_network_colour = chosen;
                 } else {
-                    route[i].properties.cyclecolour = routeColor;
+                    route[i].properties.cycle_network_colour = routeColor;
                 }
             }
             try {
@@ -267,7 +267,7 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
                             'line-color':
                                 {   // always use the colors of the cycling network
                                     type: 'identity',
-                                    property: 'cyclecolour'
+                                    property: 'cycle_network_colour'
                                 }
                             ,
                             'line-width': width,
