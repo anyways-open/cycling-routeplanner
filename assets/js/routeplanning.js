@@ -89,13 +89,13 @@ function roundToThree(num) {
  * @param {[String]} profiles - for every profile, a route will be requested
  * @param {String} lang - en/nl/fr select the language for the instructions
  */
-function calculateAllRoutes(origin, destination, profiles = availableProfiles, lang = language) {
+function calculateAllRoutes(origin, destination, profiles = availableProfiles) {
     $(".route-instructions ul").html("");
     $(`.route-instructions .elevation-info`).html("<img src='./img/Loading.gif' style='width: 100%;'  alt=\"Loading...\" />");
     routes = {};
     removeAllRoutesFromMap();
     profiles.forEach(function (profile) {
-        calculateRoute(origin, destination, profile, lang);
+        calculateRoute(origin, destination, profile);
     });
     //fitToBounds(origin, destination);
 }
@@ -107,17 +107,16 @@ function calculateAllRoutes(origin, destination, profiles = availableProfiles, l
  * @param {String} profile - The routing profile
  * @param {String} lang - en/nl/fr select the language for the instructions
  */
-function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
+function calculateRoute(origin, destination, profile = "genk") {
     // Swap around values for the API
     const originS = origin; // swapArrayValues(origin);
     const destinationS = destination; //swapArrayValues(destination);
 
     // get the routing profile.
     var profileConfig = profileConfigs[profile];
-    var instructions = profileConfig.instructions;
     let profile_url =profileConfig.backendName;
     const prof = (profile_url === "" ? "" : `&profile=${profile_url}`);
-    const url = `${urls.route}/route?turn_by_turn=${instructions}&lang=${lang}${prof}&loc=${originS}&loc=${destinationS}`;
+    const url = `${urls.route}/route?${prof}&loc=${originS}&loc=${destinationS}`;
     routes[profile] = [];
 
     if (state.routeRequests[profile]) {
