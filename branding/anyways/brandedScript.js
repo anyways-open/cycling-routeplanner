@@ -67,9 +67,9 @@ var profileConfigs = {
         }
     },
     "profile3": {
-        backendName: "bicycle.shortest",
-        frontendName: "Kortst",
-        frontendSubtitle: "De korste route waar gefietst kan worden",
+        backendName: "bicycle.fastest",
+        frontendName: "Snelst",
+        frontendSubtitle: "De snelste route naar je bestemming",
         frontendExplanation: "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
         frontendLogo: "./assets/img/fast.svg",
         layers: {
