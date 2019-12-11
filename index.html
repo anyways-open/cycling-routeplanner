@@ -358,6 +358,23 @@
     </div>
 </div>
 
+<!-- The language selection buttons - hidden by default -->
+<div class="bottom-left-floating-buttons">
+    <div class="btn-group btn-group-toggle hidden" data-toggle="buttons" id="language-buttons">
+
+        <label class="btn btn-warning lang_label" id="label-option-EN" onclick="switchLanguage(this);">
+            <input type="radio" name="options" id="option-EN" autocomplete="off" checked> EN
+        </label>
+        <label class="btn btn-warning lang_label" id="label-option-FR" onclick="switchLanguage(this);">
+            <input type="radio" name="options" id="option-FR" autocomplete="off"> FR
+        </label>
+        <label class="btn btn-warning lang_label" id="label-option-NL" onclick="switchLanguage(this);">
+            <input type="radio" name="options" id="option-NL" autocomplete="off"> NL
+        </label>
+    </div>
+</div>
+
+
 <!-- All javascripts! -->
 
 <script src="assets/js/popper.1.14.3.min.js"
@@ -374,13 +391,12 @@
 
 <script src="assets/js/state.js"></script>
 <script src="assets/js/routeplanning.js"></script>
-<script src="assets/js/strings.js"></script>
 <script src="assets/js/layercontrol.js"></script>
 <script src="assets/js/sidebar.js"></script>
 <script src="assets/js/url.js"></script>
 <script src="assets/js/markers.js"></script>
 <script src="assets/js/uihelper.js"></script>
-
+<script src="assets/js/language.js"></script>
 
 <script>  
     if (detectIE()) {
@@ -401,7 +417,8 @@
     applyBrand();
     inlineAllSvgs();
     showOrHideClearButtons();
-
+    initLanguageControls();
+    applyNavigatorLanguage();
     </script>
 
 

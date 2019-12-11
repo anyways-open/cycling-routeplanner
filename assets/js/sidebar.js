@@ -135,14 +135,14 @@ function sidebarDisplayProfile(profile) {
 function loadBrandedTexts(){
     
     for(profile of availableProfiles){
-        document.getElementById(profile+"-small-logo").src = profileConfigs[profile].frontendLogo;
-        document.getElementById(profile+"-small-logo-bottom").src = profileConfigs[profile].frontendLogo;
+        document.getElementById(profile+"-small-logo").src = getTerm(profileConfigs[profile].frontendLogo);
+        document.getElementById(profile+"-small-logo-bottom").src = getTerm(profileConfigs[profile].frontendLogo);
         
-        document.getElementById(profile+"-icon").src = profileConfigs[profile].frontendLogo;
+        document.getElementById(profile+"-icon").src = getTerm(profileConfigs[profile].frontendLogo);
         
-        document.getElementById(profile+"-button-text").innerHTML = profileConfigs[profile].frontendName;
-        document.getElementById(profile+"-button-text-bottom").innerHTML = profileConfigs[profile].frontendName;
-        document.getElementById(profile+"-subtitle").innerHTML = profileConfigs[profile].frontendSubtitle;
-        document.getElementById(profile+"-paragraph").innerHTML = profileConfigs[profile].frontendExplanation;
+        document.getElementById(profile+"-button-text").innerHTML = getTerm(profileConfigs[profile].frontendName);
+        document.getElementById(profile+"-button-text-bottom").innerHTML = getTerm(profileConfigs[profile].frontendName);
+        document.getElementById(profile+"-subtitle").innerHTML = getTerm(profileConfigs[profile].frontendSubtitle);
+        document.getElementById(profile+"-paragraph").innerHTML = getTerm(profileConfigs[profile].frontendExplanation);
     }
 }
