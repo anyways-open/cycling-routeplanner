@@ -17,20 +17,11 @@ html, body {
     font-size: .95rem;
 }
 
-/** GENK COLOR STYLES **/
-
 
 /***** Specific elements - often used only once ****/
 
-#sidebarClose:before {
-    background-image: url(icons/close.svg);
-    border-top-width: 0px;
-    border-bottom-width: 0px;
-    border-top-width: 0px;
-    border-top-width: 0px;
-}
 
-/* CLosed by default: should point left */
+/* Closed by default: should point left */
 .sidebar-toggle-button {
     background-repeat: no-repeat;
     background-position: center center;
@@ -261,14 +252,6 @@ html, body {
     background-image: url(icons/baseline-swap_vert-24px.svg);
 }
 
-.btn {
-    background-color: #FFFFFF;
-    border: none;
-}
-
-.btn:hover {
-    background-color: #2D4959;
-}
 
 .form-control {
     border: none;
@@ -352,10 +335,6 @@ html, body {
     stroke: white;
 }
 
-.active {
-    color: white;
-    background-color: #00808B;
-}
 
 .active svg path {
     fill: #ffffff;
@@ -439,36 +418,6 @@ input[type="text"], textarea {
     font-size: .85em;
 }
 
-
-.type-stop {
-    border-bottom: none;
-}
-
-#chart-fast {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.angle-Right {
-    background: url("./icons/ic_turnRight_white.svg") no-repeat left 9px;
-}
-
-.angle-Left {
-    background: url("./icons/ic_turnLeft_white.svg") no-repeat left 9px;
-}
-
-.angle-StraightOn {
-    background: url("./icons/ic_straightOn_white.svg") no-repeat left 9px;
-}
-
-.angle-SlightlyRight {
-    background: url("./icons/ic_slight_turnRight_white.svg") no-repeat left 9px;
-}
-
-.angle-SlightlyLeft {
-    background: url("./icons/ic_slight_turnLeft_white.svg") no-repeat left 9px;
-}
-
 .startpoint-li {
     background: url("./icons/currentLocation_white.svg") no-repeat left 9px;
 }
@@ -508,6 +457,13 @@ input[type="text"], textarea {
     stroke: white;
 }
 
+.profile-summary h5 {
+    margin: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
 .electricity path {
     fill: white;
     stroke: white;
@@ -523,11 +479,6 @@ input[type="text"], textarea {
     font-size: 0.6em;
 }
 
-.profile-summary h5 {
-    margin: 20px;
-    font-size: 1rem;
-    font-weight: 400;
-}
 
 .location-circle {
     height: 30px;
@@ -544,10 +495,7 @@ input[type="text"], textarea {
     font-weight: 700;
 }
 
-.table-instruction-image {
-    text-align: center;
 
-}
 
 table tr td {
     vertical-align: middle !important;
@@ -559,7 +507,6 @@ table tr td {
     font-weight: bold;
     color: white;
     text-align: center;
-    /* background colour is done by a script */
 }
 
 .legend-text {
@@ -572,20 +519,7 @@ table tr td {
     display: none;
 }
 
-.marker {
-    background-image: url('../img/marker.svg');
-    background-size: cover;
-    width: 31px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 0.8rem;
-    font-weight: 700;
-    line-height: 1.5;
-    text-align: center;
-    color: #00808B;
-}
+
 
 .marker-text {
     display: flex;

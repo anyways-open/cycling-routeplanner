@@ -27,23 +27,35 @@ body {
     background-color: #fff
 }
 
-
+.btn {
+    background-color: #FFFFFF;
+    border: none;
+}
 
 .btn:hover {
     background-color: rgb(134, 154, 184);
 }
 
-
-
 .svg {
     fill: rgba(255, 192, 0, .1);
 }
 
+
+/* The marker on the map */
 .marker {
+    background-image: url('/assets/img/marker.svg');
+    background-size: cover;
+    width: 31px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
     color: rgb(134, 154, 184); /* Colour of the 'A' and 'B' on a marker in the map*/
 }
-
-
 
 
 /*********************** TOP BAR ********************/
@@ -57,7 +69,7 @@ body {
 }
 
 .location-input-group svg path {
-/* Cross in input field*/
+    /* Cross in input field*/
     stroke: #4e3908;
 }
 
@@ -91,8 +103,26 @@ body {
 
 .close-button-small-screen {
     background: rgb(241, 244, 248);
-    color: rgb(0, 0, 0);
+    margin: 0; 
+    padding: 0;
 }
+
+.close-button-small-screen svg {
+    float: bottom;
+    display:block;
+    width: 100%;
+}
+
+.close-button-small-screen svg path {
+    stroke: red;
+    fill: red;
+}
+
+.close-button-small-screen svg path {
+    stroke: red;
+    fill: red;
+}
+
 
 .profile-selection-button-non-active {
     background: white;
@@ -151,7 +181,7 @@ body {
     background-color: white;
 }
 
-.language-button.active{
+.language-button.active {
     background-color: rgb(134, 154, 184);
     box-shadow: none !important;
 }
