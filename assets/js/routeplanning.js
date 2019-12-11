@@ -89,13 +89,13 @@ function roundToThree(num) {
  * @param {[String]} profiles - for every profile, a route will be requested
  * @param {String} lang - en/nl/fr select the language for the instructions
  */
-function calculateAllRoutes(origin, destination, profiles = availableProfiles, lang = language) {
+function calculateAllRoutes(origin, destination, profiles = availableProfiles) {
     $(".route-instructions ul").html("");
     $(`.route-instructions .elevation-info`).html("<img src='./img/Loading.gif' style='width: 100%;'  alt=\"Loading...\" />");
     routes = {};
     removeAllRoutesFromMap();
     profiles.forEach(function (profile) {
-        calculateRoute(origin, destination, profile, lang);
+        calculateRoute(origin, destination, profile);
     });
     //fitToBounds(origin, destination);
 }
@@ -107,17 +107,16 @@ function calculateAllRoutes(origin, destination, profiles = availableProfiles, l
  * @param {String} profile - The routing profile
  * @param {String} lang - en/nl/fr select the language for the instructions
  */
-function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
+function calculateRoute(origin, destination, profile = "genk") {
     // Swap around values for the API
     const originS = origin; // swapArrayValues(origin);
     const destinationS = destination; //swapArrayValues(destination);
 
     // get the routing profile.
     var profileConfig = profileConfigs[profile];
-    var instructions = profileConfig.instructions;
     let profile_url =profileConfig.backendName;
     const prof = (profile_url === "" ? "" : `&profile=${profile_url}`);
-    const url = `${urls.route}/route?turn_by_turn=${instructions}&lang=${lang}${prof}&loc=${originS}&loc=${destinationS}`;
+    const url = `${urls.route}/route?${prof}&loc=${originS}&loc=${destinationS}`;
     routes[profile] = [];
 
     if (state.routeRequests[profile]) {
@@ -152,19 +151,19 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
         var popularColors = {};
         for (let i in route) {
             if (route[i].properties === undefined ||
-                route[i].properties.cyclecolour === undefined) {
+                route[i].properties.cycle_network_colour === undefined) {
                 // nothing to see here.
-            } else if (route[i].properties.cyclecolour.length === 7) {
+            } else if (route[i].properties.cycle_network_colour.length === 7) {
                 // exactly one color.
-                var c = popularColors[route[i].properties.cyclecolour];
+                var c = popularColors[route[i].properties.cycle_network_colour];
                 if (c !== undefined) {
                     c++;
                 } else {
                     c = 0;
                 }
-                popularColors[route[i].properties.cyclecolour] = c;
+                popularColors[route[i].properties.cycle_network_colour] = c;
             } else {
-                var colors = route[i].properties.cyclecolour.split(',');
+                var colors = route[i].properties.cycle_network_colour.split(',');
                 colors.forEach(function(color) {
                     var c = popularColors[color];
                     if (c !== undefined) {
@@ -181,11 +180,11 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
             if (route[i].name === "Stop") {
                 routeStops.push(route[i]);
             }
-            if (route[i].properties.cyclecolour === undefined) {
-                route[i].properties.cyclecolour = routeColor;
-            } else if (route[i].properties.cyclecolour.length !== 7) {
-                if (route[i].properties.cyclecolour.length > 7) {
-                    var colors = route[i].properties.cyclecolour.split(',');
+            if (route[i].properties.cycle_network_colour === undefined) {
+                route[i].properties.cycle_network_colour = routeColor;
+            } else if (route[i].properties.cycle_network_colour.length !== 7) {
+                if (route[i].properties.cycle_network_colour.length > 7) {
+                    var colors = route[i].properties.cycle_network_colour.split(',');
                     // choose most popular color.
                     var popularity = 0;
                     var chosen = colors[0];
@@ -196,9 +195,9 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
                             popularity = c;
                         }
                     });
-                    route[i].properties.cyclecolour = chosen;
+                    route[i].properties.cycle_network_colour = chosen;
                 } else {
-                    route[i].properties.cyclecolour = routeColor;
+                    route[i].properties.cycle_network_colour = routeColor;
                 }
             }
             try {
@@ -267,7 +266,7 @@ function calculateRoute(origin, destination, profile = "genk", lang = 'en') {
                             'line-color':
                                 {   // always use the colors of the cycling network
                                     type: 'identity',
-                                    property: 'cyclecolour'
+                                    property: 'cycle_network_colour'
                                 }
                             ,
                             'line-width': width,
