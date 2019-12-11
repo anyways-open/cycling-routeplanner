@@ -73,7 +73,7 @@ var profileConfigs = {
             "cyclenodes-labels-high": true
         },
         routecolor: {
-            backend: false,
+            backend: true,
             color: "#d9a300"
         }
     },

@@ -29,8 +29,8 @@ const profileConfigs = {
             "cyclenodes-labels-high": false
         },
         routecolor: {
-            backend: false,
-            color: "#d9a300"
+            backend: false, // set to true if 'cycle_network_colour'-attribute should be used (thus if cycle networks should be rendered)
+            color: "#d9a300" // default colour
         }
     },
     "profile2": {
