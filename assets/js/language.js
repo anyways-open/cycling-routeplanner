@@ -24,7 +24,7 @@ function initLanguageControls() {
     for (var i in supportedLanguages) {
         let lng = supportedLanguages[i];
         let Lng = lng.toUpperCase();
-        let el = "<label class='btn btn-warning lang_label' onclick='applyLanguage(\"" + lng + "\");'> <input type='radio' name='options' autocomplete='off' checked> " + Lng + " </label>";
+            let el = "<label class='btn language-button' onclick='applyLanguage(\"" + lng + "\");'> <input type='radio' name='options' autocomplete='off' checked> " + Lng + " </label>";
         elements += el;
     }
     container.innerHTML = elements;
