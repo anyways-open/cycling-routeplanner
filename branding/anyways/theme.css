@@ -107,11 +107,6 @@ body {
     padding: 0;
 }
 
-.close-button-small-screen svg {
-    float: bottom;
-    display:block;
-    width: 100%;
-}
 
 .close-button-small-screen svg path {
     stroke: red;

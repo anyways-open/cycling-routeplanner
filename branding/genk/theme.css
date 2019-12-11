@@ -1,5 +1,21 @@
 /** GENK BRANDING STYLE **/
 
+/***********************General stuff ********************/
+
+
+.btn {
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.btn:hover {
+    background-color: rgb(134, 154, 184);
+}
+
+
+
+/*********************** TOP BAR ********************/
+
 .logo-image {
     background: url("./logo.svg");
     background-repeat: no-repeat;
@@ -7,11 +23,55 @@
     background-position: center top
 }
 
+.location-input-group {
+    padding-left: 0;
+    padding-right: 5px;
+    border-bottom: 2px solid #2D4959 !important;
+}
+
+.location-circle-container {
+    /*The small 'A' or 'B' in the circle in the from/to fields */
+    position: relative;
+    text-align: center;
+    color: #00808B;
+    padding-top: 7px;
+}
+
+
+.form-control,
+.form-control::placeholder {
+    color: #00808B;
+}
+
+
+/*********************** Profile selection/sidebar styling ********************/
+
+
+.sidebar-colors {
+    background: #00808B;
+    color: #ffffff;
+}
+
+
 
 .close-button-small-screen {
     background: #00808B;
     color: #FFFFFF;
 }
+
+.close-button-small-screen {
+    background: #2D4959;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.close-button-small-screen svg path {
+    stroke: red;
+    fill: red;
+}
+
 
 
 .profile-selection-button-non-active {
@@ -48,14 +108,23 @@
     padding-top: 7px;
 }
 
-.sidebar-colors {
-    background: #00808B;
+.location-circle-container svg circle {
+    fill: lightgrey;
+}
+
+
+/*********************** Translation buttons ********************/
+
+.translation-buttons {
+   
+}
+
+.language-button {
+    background-color: #00808B;
     color: #ffffff;
 }
 
-.location-input-group {
-    padding-left: 0;
-    padding-right: 5px;
-    border-bottom: 2px solid #2D4959 !important;
+.language-button.active {
+    background-color: #2D4959;
+    box-shadow: none !important;
 }
-
