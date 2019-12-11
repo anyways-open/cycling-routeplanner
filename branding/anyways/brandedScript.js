@@ -105,7 +105,7 @@ const profileConfigs = {
 
 // What languages should the interface be shown in?
 // If only one: language button will dissappear
-const supportedLanguages = ["nl", "en", "fr"];
+const supportedLanguages = ["nl", "fr", "en"];
 
 // Leftover strings. The format is {'elementId' --> {'language' --> text to show}}
 const translatedStrings = {
