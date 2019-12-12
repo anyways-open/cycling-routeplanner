@@ -146,8 +146,8 @@ function AddMapLayers(){
             "text-halo-blur": 0
         }
     });
-
-    if (brand) {
+    
+    if (typeof(brand) !== 'undefined') {
         brand.addLayers(map);
     }
 }
