@@ -1,5 +1,11 @@
 document.title = "Bike for Brussels | Routeplanner";
 
+var initialMap = {
+    center: [4.426690, 50.842000],
+    zoom: 11.03,
+    style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
+};
+
 var profileConfigs = {
     "profile1": {
         backendName: "bicycle.comfort_safety_speed",
