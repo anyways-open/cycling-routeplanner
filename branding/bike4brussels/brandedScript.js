@@ -187,7 +187,7 @@ branding.prototype.addLayers = function(map) {
         "minzoom": 10,
         "maxzoom": 24,
         "layout": {
-          "icon-image": "road_2",
+          "icon-image": "us-state_2",
           "icon-rotation-alignment": "viewport",
           "icon-size": 1,
           "symbol-placement": {
