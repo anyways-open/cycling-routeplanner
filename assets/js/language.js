@@ -54,16 +54,19 @@ function applyLanguage(newLanguage) {
 
         let text = translatedStrings[key][currentLanguage];
 
-        let splt = key.split('.');
-        let elementId = splt[0];
-        let elementAttribute = "innerHTML";
-        if (splt.length === 2) {
-            elementAttribute = splt[1];
+        if (key === 'document.title') {
+            document.tile = text;
+        } else {
+            let splt = key.split('.');
+            let elementId = splt[0];
+            let elementAttribute = "innerHTML";
+            if (splt.length === 2) {
+                elementAttribute = splt[1];
+            }
+            let element = document.getElementById(elementId);
+            element[elementAttribute] = text;
         }
-        let element = document.getElementById(elementId);
-        element[elementAttribute] = text;
     }
-
 }
 
 

@@ -1,3 +1,5 @@
+document.title = "Bike for Brussels | Routeplanner";
+
 var profileConfigs = {
     "profile1": {
         backendName: "bicycle.comfort_safety_speed",
@@ -118,6 +120,11 @@ const supportedLanguages = ["nl", "fr", "en"];
 
 // Leftover strings. The format is {'elementId' --> {'language' --> text to show}}
 const translatedStrings = {
+    "document.title": { 
+        nl: "Bike for Brussels | Routeplanner",
+        fr: "Bike for Brussels | Planificateur d'itinéraire",
+        en: "Bike for Brussels | Routeplanner"
+    },
     "fromInput.placeholder": {"nl": "Van", "en": "From", "fr": "De"},
     "toInput.placeholder": {"nl": "Naar", "en": "To", "fr": "À"}
 };
