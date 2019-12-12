@@ -178,6 +178,48 @@ branding.prototype.addLayers = function(map) {
             ]
           ]
     }, lowestLabel);
+
+    map.addLayer({
+        "id": "network-shields",
+        "type": "symbol",
+        "source": "cyclenetworks-tiles",
+        "source-layer": "cyclenetwork",
+        "minzoom": 10,
+        "maxzoom": 24,
+        "layout": {
+          "icon-image": "road_2",
+          "icon-rotation-alignment": "viewport",
+          "icon-size": 1,
+          "symbol-placement": {
+            "base": 1,
+            "stops": [
+              [
+                10,
+                "point"
+              ],
+              [
+                11,
+                "line"
+              ]
+            ]
+          },
+          "symbol-spacing": 200,
+          "text-field": "{cycleref}",
+          "text-font": [
+            "Noto Sans Regular"
+          ],
+          "text-rotation-alignment": "viewport",
+          "text-size": 10
+        },
+        "filter": [
+          "all",
+          [
+            "==",
+            "brussels",
+            "yes"
+          ]
+        ]
+      });
 };
 
 var brand = new branding();
