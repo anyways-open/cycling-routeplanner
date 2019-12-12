@@ -146,6 +146,10 @@ function AddMapLayers(){
             "text-halo-blur": 0
         }
     });
+
+    if (brand) {
+        brand.addLayers(map);
+    }
 }
 
 function showLayersForProfile(selectedProfile) {

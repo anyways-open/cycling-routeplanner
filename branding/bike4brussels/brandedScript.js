@@ -34,7 +34,8 @@ var profileConfigs = {
             "cyclenodes-circles-high": false,
             "cyclenodes-circles-center": false,
             "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false
+            "cyclenodes-labels-high": false,
+            "cyclenetworks-brussels": false
         },
         routecolor: {
             backend: false,
@@ -58,27 +59,14 @@ var profileConfigs = {
         frontendLogo: "./assets/img/network.svg",
         layers: {
             "cyclenetworks": false,
-            "cyclenetwork-tiles": {
-                "default": {
-                    "line-opacity": 1
-                },
-                "route": {
-                    "line-opacity": 0.5
-                }
-            },
-            "cyclenetwork-tiles-high": {
-                "default": {
-                    "line-opacity": 1
-                },
-                "route": {
-                    "line-opacity": 0.5
-                }
-            },
-            "cyclenodes-circles": true,
-            "cyclenodes-circles-high": true,
-            "cyclenodes-circles-center": true,
-            "cyclenodes-labels": true,
-            "cyclenodes-labels-high": true
+            "cyclenetwork-tiles": false,
+            "cyclenetwork-tiles-high": false,
+            "cyclenodes-circles": false,
+            "cyclenodes-circles-high": false,
+            "cyclenodes-circles-center": false,
+            "cyclenodes-labels": false,
+            "cyclenodes-labels-high": false,
+            "cyclenetworks-brussels": true
         },
         routecolor: {
             backend: true,
@@ -108,7 +96,8 @@ var profileConfigs = {
             "cyclenodes-circles-high": false,
             "cyclenodes-circles-center": false,
             "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false
+            "cyclenodes-labels-high": false,
+            "cyclenetworks-brussels": false
         },
         routecolor: {
             backend: false,
@@ -139,3 +128,56 @@ const translatedStrings = {
 function applyBrand() {
 
 }
+
+
+function branding() {
+
+}
+branding.prototype.addLayers = function(map) {
+    var me = this;
+
+    // get lowest label and road.
+    var style = map.getStyle();
+    var lowestRoad = undefined;
+    var lowestLabel = undefined;
+    for (var l = 0; l < style.layers.length; l++) {
+        var layer = style.layers[l];
+
+        if (layer && layer["source-layer"] === "transportation") {
+            if (!lowestRoad) {
+                lowestRoad = layer.id;
+            }
+        }
+
+        if (layer && layer["type"] === "symbol") {
+            if (!lowestLabel) {
+                lowestLabel = layer.id;
+            }
+        }
+    }
+
+    map.addLayer({
+        "id": "cyclenetworks-brussels",
+        "type": "line",
+        "source": "cyclenetworks-tiles",
+        "source-layer": "cyclenetwork",
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+          },
+          "paint": {
+            "line-color": ['get', 'cyclecolour'],
+            "line-width": 4
+          },
+          "filter": [
+            "all",
+            [
+              "==",
+              "brussels",
+              "yes"
+            ]
+          ]
+    }, lowestLabel);
+};
+
+var brand = new branding();
