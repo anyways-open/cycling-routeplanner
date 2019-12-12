@@ -35,7 +35,8 @@ var profileConfigs = {
             "cyclenodes-circles-center": false,
             "cyclenodes-labels": false,
             "cyclenodes-labels-high": false,
-            "cyclenetworks-brussels": false
+            "cyclenetworks-brussels": false,
+            "cyclenetworks-brussels-shields": false
         },
         routecolor: {
             backend: false,
@@ -66,7 +67,8 @@ var profileConfigs = {
             "cyclenodes-circles-center": false,
             "cyclenodes-labels": false,
             "cyclenodes-labels-high": false,
-            "cyclenetworks-brussels": true
+            "cyclenetworks-brussels": true,
+            "cyclenetworks-brussels-shields": true
         },
         routecolor: {
             backend: true,
@@ -97,7 +99,8 @@ var profileConfigs = {
             "cyclenodes-circles-center": false,
             "cyclenodes-labels": false,
             "cyclenodes-labels-high": false,
-            "cyclenetworks-brussels": false
+            "cyclenetworks-brussels": false,
+            "cyclenetworks-brussels-shields": false
         },
         routecolor: {
             backend: false,
@@ -180,7 +183,7 @@ branding.prototype.addLayers = function(map) {
     }, lowestLabel);
 
     map.addLayer({
-        "id": "network-shields",
+        "id": "cyclenetworks-brussels-shields",
         "type": "symbol",
         "source": "cyclenetworks-tiles",
         "source-layer": "cyclenetwork",
