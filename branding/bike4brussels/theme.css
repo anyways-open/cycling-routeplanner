@@ -42,7 +42,7 @@ body {
 
 /* The marker on the map */
 .marker {
-    background-image: url('/assets/img/marker.svg');
+    background-image: url('../assets/img/marker.svg');
     background-size: cover;
     width: 31px;
     height: 40px;
