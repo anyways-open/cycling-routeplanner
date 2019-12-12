@@ -160,7 +160,15 @@ body {
 
 .profile-summary svg path,
 .profile-summary svg circle {
-    fill: rgb(134, 154, 184);
+    fill: white;
+    stroke: white;
+}
+
+#profile3-icon polyline {
+    stroke: rgb(134, 154, 184);
+}
+
+#profile3-small-logo polyline {
     stroke: rgb(134, 154, 184);
 }
 
