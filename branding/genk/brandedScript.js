@@ -61,8 +61,8 @@ var profileConfigs = {
             "cyclenodes-circles-center": true,
             "cyclenodes-labels": true,
             "cyclenodes-labels-high": true,
-            "cyclenetworks-brussels": false,
-            "cyclenetworks-brussels-shields": false
+            "cyclenetworks-genk": false,
+            "cyclenetworks-genk-shields": false
         },
         routecolor: {
             backend: false,
@@ -84,8 +84,8 @@ var profileConfigs = {
             "cyclenodes-circles-center": false,
             "cyclenodes-labels": false,
             "cyclenodes-labels-high": false,
-            "cyclenetworks-brussels": false,
-            "cyclenetworks-brussels-shields": false
+            "cyclenetworks-genk": false,
+            "cyclenetworks-genk-shields": false
         },
         routecolor: {
             backend: false,
