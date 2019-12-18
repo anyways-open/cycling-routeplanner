@@ -7,7 +7,7 @@ var initialMap = {
 };
 
 var anywaysConfigs = {
-    apiKey: "mwK4irCD1whXx1XEpLQN6qotuM6P-Rh8"
+    apiKey: "Vc32GLKD1wjxyiloWhlcFReFor7aAAOz"
 };
 
 var profileConfigs = {
