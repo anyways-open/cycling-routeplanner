@@ -6,6 +6,10 @@ var initialMap = {
     style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
 };
 
+var anywaysConfigs = {
+    apiKey: "mwK4irCD1whXx1XEpLQN6qotuM6P-Rh8"
+};
+
 var profileConfigs = {
     "profile1": {
         backendName: "bicycle.genk",
