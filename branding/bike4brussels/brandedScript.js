@@ -6,6 +6,10 @@ var initialMap = {
     style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
 };
 
+var anywaysConfigs = {
+    apiKey: "mwK4irCD1whXx1XEpLQN6qotuM6P-Rh8"
+};
+
 var profileConfigs = {
     "profile1": {
         backendName: "bicycle.comfort_safety_speed",
@@ -60,19 +64,19 @@ var profileConfigs = {
         frontendLogo: "./assets/img/network.svg",
         layers: {
             "cyclenetworks": false,
-            "cyclenetwork-tiles": false,
-            "cyclenetwork-tiles-high": false,
-            "cyclenodes-circles": false,
-            "cyclenodes-circles-high": false,
-            "cyclenodes-circles-center": false,
-            "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false,
+            "cyclenetwork-tiles": true,
+            "cyclenetwork-tiles-high": true,
+            "cyclenodes-circles": true,
+            "cyclenodes-circles-high": true,
+            "cyclenodes-circles-center": true,
+            "cyclenodes-labels": true,
+            "cyclenodes-labels-high": true,
             "cyclenetworks-brussels": true,
             "cyclenetworks-brussels-shields": true
         },
         routecolor: {
             backend: true,
-            color: "#d9a300"
+            color: "#000"
         }
     },
     "profile3": {

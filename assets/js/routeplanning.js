@@ -112,11 +112,19 @@ function calculateRoute(origin, destination, profile = "genk") {
     const originS = origin; // swapArrayValues(origin);
     const destinationS = destination; //swapArrayValues(destination);
 
+    var apiKey = "";
+    if (anywaysConfigs) {
+        apiKey = anywaysConfigs.apiKey;
+    }
+
     // get the routing profile.
     var profileConfig = profileConfigs[profile];
     let profile_url =profileConfig.backendName;
     const prof = (profile_url === "" ? "" : `&profile=${profile_url}`);
-    const url = `${urls.route}/route?${prof}&loc=${originS}&loc=${destinationS}`;
+    var url = `${urls.route}/route?${prof}&loc=${originS}&loc=${destinationS}`;
+    if (apiKey) {
+        url = url + "&api-key=" + apiKey;
+    }
     routes[profile] = [];
 
     if (state.routeRequests[profile]) {

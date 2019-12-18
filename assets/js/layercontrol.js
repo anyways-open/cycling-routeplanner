@@ -23,7 +23,15 @@ function AddMapLayers(){
             "line-color": "#2D495A",
             "line-width": 2,
             "line-dasharray": [2, 2]
-          }
+          },
+          "filter": [
+            "all",
+            [
+              "!=",
+              "brussels",
+              "yes"
+            ]
+          ]
     }, labelLayer);
 
     map.addLayer({
@@ -39,7 +47,15 @@ function AddMapLayers(){
           "paint": {
             "line-color": "#2D495A",
             "line-width": 1
-          }
+          },
+          "filter": [
+            "all",
+            [
+              "!=",
+              "brussels",
+              "yes"
+            ]
+          ]
     }, labelLayer);
 
     map.addLayer({
