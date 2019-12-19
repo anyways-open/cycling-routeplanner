@@ -1,3 +1,14 @@
+document.title = "Genk | Fietsrouteplanner";
+
+var initialMap = {
+    center: [5.515377, 50.962004],
+    zoom: 13.33,
+    style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
+};
+
+var anywaysConfigs = {
+    apiKey: "Vc32GLKD1wjxyiloWhlcFReFor7aAAOz"
+};
 
 var profileConfigs = {
     "profile1": {
@@ -8,21 +19,16 @@ var profileConfigs = {
         frontendLogo: "./branding/genk/genk-networks.svg",
         
         layers: {
-            "cyclenetworks": {
-                "default": {
-                    "line-opacity": 1
-                },
-                "route": {
-                    "line-opacity": 0.3
-                }
-            },
+            "cyclenetworks": false,
             "cyclenetwork-tiles": false,
             "cyclenetwork-tiles-high": false,
             "cyclenodes-circles": false,
             "cyclenodes-circles-high": false,
             "cyclenodes-circles-center": false,
             "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false
+            "cyclenodes-labels-high": false,
+            "cyclenetworks-genk": true,
+            "cyclenetworks-genk-shields": true
         },
         routecolor: {
             backend: true,
@@ -58,7 +64,9 @@ var profileConfigs = {
             "cyclenodes-circles-high": true,
             "cyclenodes-circles-center": true,
             "cyclenodes-labels": true,
-            "cyclenodes-labels-high": true
+            "cyclenodes-labels-high": true,
+            "cyclenetworks-genk": false,
+            "cyclenetworks-genk-shields": false
         },
         routecolor: {
             backend: false,
@@ -79,7 +87,9 @@ var profileConfigs = {
             "cyclenodes-circles-high": false,
             "cyclenodes-circles-center": false,
             "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false
+            "cyclenodes-labels-high": false,
+            "cyclenetworks-genk": false,
+            "cyclenetworks-genk-shields": false
         },
         routecolor: {
             backend: false,
@@ -125,3 +135,114 @@ function addLegendEntries(){
 function applyBrand(){
     addLegendEntries();
 }
+
+
+function branding() {
+
+}
+branding.prototype.addLayers = function(map) {
+    var me = this;
+
+    // get lowest label and road.
+    var style = map.getStyle();
+    var lowestRoad = undefined;
+    var lowestLabel = undefined;
+    for (var l = 0; l < style.layers.length; l++) {
+        var layer = style.layers[l];
+
+        if (layer && layer["source-layer"] === "transportation") {
+            if (!lowestRoad) {
+                lowestRoad = layer.id;
+            }
+        }
+
+        if (layer && layer["type"] === "symbol") {
+            if (!lowestLabel) {
+                lowestLabel = layer.id;
+            }
+        }
+    }
+
+    map.addLayer({
+        "id": "cyclenetworks-genk",
+        "type": "line",
+        "source": "cyclenetworks-tiles",
+        "source-layer": "cyclenetwork",
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+          },
+          "paint": {
+            "line-color": ['get', 'colour'],
+            "line-width": 4
+          },
+          "filter": [
+            "all",
+            [
+              "==",
+              "$type",
+              "LineString"
+            ],
+            [
+              "all",
+              [
+                "==",
+                "operator",
+                "Stad Genk"
+              ]
+            ]
+          ]
+    }, lowestLabel);
+
+    map.addLayer({
+        "id": "cyclenetworks-genk-shields",
+        "type": "symbol",
+        "source": "cyclenetworks-tiles",
+        "source-layer": "cyclenetwork",
+        "minzoom": 10,
+        "maxzoom": 24,
+        "layout": {
+          "icon-image": "us-state_2",
+          "icon-rotation-alignment": "viewport",
+          "icon-size": 1,
+          "symbol-placement": {
+            "base": 1,
+            "stops": [
+              [
+                10,
+                "point"
+              ],
+              [
+                11,
+                "line"
+              ]
+            ]
+          },
+          "symbol-spacing": 200,
+          "text-field": "{ref}",
+          "text-font": [
+            "Noto Sans Regular"
+          ],
+          "text-rotation-alignment": "viewport",
+          "text-size": 10
+        },
+        "filter": [
+          "all",
+          [
+            "==",
+            "$type",
+            "LineString"
+          ],
+          [
+            "all",
+            [
+              "==",
+              "operator",
+              "Stad Genk"
+            ]
+          ]
+        ]
+      });
+};
+
+var brand = new branding();

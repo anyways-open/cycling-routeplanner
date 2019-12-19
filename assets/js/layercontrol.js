@@ -6,25 +6,9 @@ function AddMapLayers(){
     map.addSource('cyclenetworks-tiles', { 
         type: 'vector',
         // url: 'https://localhost:5001/cyclenetworks/mvt.json' /*/
-        url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks-test/mvt.json' //*/ 
-    });
-
-    map.addLayer({
-        "id": "cyclenetworks",
-        "type": "line",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenetwork-genk",
-        "layout": {
-            "visibility": "none",
-            "line-join": "round",
-            "line-cap": "round"
-          },
-          "paint": {
-            "line-color": ['get', 'cycle_network_colour'],
-            "line-width": 4
-          }
-    }, labelLayer);
-    
+        //url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks-test/mvt.json' //*/ 
+        url: 'https://staging.anyways.eu/api/vector-tiles/cyclenetworks/mvt.json',
+    });   
     
     map.addLayer({
         "id": "cyclenetwork-tiles",
