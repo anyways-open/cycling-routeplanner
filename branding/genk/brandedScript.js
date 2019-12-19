@@ -167,22 +167,38 @@ branding.prototype.addLayers = function(map) {
         "id": "cyclenetworks-genk",
         "type": "line",
         "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenetwork-genk",
+        "source-layer": "cyclenetwork",
         "layout": {
             "line-join": "round",
             "line-cap": "round"
           },
           "paint": {
-            "line-color": ['get', 'cyclecolour'],
+            "line-color": ['get', 'colour'],
             "line-width": 4
-          }
+          },
+          "filter": [
+            "all",
+            [
+              "==",
+              "$type",
+              "LineString"
+            ],
+            [
+              "all",
+              [
+                "==",
+                "operator",
+                "Stad Genk"
+              ]
+            ]
+          ]
     }, lowestLabel);
 
     map.addLayer({
         "id": "cyclenetworks-genk-shields",
         "type": "symbol",
         "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenetwork-genk",
+        "source-layer": "cyclenetwork",
         "minzoom": 10,
         "maxzoom": 24,
         "layout": {
@@ -203,13 +219,29 @@ branding.prototype.addLayers = function(map) {
             ]
           },
           "symbol-spacing": 200,
-          "text-field": "{cycleref}",
+          "text-field": "{ref}",
           "text-font": [
             "Noto Sans Regular"
           ],
           "text-rotation-alignment": "viewport",
           "text-size": 10
-        }
+        },
+        "filter": [
+          "all",
+          [
+            "==",
+            "$type",
+            "LineString"
+          ],
+          [
+            "all",
+            [
+              "==",
+              "operator",
+              "Stad Genk"
+            ]
+          ]
+        ]
       });
 };
 
