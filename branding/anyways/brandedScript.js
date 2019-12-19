@@ -1,3 +1,5 @@
+document.title = "ANYWAYS | Cycling Route Planner";
+
 const profileConfigs = {
     "profile1": {
         backendName: "bicycle.comfort_safety_speed",
