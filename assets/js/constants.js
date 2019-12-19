@@ -16,7 +16,7 @@ const production_urls = {
                 'bbox=5.3%2C50.70%2C5.7%2C51.1&'+
                 'limit=5&'+
                 'types=place,locality,neighborhood,address,poi',
-    reverseGeocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=${mapboxAccessCode}`
+    reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
 };
 
 const test_urls = {
@@ -29,19 +29,5 @@ const test_urls = {
                 'bbox=5.3%2C50.70%2C5.7%2C51.1&'+
                 'limit=5&'+
                 'types=place,locality,neighborhood,address,poi',
-    reverseGeocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=${mapboxAccessCode}`
-};
-
-/*
-alert('Testing URLS enabled');
-const urls = test_urls;
-/*/
-const urls = production_urls;
-// */
-String.prototype.format = function () {
-    let a = this;
-    for (let k in arguments) {
-        a = a.replace(new RegExp("\\{" + k + "\\}", 'g'), arguments[k]);
-    }
-    return a
+    reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
 };
