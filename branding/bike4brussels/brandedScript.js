@@ -81,11 +81,11 @@ var profileConfigs = {
     },
     "profile3": {
         backendName: "bicycle.fastest",
-        frontendName: {"nl": "Snelst", "en": "Fastest", "fr": "Vite"},
+        frontendName: {"nl": "Snelst", "en": "Fastest", "fr": "Rapide"},
         frontendSubtitle: {
             "nl": "De snelste route naar je bestemming",
             "en": "The fastest route to your destination",
-            "fr": "La route le plus vite vers vortre destination"
+            "fr": "La route le plus vite vers votre destination"
         },
         frontendExplanation:
             {
