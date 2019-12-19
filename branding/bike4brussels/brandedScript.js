@@ -64,13 +64,13 @@ var profileConfigs = {
         frontendLogo: "./assets/img/network.svg",
         layers: {
             "cyclenetworks": false,
-            "cyclenetwork-tiles": true,
-            "cyclenetwork-tiles-high": true,
-            "cyclenodes-circles": true,
-            "cyclenodes-circles-high": true,
-            "cyclenodes-circles-center": true,
-            "cyclenodes-labels": true,
-            "cyclenodes-labels-high": true,
+            "cyclenetwork-tiles": false,
+            "cyclenetwork-tiles-high": false,
+            "cyclenodes-circles": false,
+            "cyclenodes-circles-high": false,
+            "cyclenodes-circles-center": false,
+            "cyclenodes-labels": false,
+            "cyclenodes-labels-high": false,
             "cyclenetworks-brussels": true,
             "cyclenetworks-brussels-shields": true
         },
@@ -173,15 +173,15 @@ branding.prototype.addLayers = function(map) {
             "line-cap": "round"
           },
           "paint": {
-            "line-color": ['get', 'cyclecolour'],
+            "line-color": ['get', 'colour'],
             "line-width": 4
           },
           "filter": [
             "all",
             [
               "==",
-              "brussels",
-              "yes"
+              "operator",
+              "Brussels Mobility"
             ]
           ]
     }, lowestLabel);
@@ -211,7 +211,7 @@ branding.prototype.addLayers = function(map) {
             ]
           },
           "symbol-spacing": 200,
-          "text-field": "{cycleref}",
+          "text-field": "{ref}",
           "text-font": [
             "Noto Sans Regular"
           ],
@@ -222,8 +222,8 @@ branding.prototype.addLayers = function(map) {
           "all",
           [
             "==",
-            "brussels",
-            "yes"
+            "operator",
+            "Brussels Mobility"
           ]
         ]
       });

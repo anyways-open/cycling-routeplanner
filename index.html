@@ -22,12 +22,12 @@
 
     <meta name="msapplication-TileColor" content="#ffc000">
     <meta name="theme-color" content="#ffc000">
-    <link rel="apple-touch-icon" sizes="180x180" href="branding/anyways/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="branding/anyways/favicon-96.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="branding/anyways/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="branding/anyways/favicon-16.png">
-    <link href='branding/anyways/theme.css' rel='stylesheet'/>
-    <script src="branding/anyways/brandedScript.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="branding/bike4brussels/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="branding/bike4brussels/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="branding/bike4brussels/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="branding/bike4brussels/favicon-16.png">
+    <link href='branding/bike4brussels/theme.css' rel='stylesheet'/>
+    <script src="branding/bike4brussels/brandedScript.js"></script>
 
     <!-- End of branding specific stuff -->
 
@@ -121,25 +121,12 @@
                 </div>
                 <div id='map' style="height:100%; width: 100%"></div>
                 <script>
-                    if (typeof(initialMap) === 'undefined') {
-                        initialMap = { };
-                    }
-                    if (!initialMap.center) {
-                        initialMap.center = [4.868640, 50.813588];
-                    }
-                    if (!initialMap.zoom) {
-                        initialMap.zoom = 8.64;
-                    }
-                    if (!initialMap.style) {
-                        initialMap.style = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH';
-                    }
-
                     mapboxgl.accessToken = mapboxAccessCode;
                     var map = new mapboxgl.Map({
                         container: 'map',
-                        style: initialMap.style,
-                        center: initialMap.center, 
-                        zoom: initialMap.zoom, // starting zoom
+                        style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH',
+                        center: [4.868640, 50.813588], // starting position [lng, lat]&lat=&lng=
+                        zoom: 8.64, // starting zoom
                         preserveDrawingBuffer: true
                     });
 
