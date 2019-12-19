@@ -194,7 +194,7 @@ branding.prototype.addLayers = function(map) {
         "minzoom": 10,
         "maxzoom": 24,
         "layout": {
-          "icon-image": "us-state_{ref_length",
+          "icon-image": "us-state_{ref_length}",
           "icon-rotation-alignment": "viewport",
           "icon-size": 1,
           "symbol-placement": {
