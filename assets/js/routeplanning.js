@@ -26,9 +26,28 @@ const profileButtonIds = {
     
 };
 
-let selectedProfile = "profile1";
+console.log(selectedProfile);
+if (!selectedProfile) {
+    selectedProfile = "profile1";
+}
 
+mapboxgl.accessToken = mapboxAccessCode;
+if (!initialMap) {
+    initialMap = {
+        center: [4.426690, 50.842000],
+        zoom: 11.03,
+        style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
+    };
+}
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: initialMap.style,
+    center: initialMap.center,
+    zoom: initialMap.zoom,
+    preserveDrawingBuffer: true
+});
 
+map.addControl(new mapboxgl.NavigationControl());
 
 
 

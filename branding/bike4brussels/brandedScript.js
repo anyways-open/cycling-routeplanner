@@ -1,19 +1,21 @@
 document.title = "Bike for Brussels | Routeplanner";
 
 var initialMap = {
-    center: [4.426690, 50.842000],
-    zoom: 11.03,
+    center: [4.3555, 50.8371],
+    zoom: 11.54,
     style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
 };
 
 var urls = production_urls;
+
+var selectedProfile = 'profile1';
 
 var anywaysConfigs = {
     apiKey: "mwK4irCD1whXx1XEpLQN6qotuM6P-Rh8"
 };
 
 var profileConfigs = {
-    "profile1": {
+    "profile2": {
         backendName: "bicycle.comfort_safety_speed",
         frontendName: {"nl": "Gebalanceerd", "en": "Balanced", "fr": "Équilibrée"},
         frontendSubtitle: {"nl": "Een gebalanceerd profiel", "en": "A balanced profile", "fr": "Une route équilibrée"},
@@ -49,7 +51,7 @@ var profileConfigs = {
             color: "#d9a300"
         }
     },
-    "profile2": {
+    "profile1": {
         backendName: "bicycle.brussels",
         frontendName: {"nl": "Netwerk", "en": "Network", "fr": "Réseau"},
         frontendSubtitle: {
