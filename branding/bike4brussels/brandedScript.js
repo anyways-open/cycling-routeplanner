@@ -176,7 +176,13 @@ branding.prototype.addLayers = function(map) {
           },
           "paint": {
             "line-color": ['get', 'colour'],
-            "line-width": 4
+            "line-width": [
+                'interpolate', ['linear'], ['zoom'],
+                10, 1,
+                13, 2,
+                16, 4
+              ],
+            "line-opacity": 0.7
           },
           "filter": [
             "all",
