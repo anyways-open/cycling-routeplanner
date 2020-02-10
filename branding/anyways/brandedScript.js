@@ -1,5 +1,11 @@
 document.title = "ANYWAYS | Cycling Route Planner";
 
+var urls = production_urls;
+
+var anywaysConfigs = {
+    apiKey: "a-non-operational-key"
+};
+
 const profileConfigs = {
     "profile1": {
         backendName: "bicycle.comfort_safety_speed",

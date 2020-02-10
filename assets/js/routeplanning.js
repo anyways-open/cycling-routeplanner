@@ -309,8 +309,6 @@ function calculateRoute(origin, destination, profile = "genk") {
     // Request failed, cleanup nicely
     function requestError(jqXHR, textStatus, errorThrown) {
         if (textStatus !== "abort") {
-            $(`#${profileHtmlId[profile]} .elevation-info`).html(language === "en" ? "Error :(" : language === 'fr' ? "Erreur :(" : "Fout :(");
-
             if (map.getLayer(profile)) {
                 map.removeLayer(profile);
             }
