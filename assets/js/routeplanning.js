@@ -401,18 +401,19 @@ function showLocationsOnMap() {
 // Sets the latitude, longitude, zoom level and router points as params in the url
 function updateUrlParams(){
     var params = {};
+    params.zoom = map.getZoom();
+    params.center = map.getCenter();
+
+    params.query = {};
     if (state.location1) {
-        params.loc1 = [Number(state.location1[0]).toFixed(6), Number(state.location1[1]).toFixed(6)];
+        params.query.o = "" + state.location1[0].toFixed(7) + "," +  state.location1[1].toFixed(7);
     }
-    if(state.location2){
-        params.loc2 = [Number(state.location2[0]).toFixed(6), Number(state.location2[1]).toFixed(6)];
+    if (state.location2) {
+        params.query.d = "" + state.location2[0].toFixed(7) + "," +  state.location2[1].toFixed(7);
     }
-    params.zoom = map.getZoom().toFixed(2);
-    params.lat = map.getCenter().lat.toFixed(6);
-    params.lng = map.getCenter().lng.toFixed(6);
-    params.p=selectedProfile;
+    params.query.p = selectedProfile;
     
-    setCurrentUrl(params);
+    urlhash.updateHash(params);
 }
 
 /**

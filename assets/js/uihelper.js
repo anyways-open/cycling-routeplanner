@@ -8,11 +8,12 @@ window.onload = function () {
     
     sidebarDisplayProfile(selectedProfile);
 
-    let urlparams = getAllUrlParams();
+    let urlparams = urlhash.parseHash(location.hash);
     
-    if (urlparams.loc1) {
+    if (urlparams.query && urlparams.query.o) {
         // Note: the definition of 'state' can be found in 'state.js'
-        state.location1 = urlparams.loc1;
+        var c = urlparams.query.o.split(',');
+        state.location1 = [ parseFloat(c[0]), parseFloat(c[1]) ];
     } else {
         if (!(typeof (Storage) !== "undefined" && 
             new Date(localStorage.getItem("geolocation.permission.denieddate")).addDays(7) > new Date())) {
@@ -21,17 +22,16 @@ window.onload = function () {
             }, 2000);
         }
     }
-    if (urlparams.loc2) {
-        state.location2 = urlparams.loc2;
+    if (urlparams.query && urlparams.query.d) {
+        var c = urlparams.query.d.split(',');
+        state.location2 = [ parseFloat(c[0]), parseFloat(c[1]) ];
     }
 
-    if (urlparams.p) {
-        if (urlparams.p != selectedProfile) {
-            sidebarDisplayProfile(urlparams.p);
+    if (urlparams.query && urlparams.query.p) {
+        if (urlparams.query.p != selectedProfile) {
+            sidebarDisplayProfile(urlparams.query.p);
         }
-    }
-
-    
+    }    
     
     if (state.location1) {
         reverseGeocode(state.location1, function (adress) {
@@ -56,13 +56,14 @@ window.onload = function () {
     }), 'top-left');
     map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
 
+			
     if (urlparams.zoom) {
-        map.setZoom(urlparams.zoom);
+        // jump to view.
+        map.jumpTo({
+            center: urlparams.center,
+            zoom: urlparams.zoom
+        });
     }
-    if (urlparams.lat !== undefined && urlparams.lng !== undefined) {
-        map.setCenter({ lat: urlparams.lat, lng: urlparams.lng })
-    }
-
 
     windowLoaded = true;
     if ('serviceWorker' in navigator) {
