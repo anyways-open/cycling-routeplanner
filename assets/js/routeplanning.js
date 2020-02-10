@@ -706,4 +706,3 @@ function swapArrayValues(array) {
 
 // initialise the geocoders already
 initInputGeocoders();
-

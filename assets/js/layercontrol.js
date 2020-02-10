@@ -3,6 +3,8 @@
  */ 
 
 function AddMapLayers(){
+    map.resize();
+
     map.addSource('cyclenetworks-tiles', { 
         type: 'vector',
         // url: 'https://localhost:5001/cyclenetworks/mvt.json' /*/
