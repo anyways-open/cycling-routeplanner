@@ -6,9 +6,17 @@ var initialMap = {
     style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
 };
 
+var urls = production_urls;
+
 var anywaysConfigs = {
     apiKey: "Vc32GLKD1wjxyiloWhlcFReFor7aAAOz"
 };
+
+// What languages should the interface be shown in?
+// If only one: language button will dissappear
+const supportedLanguages = ["nl"];
+
+var selectedProfile = 'profile1';
 
 var profileConfigs = {
     "profile1": {
@@ -174,7 +182,13 @@ branding.prototype.addLayers = function(map) {
           },
           "paint": {
             "line-color": ['get', 'colour'],
-            "line-width": 4
+            "line-width": [
+                'interpolate', ['linear'], ['zoom'],
+                10, 1,
+                13, 2,
+                16, 6
+              ],
+            "line-opacity": 0.5
           },
           "filter": [
             "all",
