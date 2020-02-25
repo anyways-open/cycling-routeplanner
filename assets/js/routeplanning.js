@@ -140,7 +140,7 @@ function calculateRoute(origin, destination, profile = "genk") {
     var profileConfig = profileConfigs[profile];
     let profile_url =profileConfig.backendName;
     const prof = (profile_url === "" ? "" : `&profile=${profile_url}`);
-    var url = `${urls.route}/route?${prof}&loc=${originS}&loc=${destinationS}`;
+    var url = `${urls.route}?${prof}&loc=${originS}&loc=${destinationS}`;
     if (apiKey) {
         url = url + "&api-key=" + apiKey;
     }

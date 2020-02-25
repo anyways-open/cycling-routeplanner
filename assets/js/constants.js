@@ -16,8 +16,7 @@ String.prototype.format = function () {
 const production_urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
     network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
-    //route: 'https://cycling-backend.anyways.eu/api',
-    route: 'https://routing.anyways.eu/api',
+    route: 'https://routing.anyways.eu/api/route',
     geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?`+
                 `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612`+
                 'country=BE&'+
@@ -30,7 +29,7 @@ const production_urls = {
 const test_urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
     network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
-    route: 'http://localhost:5000',
+    route: 'http://localhost:5000/route',
     geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?`+
                 `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612`+
                 'country=BE&'+
