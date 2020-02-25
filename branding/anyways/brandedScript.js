@@ -5,7 +5,7 @@ var urls = production_urls;
 var anywaysConfigs = {
     apiKey: "a-non-operational-key"
 };
-
+var selectedProfile = "profile1";
 const profileConfigs = {
     "profile1": {
         backendName: "bicycle.comfort_safety_speed",
@@ -27,7 +27,7 @@ const profileConfigs = {
                     "line-opacity": 0.3
                 }
             },
-            "cyclenetworks": false,
+         //   "cyclenetworks": false,
             "cyclenetwork-tiles": false,
             "cyclenetwork-tiles-high": false,
             "cyclenodes-circles": false,
@@ -129,3 +129,4 @@ const translatedStrings = {
 
 function applyBrand(){
 }
+
