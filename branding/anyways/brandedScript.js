@@ -2,10 +2,21 @@ document.title = "ANYWAYS | Cycling Route Planner";
 
 var urls = production_urls;
 
+
+
 var anywaysConfigs = {
     apiKey: "a-non-operational-key"
 };
 var selectedProfile = "profile1";
+
+var initialMap = {
+    center: [4.3387,50.8435],
+    zoom: 7,
+    style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
+};
+
+
+
 const profileConfigs = {
     "profile1": {
         backendName: "bicycle.comfort_safety_speed",
@@ -121,12 +132,7 @@ const translatedStrings = {
     "toInput.placeholder": {"nl": "Naar", "en": "To", "fr": "À"}
 };
 
-// TODO: also set custom start location.
-//8.64&lat=50.813588&lng=4.868640
-
-
 
 
 function applyBrand(){
 }
-
