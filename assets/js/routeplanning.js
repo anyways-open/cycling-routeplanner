@@ -335,11 +335,6 @@ function calculateRoute(origin, destination, profile = "genk") {
                 map.removeSource(profile);
             }
             console.warn('Problem calculating route: ', errorThrown, textStatus, jqXHR);
-            if(!warningOpen){
-                warningOpen = true;
-                alert("De route kon niet worden berekend. Mogelijk is een vertrek- of eindpunt te ver van de openbare weg.")
-                warningOpen = false;
-            }
         }
     }
 }
