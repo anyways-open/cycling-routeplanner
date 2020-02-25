@@ -1,9 +1,17 @@
-const mapboxAccessCode = "pk.eyJ1IjoiYmVuLWFueXdheXMiLCJhIjoiY2p6d3RyMzVhMGVoYjNibGEwNGYzc21zciJ9.T9X-lvJFZrWiFyzYQUPIew";
+var mapboxAccessCode = "pk.eyJ1IjoiYmVuLWFueXdheXMiLCJhIjoiY2szdWhla3R5MGNoajN1cHMyZG51aXF3byJ9.kcM0vy7kDdugKiur9g6lWw";
 
 const routeWidthMain = 6;
 const routeWidthAlternative = 3;
 const routeOpacityMain = 1;
 const routeOpacityAltnerative = 0.0;
+
+String.prototype.format = function () {
+    let a = this;
+    for (let k in arguments) {
+        a = a.replace(new RegExp("\\{" + k + "\\}", 'g'), arguments[k]);
+    }
+    return a
+};
 
 const production_urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',

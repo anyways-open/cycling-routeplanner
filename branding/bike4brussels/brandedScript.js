@@ -1,12 +1,26 @@
 document.title = "Bike for Brussels | Routeplanner";
 
+var mapboxAccessCode = "pk.eyJ1IjoiYmVuLWFueXdheXMiLCJhIjoiY2szdWhla3R5MGNoajN1cHMyZG51aXF3byJ9.kcM0vy7kDdugKiur9g6lWw";
+
 var initialMap = {
     center: [4.3555, 50.8371],
     zoom: 11.54,
     style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
 };
 
-var urls = production_urls;
+var urls = {
+    mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
+    network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
+    //route: 'https://cycling-backend.anyways.eu/api',
+    route: 'https://routing.anyways.eu/api',
+    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?`+
+                `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612`+
+                'country=BE&'+
+                'bbox=4.22%2C50.76%2C4.52%2C50.93&'+
+                'limit=5&'+
+                'types=place,locality,neighborhood,address,poi',
+    reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
+};
 
 var selectedProfile = 'profile1';
 
