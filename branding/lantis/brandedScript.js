@@ -1,7 +1,6 @@
-document.title = "ANYWAYS | Cycling Route Planner";
+document.title = "LANTIS | Cycling Route Planner";
 
 var urls = production_urls;
-
 
 var anywaysConfigs = {
     apiKey: "a-non-operational-key"
@@ -18,26 +17,20 @@ var initialMap = {
 
 const profileConfigs = {
     "profile1": {
-        backendName: "bicycle.comfort_safety_speed",
-        frontendName: {"nl": "Gebalanceerd", "en": "Balanced", "fr": "Équilibrée"},
-        frontendSubtitle: {"nl": "Een gebalanceerd profiel", "en": "A balanced profile", "fr": "Une route équilibrée"},
+        backendName: "bicycle.genk", // TODO The lantis network in shortcut is mapped as 'operator=Stad Genk' in order to reuse the Genk-specific profile. This should be fixed one day 
+        backend: "https://api.anyways.eu/publish/opa/lantis/antwerpen/1/routing?", // overwrites the default backend endpoint
+        format: "latlon", // shortcut still uses lat,lon as format
+        frontendName: {"nl": "Lantis-fietsneterk", "en": "Lantis network", "fr": "Équilibrée"},
+        frontendSubtitle: {"nl": "Lantis-netwerk (Shortcut)", "en": "Lantis network", "fr": "Reseau Lantis"},
         frontendExplanation: {
-            "nl": "Een profiel gemaakt voor de dagelijkse pendelaar, die de voorkeur geeft aan veilige, comfortabele wegen zonder veel tijd in te boeten",
-            "en": "A safe and comfortable route without losing to much time",
-            "fr": "Ce profil évite les plus grandes rues et préfère les pistes cyclables."
+            "nl": "Volgt het lantis fietsnetwerk, gebaseerd op de aangepaste shortcut van Lantis",
+            "en": "",
+            "fr": ""
         },
         frontendLogo: "./branding/anyways/bird.svg",
 
         layers: {
-            "cyclenetworks": {
-                "default": {
-                    "line-opacity": 1
-                },
-                "route": {
-                    "line-opacity": 0.3
-                }
-            },
-         //   "cyclenetworks": false,
+            "cyclenetworks": false,
             "cyclenetwork-tiles": false,
             "cyclenetwork-tiles-high": false,
             "cyclenodes-circles": false,
@@ -52,14 +45,14 @@ const profileConfigs = {
         }
     },
     "profile2": {
-        backendName: "bicycle.comfort_safety",
-        frontendName: {"nl":"Veilig", "en":"Safe", "fr":"Sûr"},
-        frontendSubtitle: {"nl": "Een veilige, comfortabele route", "en": "A safe and comfortable route", "fr": "Une route sûr et comfortable"},
+        backendName: "bicycle.networks",
+        frontendName: {"nl":"Knooppunten (OSM)", "en":"Node Network", "fr":""},
+        frontendSubtitle: {"nl": "De knooppuntennetwerken", "en": "Follows the node networks", "fr": ""},
         frontendExplanation:
             {
-                "nl": "Een profiel gemaakt om veilige, comfortabele routes te verkiezen. Ideaal om naar school te gaan",
-                "en": "A safe and comfortable route, ideal to travel to school",
-                "fr": "Une route sûr et comfortable, parfait pour aller à l'école"
+                "nl": "Volgt de knooppuntennetwerk. Gebaseerd op OpenStreetMap.",
+                "en": "Follows the node networks. Based on current OSM",
+                "fr": ""
             },
         frontendLogo: "./assets/img/network.svg",
 
@@ -94,13 +87,13 @@ const profileConfigs = {
     },
     "profile3": {
         backendName: "bicycle.fastest",
-        frontendName: {"nl":"Snelst", "en":"Fastest","fr":"Vite"},
-        frontendSubtitle:{"nl": "De snelste route naar je bestemming", "en":"The fastest route to your destination", "fr":"La route le plus vite vers vortre destination"},
+        frontendName: {"nl":"Snelst", "en":"Fastest","fr":""},
+        frontendSubtitle:{"nl": "De snelste route (OSM)", "en":"", "fr":""},
         frontendExplanation:
             {
-                "nl": "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
-                "en": "Only for real speed devils for whom every minute counts. Might take busy roads",
-                "fr": "Uniquement pour quand chaque minute compte."
+                "nl": "De snelste route. Gebaseerd op OpenStreetMap",
+                "en": "The fastest route, based on current OSM",
+                "fr": ""
             },
         frontendLogo: "./assets/img/fast.svg",
         layers: {

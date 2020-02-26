@@ -16,7 +16,7 @@ String.prototype.format = function () {
 const production_urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
     network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
-    route: 'https://routing.anyways.eu/api/route',
+    route: 'https://routing.anyways.eu/api/route?', // The route is the url of the routeplanner endpoint and should contain everything, up to the '?' denoting the start of the parameters
     geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?`+
                 `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612`+
                 'country=BE&'+

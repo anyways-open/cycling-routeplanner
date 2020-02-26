@@ -1,0 +1,182 @@
+/** ANYWAYS BRANDING STYLE **/
+
+/***********************General stuff ********************/
+
+@font-face {
+    font-family: HKGroteskPro;
+    font-weight: 400;
+    src: url(./fonts/HK%20Grotesk%20Pro/HKGroteskPro-Regular.woff2) format("woff2"),
+    url(./fonts/HK%20Grotesk%20Pro/HKGroteskPro-Regular.woff) format("woff")
+}
+
+@font-face {
+    font-family: HKGroteskPro;
+    font-weight: 600;
+    src: url(./fonts/HK%20Grotesk%20Pro/HKGroteskPro-Medium.woff2) format("woff2"),
+    url(./fonts/HK%20Grotesk%20Pro/HKGroteskPro-Medium.woff) format("woff")
+}
+
+body {
+    margin: 0;
+    font-family: HKGroteskPro, serif;
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #161c2d;
+    text-align: left;
+    background-color: #fff
+}
+
+.btn {
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.btn:hover {
+    background-color: rgb(134, 154, 184);
+}
+
+.svg {
+    fill: rgba(255, 192, 0, .1);
+}
+
+
+/* The marker on the map */
+.marker {
+    background-image: url('/assets/img/marker.svg');
+    background-size: cover;
+    width: 31px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    color: rgb(134, 154, 184); /* Colour of the 'A' and 'B' on a marker in the map*/
+}
+
+
+/*********************** TOP BAR ********************/
+
+
+.logo-image {
+    background: url("./logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top
+}
+
+.location-input-group svg path {
+    /* Cross in input field*/
+    stroke: #4e3908;
+}
+
+.location-input-group {
+    padding-left: 0;
+    padding-right: 5px;
+    border-bottom: 1px solid #d9e2ef !important; /*The line under the input fields*/
+}
+
+.location-circle-container {
+    /*The small 'A' or 'B' in the circle in the from/to fields */
+    position: relative;
+    text-align: center;
+    color: #ffc000;
+    padding-top: 7px;
+}
+
+
+.form-control,
+.form-control::placeholder {
+    color: rgb(134, 154, 184);
+}
+
+/*********************** Profile selection/sidebar styling ********************/
+
+
+.sidebar-colors {
+    background-color: rgb(241, 244, 248);
+    color: rgb(134, 154, 184);
+}
+
+.close-button-small-screen {
+    background: rgb(241, 244, 248);
+    margin: 0; 
+    padding: 0;
+}
+
+
+.close-button-small-screen svg path {
+    stroke: red;
+    fill: red;
+}
+
+.close-button-small-screen svg path {
+    stroke: red;
+    fill: red;
+}
+
+
+.profile-selection-button-non-active {
+    background: white;
+    color: rgb(134, 154, 184);
+}
+
+.profile-selection-button-active {
+    background: rgb(241, 244, 248);
+    color: rgb(134, 154, 184);
+}
+
+.profile-explanation {
+    font-family: HKGroteskPro, serif;
+}
+
+/* Button icons: make them white or contrasting with the background colour */
+.profile-selection-button-active svg path,
+.profile-selection-button-active svg circle {
+    fill: rgb(134, 154, 184);
+    stroke: rgb(134, 154, 184);
+}
+
+/* Button icons (non-active): make them white or contrasting with the background colour */
+.profile-selection-button-non-active svg path,
+.profile-selection-button-non-active svg circle {
+    fill: rgb(134, 154, 184);
+    stroke: rgb(134, 154, 184);
+}
+
+
+.profile-summary svg path,
+.profile-summary svg circle {
+    fill: rgb(134, 154, 184);
+    stroke: rgb(134, 154, 184);
+}
+
+.electric-bike-speedup {
+    background: rgb(241, 244, 248);
+    color: rgb(134, 154, 184);
+}
+
+.electric-bike-speedup svg path,
+.electric-bike-speedup svg circle {
+    fill: rgb(134, 154, 184);
+    stroke: rgb(134, 154, 184);
+}
+
+/*********************** Translation buttons ********************/
+
+.translation-buttons {
+    border: 0.3rem solid rgb(134, 154, 184);
+    border-radius: .3rem;
+}
+
+.language-button {
+    background-color: white;
+}
+
+.language-button.active {
+    background-color: rgb(134, 154, 184);
+    box-shadow: none !important;
+}

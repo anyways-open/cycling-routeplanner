@@ -6,6 +6,10 @@ let windowLoaded = false;
  */
 window.onload = function () {
     
+    if(selectedProfile === undefined){
+        selectedProfile = "profile1";
+    }
+    
     sidebarDisplayProfile(selectedProfile);
 
     let urlparams = urlhash.parseHash(location.hash);

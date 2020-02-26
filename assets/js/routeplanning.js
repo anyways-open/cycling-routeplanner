@@ -26,10 +26,11 @@ const profileButtonIds = {
     
 };
 
-console.log(selectedProfile);
-if (!selectedProfile) {
+
+if (selectedProfile === undefined) {
     selectedProfile = "profile1";
 }
+console.log(selectedProfile);
 
 mapboxgl.accessToken = mapboxAccessCode;
 if (!initialMap) {
@@ -126,11 +127,9 @@ function calculateAllRoutes(origin, destination, profiles = availableProfiles) {
  * @param {String} profile - The routing profile
  * @param {String} lang - en/nl/fr select the language for the instructions
  */
-function calculateRoute(origin, destination, profile = "genk") {
-    // Swap around values for the API
-    const originS = origin; // swapArrayValues(origin);
-    const destinationS = destination; //swapArrayValues(destination);
-
+function calculateRoute(origin, destination, profile = "bicycle.fastest") {
+    
+  
     var apiKey = "";
     if (anywaysConfigs) {
         apiKey = anywaysConfigs.apiKey;
@@ -138,9 +137,23 @@ function calculateRoute(origin, destination, profile = "genk") {
 
     // get the routing profile.
     var profileConfig = profileConfigs[profile];
-    let profile_url =profileConfig.backendName;
+    let profile_url = profileConfig.backendName;
     const prof = (profile_url === "" ? "" : `&profile=${profile_url}`);
-    var url = `${urls.route}?${prof}&loc=${originS}&loc=${destinationS}`;
+
+    let endpoint = urls.route;
+    if (profileConfig.backend !== undefined) {
+        endpoint = profileConfig.backend;
+    }
+
+    let originS = origin;
+    let destinationS = destination;
+
+    if (profileConfig.format === "latlon") {
+        originS = swapArrayValues(origin);
+        destinationS = swapArrayValues(destination);
+    }
+
+    var url = `${endpoint}loc=${originS}&loc=${destinationS}${prof}`;
     if (apiKey) {
         url = url + "&api-key=" + apiKey;
     }
