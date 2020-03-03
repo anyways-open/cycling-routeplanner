@@ -275,7 +275,7 @@ function calculateRoute(origin, destination, profile = "genk") {
                     source: profile + "-source",
                     paint: {
                         'line-color': "#FFFFFF",
-                        'line-width': width*1.5,
+                        'line-width': width*2.5,
                         'line-opacity': opacity
                     },
                     layout: {
@@ -296,7 +296,7 @@ function calculateRoute(origin, destination, profile = "genk") {
                                     property: 'cycle_network_colour'
                                 }
                             ,
-                            'line-width': width,
+                            'line-width': width*1.3,
                             'line-opacity': opacity
                         },
                         layout: {
