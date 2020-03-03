@@ -103,8 +103,6 @@ function sidebarDisplayProfile(profile) {
     }
 
     selectedProfile = profile;
-    var localConfig = profileConfigs[selectedProfile];
-    
     $(".route-instructions").addClass("height-zero");
     $(".profile-summary").addClass("height-zero");
     $("#sidebar-top>span").removeClass("active");
@@ -116,15 +114,14 @@ function sidebarDisplayProfile(profile) {
     $(`#${profileButtonId}`).addClass("active");
     $(`#${profileButtonId}-mobile`).addClass("active");
 
-    var profileDivId = profile+"-instruction";
-    var summaryDivId = profile+"-summary";
+
     if (state.location1 && state.location2) {
-        //$(".profile-summary-explanation").addClass("height-zero");
+        var profileDivId = profile+"-instruction";
         $(`#${profileDivId}`).removeClass("height-zero");
-    
     } else {
+        var summaryDivId = profile + "-summary";
         $(`#${summaryDivId}`).removeClass("height-zero");
-    }   
+    }
 
     showLayersForProfile(selectedProfile);
 }

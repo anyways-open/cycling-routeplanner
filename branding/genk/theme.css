@@ -147,3 +147,21 @@
     text-align: center;
     color: rgb(134, 154, 184); /* Colour of the 'A' and 'B' on a marker in the map*/
 }
+
+
+.legend-ref {
+    width: 1.75em;
+    height: 1.75em;
+    border-radius: 50%;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 1em;
+    padding-top: 15%;
+    margin-left: 65%
+}
+
+.legend-text {
+    text-align: center;
+    font-weight: bold;
+}

@@ -501,24 +501,16 @@ input[type="text"], textarea {
     font-weight: 700;
 }
 
+.profile-paragraph {
+    font-size: 1.5em
+    
+}
 
 
 table tr td {
     vertical-align: middle !important;
 }
 
-.legend-ref {
-    width: 2.5em;
-    border-radius: 0.1em;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-}
-
-.legend-text {
-    text-align: center;
-    font-weight: bold;
-}
 
 .height-zero {
     height: 0;

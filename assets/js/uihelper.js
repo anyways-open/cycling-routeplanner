@@ -122,9 +122,15 @@ function htmlToElement(html) {
     return template.content.firstChild;
 }
 
+/**
+ * Formats the distance, given in meters
+ * @param distance
+ * @returns {string}
+ */
 function formatDistance(distance) {
+    console.log(distance)
     if (distance < 1000) {
-        return Math.round(distance) + 'm';
+        return Math.round(distance) + ' m';
     }
-    return (distance / 1000).toFixed(1) + 'km';
+    return ((distance / 1000).toFixed(2) + ' km').replace('.', ",");
 }
