@@ -85,8 +85,8 @@ var profileConfigs = {
     },
     "profile3": {
         backendName: "bicycle.shortest",
-        frontendName: "Kortst",
-        frontendSubtitle: "Dit is de korste route",
+        frontendName: "Snelst",
+        frontendSubtitle: "Dit is de snelste route",
         frontendExplanation: "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
         frontendLogo: "./assets/img/fast.svg",
         layers: {
@@ -179,33 +179,33 @@ branding.prototype.addLayers = function(map) {
         "layout": {
             "line-join": "round",
             "line-cap": "round"
-          },
-          "paint": {
+        },
+        "paint": {
             "line-color": ['get', 'colour'],
             "line-width": [
                 'interpolate', ['linear'], ['zoom'],
                 10, 1,
                 13, 2,
                 16, 6
-              ],
+            ],
             "line-opacity": 0.5
-          },
-          "filter": [
+        },
+        "filter": [
             "all",
             [
-              "==",
-              "$type",
-              "LineString"
+                "==",
+                "$type",
+                "LineString"
             ],
             [
-              "all",
-              [
-                "==",
-                "operator",
-                "Stad Genk"
-              ]
+                "all",
+                [
+                    "==",
+                    "operator",
+                    "Stad Genk"
+                ]
             ]
-          ]
+        ]
     }, lowestLabel);
 
     map.addLayer({
@@ -216,47 +216,47 @@ branding.prototype.addLayers = function(map) {
         "minzoom": 10,
         "maxzoom": 24,
         "layout": {
-          "icon-image": "us-state_2",
-          "icon-rotation-alignment": "viewport",
-          "icon-size": 1,
-          "symbol-placement": {
-            "base": 1,
-            "stops": [
-              [
-                10,
-                "point"
-              ],
-              [
-                11,
-                "line"
-              ]
-            ]
-          },
-          "symbol-spacing": 200,
-          "text-field": "{ref}",
-          "text-font": [
-            "Noto Sans Regular"
-          ],
-          "text-rotation-alignment": "viewport",
-          "text-size": 10
+            "icon-image": "us-state_2",
+            "icon-rotation-alignment": "viewport",
+            "icon-size": 1,
+            "symbol-placement": {
+                "base": 1,
+                "stops": [
+                    [
+                        10,
+                        "point"
+                    ],
+                    [
+                        11,
+                        "line"
+                    ]
+                ]
+            },
+            "symbol-spacing": 200,
+            "text-field": "{ref}",
+            "text-font": [
+                "Noto Sans Regular"
+            ],
+            "text-rotation-alignment": "viewport",
+            "text-size": 10
         },
         "filter": [
-          "all",
-          [
-            "==",
-            "$type",
-            "LineString"
-          ],
-          [
             "all",
             [
-              "==",
-              "operator",
-              "Stad Genk"
+                "==",
+                "$type",
+                "LineString"
+            ],
+            [
+                "all",
+                [
+                    "==",
+                    "operator",
+                    "Stad Genk"
+                ]
             ]
-          ]
         ]
-      });
+    });
 };
 
 var brand = new branding();

@@ -8,7 +8,7 @@ function AddMapLayers(){
     map.addSource('cyclenetworks-tiles', { 
         type: 'vector',
         // url: 'https://localhost:5001/cyclenetworks/mvt.json' /*/
-        //url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks-test/mvt.json' //*/ 
+       // url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks-test/mvt.json' //*/ 
         url: 'https://staging.anyways.eu/api/vector-tiles/cyclenetworks/mvt.json',
     });   
     
@@ -23,7 +23,7 @@ function AddMapLayers(){
             "line-join": "round"
           },
           "paint": {
-            "line-color": "#2D495A",
+            "line-color": "#0ea9b7",
             "line-width": 2,
             "line-dasharray": [2, 2]
           },
@@ -48,7 +48,7 @@ function AddMapLayers(){
             "line-join": "round"
           },
           "paint": {
-            "line-color": "#2D495A",
+            "line-color": "#0ea9b7",
             "line-width": 1
           },
           "filter": [
@@ -72,7 +72,7 @@ function AddMapLayers(){
         },
         "paint": {
             "circle-stroke-width": 2,
-            "circle-stroke-color": "#2D495A",
+            "circle-stroke-color": "#0ea9b7",
             "circle-radius": 10,
             "circle-color": "#000000",
             "circle-opacity": 0
