@@ -18,9 +18,9 @@
     <link href='assets/css/general_style.css' rel='stylesheet'/>
     <link href='assets/css/safari-fix.css' rel='stylesheet'/>
 
-    <!-- Branding specific stuff below -->
-    <title>Anyways | Cycling Route Planner</title>
+    <title>Anyways | Cycling Route Planner</title><!-- Will be overwritten -->
 
+    <!-- Branding specific stuff below -->
     <meta name="msapplication-TileColor" content="#ffc000">
     <meta name="theme-color" content="#ffc000">
     <link rel="apple-touch-icon" sizes="180x180" href="branding/genk/apple-touch-icon.png">
@@ -118,7 +118,11 @@
             <!-- The big map -->
             <div class="map-container container-fluid nopadding">
                 <div class="bottom-left-anchor nopadding">
-                    <!-- Unused ATM -->
+                    <div id="edit-button">
+                        <a id="edit-button-link" href="https://openStreetMap.org" target="_blank">
+                            <img src="assets/img/edit.svg" alt="Edit here"/>
+                        </a>
+                    </div>
                 </div>
                 <div id='map' style="height:100%; width: 100%"></div>
             </div>
@@ -355,6 +359,7 @@
         window.location.replace("https://www.mozilla.org/en-US/firefox/new/");
     }
 
+
     // Mobile browsers: add app-like button
     addToHomeScreen();
 
@@ -370,7 +375,8 @@
     } else {
         openSidebar();
     }
-   
+
+
 </script>
 
 

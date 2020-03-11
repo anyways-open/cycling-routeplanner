@@ -14,6 +14,11 @@ urlhash = {
             }
             this.href = href + locationHash;
         });
+        
+        
+        // update the 'edit' button
+        document.getElementById("edit-button-link").href
+            ="https://www.openstreetmap.org/edit#map=" +(map.getZoom() + 1)+ "/"+map.getCenter().lat+"/"+map.getCenter().lng;
     },
     
     formatHash: function (args, doQuery = true) {

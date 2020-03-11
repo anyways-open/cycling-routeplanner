@@ -157,7 +157,7 @@ function calculateRoute(origin, destination, profile = "genk") {
     function success(json) {
         var routeColor = profileConfig.routecolor.color;
 
-        if (profile == selectedProfile) {
+        if (profile === selectedProfile) {
             sidebarDisplayProfile(selectedProfile);
         }
 
@@ -181,9 +181,9 @@ function calculateRoute(origin, destination, profile = "genk") {
                 }
                 popularColors[route[i].properties.cycle_network_colour] = c;
             } else {
-                var colors = route[i].properties.cycle_network_colour.split(',');
+                let colors = route[i].properties.cycle_network_colour.split(',');
                 colors.forEach(function(color) {
-                    var c = popularColors[color];
+                    let c = popularColors[color];
                     if (c !== undefined) {
                         c++;
                     } else {
@@ -228,8 +228,6 @@ function calculateRoute(origin, destination, profile = "genk") {
         if (json.instructions) {
             addInstructions(json.instructions, profile);
         }
-
-        var localConfig = profileConfigs[profile];
         var profileDivId = profile+"-instruction";
         if (routeStops.length === 2) {
             let totaltimeElectr =  timeToText(routeStops[1].properties.time * 15 / 20 );

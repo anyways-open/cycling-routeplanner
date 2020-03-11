@@ -9,7 +9,7 @@ window.onload = function () {
     
     sidebarDisplayProfile(selectedProfile);
 
-    state.sideBarIsOpen = urlparams.query.sb === "true";
+    state.sideBarIsOpen = urlparams.query.sb !== "false";
     if(state.sideBarIsOpen){
         openSidebar();
     }else{
@@ -63,8 +63,7 @@ window.onload = function () {
         trackUserLocation: true
     }), 'top-left');
     map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
-
-			
+    
     if (urlparams.zoom) {
         // jump to view.
         map.jumpTo({
@@ -122,14 +121,6 @@ function inlineAllSvgs(){
         }, 'xml');
     });
 }
-
-function htmlToElement(html) {
-    let template = document.createElement('template');
-    html = html.trim(); // Never return a text node of whitespace as the result
-    template.innerHTML = html;
-    return template.content.firstChild;
-}
-
 /**
  * Formats the distance, given in meters
  * @param distance
