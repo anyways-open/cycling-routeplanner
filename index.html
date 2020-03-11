@@ -18,9 +18,9 @@
     <link href='assets/css/general_style.css' rel='stylesheet'/>
     <link href='assets/css/safari-fix.css' rel='stylesheet'/>
 
-    <!-- Branding specific stuff below -->
-    <title>Anyways | Cycling Route Planner</title>
+    <title>Anyways | Cycling Route Planner</title><!-- Will be overwritten -->
 
+    <!-- Branding specific stuff below -->
     <meta name="msapplication-TileColor" content="#ffc000">
     <meta name="theme-color" content="#ffc000">
     <link rel="apple-touch-icon" sizes="180x180" href="branding/lantis/apple-touch-icon.png">
@@ -118,7 +118,11 @@
             <!-- The big map -->
             <div class="map-container container-fluid nopadding">
                 <div class="bottom-left-anchor nopadding">
-                    <!-- Unused ATM -->
+                    <div id="edit-button">
+                        <a id="edit-button-link" href="https://openStreetMap.org" target="_blank">
+                            <img src="assets/img/edit.svg" alt="Edit here"/>
+                        </a>
+                    </div>
                 </div>
                 <div id='map' style="height:100%; width: 100%"></div>
             </div>
@@ -242,9 +246,10 @@
                             </div>
                         </div>
                     </div>
-                    <p id="profile1-paragraph">Profile1-paragraph</p>
+                    <p id="profile1-paragraph" class="profile-paragraph">Profile1-paragraph</p>
                 </div>
             </div>
+            <span id="profile1-instruction-extra"></span>
         </div>
 
 
@@ -270,9 +275,10 @@
                             </div>
                         </div>
                     </div>
-                    <p id="profile2-paragraph">profile2-paragraph</p>
+                    <p id="profile2-paragraph" class="profile-paragraph">profile2-paragraph</p>
                 </div>
             </div>
+            <span id="profile2-instruction-extra"></span>
         </div>
 
 
@@ -298,10 +304,10 @@
                             </div>
                         </div>
                     </div>
-                    <p id="profile3-paragraph">profile3-paragraph</p>
+                    <p id="profile3-paragraph" class="profile-paragraph">profile3-paragraph</p>
                 </div>
             </div>
-
+            <span id="profile3-instruction-extra"></span>
         </div>
 
     </div>
@@ -353,21 +359,24 @@
         window.location.replace("https://www.mozilla.org/en-US/firefox/new/");
     }
 
+
     // Mobile browsers: add app-like button
     addToHomeScreen();
 
-
-    if (window.innerWidth <= 767) {
-        closeSidebar();
-    } else {
-        openSidebar();
-    }
     loadBrandedTexts();
     applyBrand();
     inlineAllSvgs();
     showOrHideClearButtons();
     initLanguageControls();
     applyNavigatorLanguage();
+
+    if (window.innerWidth <= 767) {
+        closeSidebar();
+    } else {
+        openSidebar();
+    }
+
+
 </script>
 
 

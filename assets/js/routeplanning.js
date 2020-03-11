@@ -83,7 +83,7 @@ if (typeof(Storage) !== "undefined") {
  */
 function timeToText(s) {
     if (s < 60) {
-        return '1min';
+        return '1';
     }
     if (s < 3600) {
         return `${Math.round(s / 60)}`;
@@ -91,15 +91,6 @@ function timeToText(s) {
     var h = Math.floor(s / 3600);
     var m = Math.floor((s % 3600) / 60);
     return `${h} uur, ${m}`;    
-}
-
-/**
- * Round number to 3 decimals
- * @param num
- * @returns {number}
- */
-function roundToThree(num) {
-    return +(Math.round(num + "e+2") + "e-2");
 }
 
 /**
@@ -179,7 +170,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     function success(json) {
         var routeColor = profileConfig.routecolor.color;
 
-        if (profile == selectedProfile) {
+        if (profile === selectedProfile) {
             sidebarDisplayProfile(selectedProfile);
         }
 
@@ -203,9 +194,9 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                 }
                 popularColors[route[i].properties.cycle_network_colour] = c;
             } else {
-                var colors = route[i].properties.cycle_network_colour.split(',');
+                let colors = route[i].properties.cycle_network_colour.split(',');
                 colors.forEach(function(color) {
-                    var c = popularColors[color];
+                    let c = popularColors[color];
                     if (c !== undefined) {
                         c++;
                     } else {
@@ -250,12 +241,10 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
         if (json.instructions) {
             addInstructions(json.instructions, profile);
         }
-
-        var localConfig = profileConfigs[profile];
         var profileDivId = profile+"-instruction";
         if (routeStops.length === 2) {
             let totaltimeElectr =  timeToText(routeStops[1].properties.time * 15 / 20 );
-            $(`#${profileDivId} .distance`).html(`${roundToThree(routeStops[1].properties.distance / 1000)} km`);
+            $(`#${profileDivId} .distance`).html(`${formatDistance(routeStops[1].properties.distance)}`);
             $(`#${profileDivId} .time`).html(`${timeToText(routeStops[1].properties.time)} min`);
             $(`#${profileDivId} .time-electric`).html(`${totaltimeElectr} min`);
             //$instrResume.html(`<div></div><div>min<br><div><img class="electricity" src="assets/img/electricity.svg"/>  </div></div>`);
@@ -288,7 +277,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                     source: profile + "-source",
                     paint: {
                         'line-color': "#FFFFFF",
-                        'line-width': width*1.5,
+                        'line-width': width*1.9,
                         'line-opacity': opacity
                     },
                     layout: {
@@ -544,16 +533,6 @@ function initInputGeocoders() {
                     fromFieldInputDetected(document.getElementById("fromInput"));
                     toFieldInputDetected(document.getElementById("toInput"));
                 });
-
-            // Nominatim Geocoder
-            //$.getJSON(`https://nominatim.openstreetmap.org/search?q=${query}&format=json&polygon=0&addressdetails=0&countrycodes=BE`/*bounded=1&viewbox=4.239465,50.930741,4.501558,50.784803`*/, function (data) {
-            /*    var resArray = [];
-                for (var feature in data) {
-                    resArray.push({name: data[feature].display_name, loc: [data[feature].lon, data[feature].lat]});
-                }
-                callback(resArray);
-            });*/
-
         },
         matcher: function (s) {   //Fix display results when query contains space
             return true;

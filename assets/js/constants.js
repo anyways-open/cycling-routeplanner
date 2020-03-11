@@ -1,7 +1,6 @@
 var mapboxAccessCode = "pk.eyJ1IjoiYmVuLWFueXdheXMiLCJhIjoiY2szdWhla3R5MGNoajN1cHMyZG51aXF3byJ9.kcM0vy7kDdugKiur9g6lWw";
 
-const routeWidthMain = 6;
-const routeWidthAlternative = 3;
+const routeWidthMain = 8;
 const routeOpacityMain = 1;
 const routeOpacityAltnerative = 0.0;
 

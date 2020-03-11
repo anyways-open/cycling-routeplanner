@@ -1,4 +1,6 @@
 urlhash = {
+
+
     updateHash: function (state) {
         location.hash = urlhash.formatHash(state);  
         
@@ -12,6 +14,11 @@ urlhash = {
             }
             this.href = href + locationHash;
         });
+        
+        
+        // update the 'edit' button
+        document.getElementById("edit-button-link").href
+            ="https://www.openstreetmap.org/edit#map=" +(map.getZoom() + 1)+ "/"+map.getCenter().lat+"/"+map.getCenter().lng;
     },
     
     formatHash: function (args, doQuery = true) {
@@ -25,44 +32,49 @@ urlhash = {
         var hash = '#' + zoom.toFixed(2) +
             '/' + center.lat.toFixed(precision) +
             '/' + center.lng.toFixed(precision);
+        hash += "?sb=" + state.sideBarIsOpen;
         if (query && doQuery) {
-            var queryHash = urlhash.toQueryString(query);
-            if (queryHash) {
-                hash = hash + '?' + urlhash.toQueryString(query);
-            }
+            hash += '&' + urlhash.toQueryString(query);
         }
         return hash;
     },
-    
-    parseHash: function (hash) {
+
+    parseHash: function (url) {
         var args = {};
 
-        var i = hash.indexOf('#');
-        if (i < 0) {
-            return args;
+        let urlSplitQM = url.split("?");
+        if (urlSplitQM.length > 1) {
+            url = urlSplitQM[0];
+            let queryString = urlSplitQM[1];
+            args.query = {};
+
+            let parts = queryString.split("&");
+            for (let j = 0; j < parts.length; j++) {
+                let [key, value] = parts[j].split('=');
+                args.query[key] = value;
+            }
         }
 
-        hash = hash.substr(i + 1);
 
-        var q = hash.indexOf('?');
-        if (q >= 0) {
-            var queryString = hash.substr(q + 1);
-            args.query = urlhash.fromQueryString(queryString);
+        let urlSplitHash = url.split("#");
+        if (urlSplitHash.length > 1) {
+            var coordinates = urlSplitHash[1];
+
+
+            let splitBySlash = coordinates.split('/');
+            let zoom = parseFloat(splitBySlash[0]);
+            let lat = parseFloat(splitBySlash[1]);
+            let lng = parseFloat(splitBySlash[2]);
+
+            if (!isNaN(zoom) && !isNaN(lat) && !isNaN(lng)) {
+                args.center = {
+                    lat: lat,
+                    lng: lng
+                };
+                args.zoom = zoom;
+            }
+
         }
-
-        var map = (hash || '').split('/'),
-            zoom = parseFloat(map[0]),
-            lat = parseFloat(map[1]),
-            lng = parseFloat(map[2]);
-
-        if (!isNaN(zoom) && !isNaN(lat) && !isNaN(lng)) {
-            args.center = { 
-                lat: lat,
-                lng: lng
-            };
-            args.zoom = zoom;
-        }
-
         return args;  
     },
 
@@ -73,28 +85,6 @@ urlhash = {
             .join('&');
     },
 
-    fromQueryString: function (queryString ) {
-        var params = {}, temp, i, l;
-    
-        if (!queryString) {
-            return null;
-        }
-        if (!queryString.includes("=")) {
-            return null;
-        }
-        if (queryString.startsWith("?")) {
-            queryString = queryString.substr(1);
-        }
-    
-        // Split into key/value pairs
-        var queries = queryString.split("&");
-        // Convert the array of strings into an object
-        for ( i = 0, l = queries.length; i < l; i++ ) {
-            temp = queries[i].split('=');
-            params[temp[0]] = temp[1];
-        }
-        return params;
-    },
 
     zoomPrecision: function (zoom) {
         return Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2));

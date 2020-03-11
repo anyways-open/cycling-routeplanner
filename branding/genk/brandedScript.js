@@ -1,8 +1,10 @@
 document.title = "Genk | Fietsrouteplanner";
 
 var initialMap = {
-    center: [5.515377, 50.962004],
-    zoom: 13.33,
+
+
+    center: [5.5063, 50.9625],
+    zoom: 12.82,
     style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
 };
 
@@ -90,8 +92,8 @@ var profileConfigs = {
     },
     "profile3": {
         backendName: "bicycle.shortest",
-        frontendName: "Kortst",
-        frontendSubtitle: "Dit is de korste route",
+        frontendName: "Snelst",
+        frontendSubtitle: "Dit is de snelste route",
         frontendExplanation: "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
         frontendLogo: "./assets/img/fast.svg",
         layers: {
@@ -115,40 +117,38 @@ var profileConfigs = {
 
 
  // This scripts add the legend entries on the span with ID 'legend'"
-function addLegendEntries(){
+function addLegendEntriesTo(pane){
        
-    var element = document.getElementById("profile1-summary-extra");
+    var element = document.getElementById(pane);
 
     // The data to add. Eventually, this can be changed to an overpass-query or external data set someday
-    var routes = [{ref: 1, name: "Termien - Centrum - C-mine", colour: "#fce34b"}, // The yellow is darkened a little for readability
-        {ref: 2, name: "Hasselt - Bokrijk - Centrum", colour: "#35b1f4"},
-        {ref: 3, name: "Bokrijk - Hasseltweg - Centrum - Synaps Park - Molenblook - Kattevennen", colour: "#24ef15"},
-        {ref: 4, name: "Winterslag (Industrie) - C-mine - Bret - Gelieren - Wiemesmeer", colour: "#efa639"},
-        {ref: 5, name: "LABIOMISTA - Driehoeven - Winterslag - Kolderbos - Sledderlo - Industrie-Zuid", colour: "#d8863e"},
-        {ref: 6, name: "Zwartberg - SportinGenk park - Campus Bret - Centrum", colour: "#9837C1"},
-        {ref: 7, name: "Cirkellijn", colour: "#b81e54"}];
+    var routes = [{ref: 1, name: "Industrie-Zuid – C-mine", colour: "#fce34b"}, // The yellow is darkened a little for readability
+        {ref: 2, name: "Vallei-route", colour: "#35b1f4"},
+        {ref: 3, name: "Bokrijk - Kattevennen", colour: "#24ef15"},
+        {ref: 4, name: "Industrie-Noord – Gelieren", colour: "#efa639"},
+        {ref: 5, name: "Nieuwe Kempen – Sledderlo", colour: "#d8863e"},
+        {ref: 6, name: "Zwartberg - Centrum", colour: "#9837C1"},
+        {ref: 7, name: "Genkerring", colour: "#b81e54"}];
 
 
-    function routeinfo(routeRef) {
-        console.log("Clicked route information for " + routeRef);
-    }
-
+   
 
     var contents = "<table class='table table-sm table-borderless'><tbody>";
 
 
     for (var i in routes) {
         var route = routes[i];
-        contents += "<tr onclick='routeinfo(" + route.ref + ")'><td><div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div></td><td><div class='legend-text'>" + route.name + "</div></td>"
+        contents += "<tr><td><div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div></td><td><div class='legend-text'>" + route.name + "</div></td>"
     }
 
     contents += "</tbody></table>";
-    element.innerHTML = "<h5>" + contents + "</h5>";
+    element.innerHTML = "<h4>" + contents + "</h4>";
 }
 
 
 function applyBrand(){
-    addLegendEntries();
+    addLegendEntriesTo("profile1-summary-extra");
+    addLegendEntriesTo("profile1-instruction-extra");
 }
 
 
@@ -186,33 +186,33 @@ branding.prototype.addLayers = function(map) {
         "layout": {
             "line-join": "round",
             "line-cap": "round"
-          },
-          "paint": {
+        },
+        "paint": {
             "line-color": ['get', 'colour'],
             "line-width": [
                 'interpolate', ['linear'], ['zoom'],
                 10, 1,
                 13, 2,
                 16, 6
-              ],
+            ],
             "line-opacity": 0.5
-          },
-          "filter": [
+        },
+        "filter": [
             "all",
             [
-              "==",
-              "$type",
-              "LineString"
+                "==",
+                "$type",
+                "LineString"
             ],
             [
-              "all",
-              [
-                "==",
-                "operator",
-                "Stad Genk"
-              ]
+                "all",
+                [
+                    "==",
+                    "operator",
+                    "Stad Genk"
+                ]
             ]
-          ]
+        ]
     }, lowestLabel);
 
     map.addLayer({
@@ -223,47 +223,47 @@ branding.prototype.addLayers = function(map) {
         "minzoom": 10,
         "maxzoom": 24,
         "layout": {
-          "icon-image": "us-state_2",
-          "icon-rotation-alignment": "viewport",
-          "icon-size": 1,
-          "symbol-placement": {
-            "base": 1,
-            "stops": [
-              [
-                10,
-                "point"
-              ],
-              [
-                11,
-                "line"
-              ]
-            ]
-          },
-          "symbol-spacing": 200,
-          "text-field": "{ref}",
-          "text-font": [
-            "Noto Sans Regular"
-          ],
-          "text-rotation-alignment": "viewport",
-          "text-size": 10
+            "icon-image": "us-state_1",
+            "icon-rotation-alignment": "viewport",
+            "icon-size": 1,
+            "symbol-placement": {
+                "base": 1,
+                "stops": [
+                    [
+                        10,
+                        "point"
+                    ],
+                    [
+                        11,
+                        "line"
+                    ]
+                ]
+            },
+            "symbol-spacing": 200,
+            "text-field": "{ref}",
+            "text-font": [
+                "Noto Sans Regular"
+            ],
+            "text-rotation-alignment": "viewport",
+            "text-size": 10
         },
         "filter": [
-          "all",
-          [
-            "==",
-            "$type",
-            "LineString"
-          ],
-          [
             "all",
             [
-              "==",
-              "operator",
-              "Stad Genk"
+                "==",
+                "$type",
+                "LineString"
+            ],
+            [
+                "all",
+                [
+                    "==",
+                    "operator",
+                    "Stad Genk"
+                ]
             ]
-          ]
         ]
-      });
+    });
 };
 
 var brand = new branding();

@@ -10,5 +10,6 @@ var state = {
     location1Marker: undefined,
     location2: undefined, // The 'To'-location
     location2Marker: undefined,
-    routeRequests: {}
-}
+    routeRequests: {},
+    sideBarIsOpen: undefined
+};

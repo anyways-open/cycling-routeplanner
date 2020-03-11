@@ -2,11 +2,7 @@
  * All the handling of the sidebar
  * - Showing/Hiding
  * - Highlighting the selected profile
- */ 
-
-
-var isSidebarVisible = false;
-
+ */
 function toggleSidebar(){
     var isClosed = sidebarIsClosed();
     if(isClosed){
@@ -14,6 +10,8 @@ function toggleSidebar(){
     }else{
         closeSidebar();
     }
+    updateUrlParams();
+   
 }
 
 function sidebarIsClosed() {
@@ -43,6 +41,7 @@ function closeSidebar() {
             buttons[i].classList.remove('sidebar-toggle-button-close');
         }
     }
+    state.sideBarIsOpen = false;
 }
 
 /**
@@ -66,6 +65,7 @@ function openSidebar() {
             buttons[i].classList.add('sidebar-toggle-button-close');
         }
     }
+    state.sideBarIsOpen = true;
 }
 
 
@@ -103,8 +103,6 @@ function sidebarDisplayProfile(profile) {
     }
 
     selectedProfile = profile;
-    var localConfig = profileConfigs[selectedProfile];
-    
     $(".route-instructions").addClass("height-zero");
     $(".profile-summary").addClass("height-zero");
     $("#sidebar-top>span").removeClass("active");
@@ -116,15 +114,14 @@ function sidebarDisplayProfile(profile) {
     $(`#${profileButtonId}`).addClass("active");
     $(`#${profileButtonId}-mobile`).addClass("active");
 
-    var profileDivId = profile+"-instruction";
-    var summaryDivId = profile+"-summary";
+
     if (state.location1 && state.location2) {
-        //$(".profile-summary-explanation").addClass("height-zero");
+        var profileDivId = profile+"-instruction";
         $(`#${profileDivId}`).removeClass("height-zero");
-    
     } else {
+        var summaryDivId = profile + "-summary";
         $(`#${summaryDivId}`).removeClass("height-zero");
-    }   
+    }
 
     showLayersForProfile(selectedProfile);
 }
