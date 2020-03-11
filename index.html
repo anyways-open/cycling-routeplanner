@@ -358,18 +358,19 @@
     // Mobile browsers: add app-like button
     addToHomeScreen();
 
-
-    if (window.innerWidth <= 767) {
-        closeSidebar();
-    } else {
-        openSidebar();
-    }
     loadBrandedTexts();
     applyBrand();
     inlineAllSvgs();
     showOrHideClearButtons();
     initLanguageControls();
     applyNavigatorLanguage();
+
+    if (window.innerWidth <= 767) {
+        closeSidebar();
+    } else {
+        openSidebar();
+    }
+   
 </script>
 
 

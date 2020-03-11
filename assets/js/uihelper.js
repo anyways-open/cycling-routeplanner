@@ -5,11 +5,19 @@ let windowLoaded = false;
  * Do stuff when the window is done loading, such as interpreting the URL parameters
  */
 window.onload = function () {
+    let urlparams = urlhash.parseHash(location.hash);
     
     sidebarDisplayProfile(selectedProfile);
 
-    let urlparams = urlhash.parseHash(location.hash);
+    state.sideBarIsOpen = urlparams.query.sb === "true";
+    if(state.sideBarIsOpen){
+        openSidebar();
+    }else{
+        closeSidebar();
+    }
     
+    
+    console.log(location.hash, state, "Sidebar is ", state.sideBarIsOpen);
     if (urlparams.query && urlparams.query.o) {
         // Note: the definition of 'state' can be found in 'state.js'
         var c = urlparams.query.o.split(',');
@@ -28,7 +36,7 @@ window.onload = function () {
     }
 
     if (urlparams.query && urlparams.query.p) {
-        if (urlparams.query.p != selectedProfile) {
+        if (urlparams.query.p !== selectedProfile) {
             sidebarDisplayProfile(urlparams.query.p);
         }
     }    

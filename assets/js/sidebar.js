@@ -2,11 +2,7 @@
  * All the handling of the sidebar
  * - Showing/Hiding
  * - Highlighting the selected profile
- */ 
-
-
-var isSidebarVisible = false;
-
+ */
 function toggleSidebar(){
     var isClosed = sidebarIsClosed();
     if(isClosed){
@@ -14,6 +10,8 @@ function toggleSidebar(){
     }else{
         closeSidebar();
     }
+    updateUrlParams();
+   
 }
 
 function sidebarIsClosed() {
@@ -43,6 +41,7 @@ function closeSidebar() {
             buttons[i].classList.remove('sidebar-toggle-button-close');
         }
     }
+    state.sideBarIsOpen = false;
 }
 
 /**
@@ -66,6 +65,7 @@ function openSidebar() {
             buttons[i].classList.add('sidebar-toggle-button-close');
         }
     }
+    state.sideBarIsOpen = true;
 }
 
 
