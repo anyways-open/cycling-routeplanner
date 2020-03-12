@@ -538,6 +538,15 @@ table tr td {
     background-image: url(icons/ic_menu_black_24px.svg);
 }
 
+.mapboxgl-ctrl-attrib p {
+    display: inline;
+}
+
+#edit-button-link img {
+    height: 14px;
+    
+}
+
 @media only screen and (max-width: 767px) {
     body {
         font-size: 0.95rem;

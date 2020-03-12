@@ -44,7 +44,8 @@ var map = new mapboxgl.Map({
     style: initialMap.style,
     center: initialMap.center,
     zoom: initialMap.zoom,
-    preserveDrawingBuffer: true
+    preserveDrawingBuffer: true,
+    attributionControl: false,
 });
 
 map.addControl(new mapboxgl.NavigationControl());

@@ -64,6 +64,13 @@ window.onload = function () {
     }), 'top-left');
     map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
     
+    
+    
+    let attributionControl = new mapboxgl.AttributionControl({compact:false, customAttribution:
+            "<a id=\"edit-button-link\" href=\"https://openStreetMap.org\" target=\"_blank\">\n" +
+            "<img src=\"assets/img/edit.svg\" alt=\"Edit OSM here\"/> </a>"})
+    map.addControl(attributionControl)
+    
     if (urlparams.zoom) {
         // jump to view.
         map.jumpTo({
