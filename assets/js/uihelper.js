@@ -65,9 +65,9 @@ window.onload = function () {
     map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
     
     
-    
+    let startLink = "https://www.openstreetmap.org/edit#map=" +(map.getZoom() + 1)+ "/"+map.getCenter().lat+"/"+map.getCenter().lng;
     let attributionControl = new mapboxgl.AttributionControl({compact:false, customAttribution:
-            "<a id=\"edit-button-link\" href=\"https://openStreetMap.org\" target=\"_blank\">\n" +
+            "<a id=\"edit-button-link\" href=\"" + startLink + \" target=\"_blank\">\n" +
             "<img src=\"assets/img/edit.svg\" alt=\"Edit OSM here\"/> </a>"})
     map.addControl(attributionControl)
     
