@@ -13,13 +13,14 @@ window.onload = function () {
     
     sidebarDisplayProfile(selectedProfile);
 
-    state.sideBarIsOpen = urlparams.query.sb !== "false";
-    if(state.sideBarIsOpen){
-        openSidebar();
-    }else{
-        closeSidebar();
+	if(urlparams.query){
+		state.sideBarIsOpen = urlparams.query.sb !== "false";
+		if(state.sideBarIsOpen){
+		    openSidebar();
+		}else{
+		    closeSidebar();
+		}
     }
-    
     
     console.log(location.hash, state, "Sidebar is ", state.sideBarIsOpen);
     if (urlparams.query && urlparams.query.o) {
