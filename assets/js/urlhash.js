@@ -17,8 +17,14 @@ urlhash = {
         
         
         // update the 'edit' button
+        try{
+            
         document.getElementById("edit-button-link").href
             ="https://www.openstreetmap.org/edit#map=" +(map.getZoom() + 1)+ "/"+map.getCenter().lat+"/"+map.getCenter().lng;
+        }catch(e){
+            // Oops, not initialized yet
+            console.log("Could not update edit link", e)
+        }
     },
     
     formatHash: function (args, doQuery = true) {
