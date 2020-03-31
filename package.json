@@ -1,0 +1,33 @@
+{
+  "name": "cycling-frontend",
+  "version": "1.0.0",
+  "description": "This is a generic, unbranded version of a route planner for cyclists, which can be rebranded for your city or organisation. Actual routeplanning is done by a backend server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anyways-open/cycling-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anyways-open/cycling-frontend/issues"
+  },
+  "homepage": "https://github.com/anyways-open/cycling-frontend#readme",
+  "dependencies": {
+    "@types/mapbox-gl": "^1.7.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
+    "mapbox-gl": "^1.7.0",
+    "mapbox-gl-geocoder": "^2.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "babel-preset-env": "^1.7.0",
+    "typescript": "^3.8.3"
+  }
+}
