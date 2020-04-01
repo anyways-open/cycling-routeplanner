@@ -1,3 +1,4 @@
+@import './node_modules/mapbox-gl/dist/mapbox-gl.css';
 @import './assets/css/bootstrap.min.css';
 @import './assets/css/size_toggles.css';
 @import './assets/css/general_style.css';

@@ -1,21 +1,11 @@
 import mapboxgl from 'mapbox-gl';
 import $ from 'jquery';
 import './assets/js/bootstrap3-typeahead.min.js';
+import networksvg from './assets/img/network.svg';
+import birdsvg from './branding/anyways/bird.svg';
+import fastsvg from './assets/img/fast.svg';
 
 var jQuery = $;
-
-// initialize the map.
-const mapboxAccessCode = "pk.eyJ1IjoiYmVuLWFueXdheXMiLCJhIjoiY2p6d3RyMzVhMGVoYjNibGEwNGYzc21zciJ9.T9X-lvJFZrWiFyzYQUPIew";
-mapboxgl.accessToken = mapboxAccessCode;
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH',
-    center: [4.868640, 50.813588], // starting position [lng, lat]&lat=&lng=
-    zoom: 8.64, // starting zoom
-    preserveDrawingBuffer: true
-});
-
-map.addControl(new mapboxgl.NavigationControl());
 
 // constants.js
 
@@ -87,7 +77,7 @@ var profileConfigs = {
             "en": "A safe and comfortable route without losing to much time",
             "fr": "Ce profil évite les plus grandes rues et préfère les pistes cyclables."
         },
-        frontendLogo: "./branding/anyways/bird.svg",
+        frontendLogo: birdsvg,
 
         layers: {
             "cyclenetworks": {
@@ -128,7 +118,7 @@ var profileConfigs = {
                 "en": "A safe and comfortable route which follows the Brussels cycling network",
                 "fr": "Une route via le réseau Bruxellois sûr et comfortable"
             },
-        frontendLogo: "./assets/img/network.svg",
+        frontendLogo: networksvg,
         layers: {
             "cyclenetworks": false,
             "cyclenetwork-tiles": false,
@@ -160,7 +150,7 @@ var profileConfigs = {
                 "en": "Only for real speed devils for whom every minute counts. Might take busy roads",
                 "fr": "Uniquement pour quand chaque minute compte."
             },
-        frontendLogo: "./assets/img/fast.svg",
+        frontendLogo: fastsvg,
         layers: {
             "cyclenetworks": false,
             "cyclenetwork-tiles": false,
@@ -543,7 +533,7 @@ function timeToText(s) {
 function calculateAllRoutes(origin, destination, profiles = availableProfiles) {
     $(".route-instructions ul").html("");
     $(`.route-instructions .elevation-info`).html("<img src='./img/Loading.gif' style='width: 100%;'  alt=\"Loading...\" />");
-    routes = {};
+    state.routes = {};
     removeAllRoutesFromMap();
     profiles.forEach(function (profile) {
         calculateRoute(origin, destination, profile);
@@ -588,7 +578,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     if (apiKey) {
         url = url + "&api-key=" + apiKey;
     }
-    routes[profile] = [];
+    state.routes[profile] = [];
 
     if (state.routeRequests[profile]) {
         try {
@@ -617,7 +607,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
         let routeStops = [];
         let heightInfo = [];
 
-        route = json.features;
+        var route = json.features;
 
         var popularColors = {};
         for (let i in route) {
@@ -677,9 +667,9 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                 console.log("Failed to read height info", e);
             }
         }
-        routes[profile] = route;
+        state.routes[profile] = route;
         if (json.instructions) {
-            addInstructions(json.instructions, profile);
+            //addInstructions(json.instructions, profile);
         }
         var profileDivId = profile+"-instruction";
         if (routeStops.length === 2) {
@@ -789,7 +779,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
 function removeAllRoutesFromMap() {
     sidebarDisplayProfile(selectedProfile);
     for (let i in availableProfiles) {
-        profile = availableProfiles[i];
+        var profile = availableProfiles[i];
         if (map.getLayer(profile)) {
             map.removeLayer(profile);
         }
@@ -819,7 +809,7 @@ function showLocationsOnMap() {
         state.location1Marker.on('dragend', function () {
             var latLng = state.location1Marker.getLngLat();
             state.location1 = [latLng.lng, latLng.lat];
-            me.showLocationsOnMap();
+            showLocationsOnMap();
             // Update 'from'-textfield
            
             $.getJSON(urls.reverseGeocoder.format(latLng.lng,latLng.lat), function(data){
@@ -839,7 +829,7 @@ function showLocationsOnMap() {
         state.location2Marker.on('dragend', function () {
             var latLng = state.location2Marker.getLngLat();
             state.location2 = [latLng.lng, latLng.lat];
-            me.showLocationsOnMap();
+            showLocationsOnMap();
             // Update 'to'-textfield
             $.getJSON(urls.reverseGeocoder.format(latLng.lng,latLng.lat), function(data){
                 let address = data.features[0].place_name;
@@ -912,6 +902,7 @@ map.on('load', function () {
  * (start or end, depending on whether there already is a start).
  */
 map.on('click', function (e) {
+    console.log('click');
     var bbox = [[e.point.x - 5, e.point.y - 5], [e.point.x + 5, e.point.y + 5]];
     var features = map.queryRenderedFeatures(
         bbox,
@@ -1850,6 +1841,25 @@ if (detectIE()) {
 
 document.getElementById("sidebarHamburger").addEventListener("click", toggleSidebar);
 document.getElementById("toggleSidebarFull").addEventListener("click", toggleSidebar);
+document.getElementById("profile1").addEventListener("click", (ev) => {
+    sidebarDisplayProfileHtmlId('profile1');
+});
+document.getElementById("profile1-full").addEventListener("click", (ev) => {
+    sidebarDisplayProfileHtmlId('profile1');
+});
+document.getElementById("profile2").addEventListener("click", (ev) => {
+    sidebarDisplayProfileHtmlId('profile2');
+});
+document.getElementById("profile2-full").addEventListener("click", (ev) => {
+    sidebarDisplayProfileHtmlId('profile2');
+});
+document.getElementById("profile3").addEventListener("click", (ev) => {
+    sidebarDisplayProfileHtmlId('profile3');
+});
+document.getElementById("profile3-full").addEventListener("click", (ev) => {
+    sidebarDisplayProfileHtmlId('profile3');
+});
+
 
 if (window.innerWidth <= 767) {
     closeSidebar();
