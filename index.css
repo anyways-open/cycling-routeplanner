@@ -6,3 +6,13 @@
 @import './instance.css';
 
 
+.gpx-svg {
+    height: 20px;
+    vertical-align: middle;
+}
+
+.gpx-svg path {
+    fill: gray;
+    stroke: gray;
+}
+

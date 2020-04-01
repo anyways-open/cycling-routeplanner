@@ -3,9 +3,11 @@ import $ from 'jquery';
 import './assets/js/bootstrap3-typeahead.min.js';
 import GlobalSvg from './assets/img/*.svg';
 import { branding } from './instance';
+import { GpxExporter} from './components/gpx/gpxExport';
 
 var jQuery = $;
 
+var gpxExporter = new GpxExporter();
 
 // constants.js
 
@@ -1677,6 +1679,9 @@ document.getElementById("toInput").addEventListener("input", toFieldInputDetecte
 document.getElementById("clearInputFieldFromButton").addEventListener("click", clearInputFieldFrom);
 document.getElementById("swapOriginDestination").addEventListener("click", swapOriginDestination);
 document.getElementById("clearInputFieldToButton").addEventListener("click", clearInputFieldTo);
+document.getElementById("gpx-export-button").addEventListener("click", e => { 
+    gpxExporter.exportRoute(state.routes[selectedProfile]); 
+});
 
 if (window.innerWidth <= 767) {
     closeSidebar();
