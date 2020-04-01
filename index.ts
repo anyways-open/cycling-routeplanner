@@ -1455,9 +1455,11 @@ window.onload = function () {
     let attributionControl = new mapboxgl.AttributionControl({
         compact: false, customAttribution:
             "<a id=\"edit-button-link\" href=\"" + startLink + "\" target=\"_blank\">\n" +
-            "<img src=\"" + GlobalSvg["edit"] + "\" alt=\"Edit OSM here\"/> </a>"
+            "<img src=\"" + GlobalSvg["edit"] + "\" alt=\"Edit OSM here\"/> </a>" + 
+            " | " +
+            "<a href=\"https://www.anyways.eu/cycling-app.html\">ANYWAYS BV</a>"
     });
-    map.addControl(attributionControl)
+    map.addControl(attributionControl);
 
     if (urlparams.zoom) {
         // jump to view.
