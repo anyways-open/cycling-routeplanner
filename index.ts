@@ -1658,6 +1658,9 @@ if (window.innerWidth <= 767) {
     openSidebar();
 }
 
+// TODO: move all branding specifics here!
+branding.apply();
+
 loadBrandedTexts();
 inlineAllSvgs();
 showOrHideClearButtons();

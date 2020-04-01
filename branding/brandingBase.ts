@@ -5,6 +5,7 @@ import { IDictionary } from "../Dictionary";
 
 export class BrandingBase {
     title: string;
+    logo: string;
     mapCenter: number[];
     mapStyle: string;
     mapZoom: number;
@@ -14,7 +15,21 @@ export class BrandingBase {
     selectedProfile: string;
     translations: IDictionary<TranslatedString>;
     languages: string[];
-    
+
+    apply(): void {
+        // set icon.
+        var head = document.head || document.getElementsByTagName('head')[0];
+        var link = document.createElement('link'),
+            oldLink = document.getElementById('dynamic-favicon');
+        link.id = 'dynamic-favicon';
+        link.rel = 'shortcut icon';
+        link.href = this.logo;
+        if (oldLink) {
+            head.removeChild(oldLink);
+        }
+        head.appendChild(link);
+    }
+
     addLayers(map: Map): void {
 
     }

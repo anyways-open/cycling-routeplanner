@@ -1,7 +1,8 @@
-import { BrandingBase } from "../brandingInterface";
+import { BrandingBase } from "../brandingBase";
 import { ProfileConfig } from "../profileConfig";
 import LocalSvg from "*.svg";
 import GlobalSvg from "../../assets/img/*.svg";
+import logo from "./favicon-96.png";
 import { IDictionary, Dictionary } from "../../Dictionary";
 import { TranslatedString } from "../translatedString";
 
@@ -9,12 +10,14 @@ export class Branding extends BrandingBase {
     constructor() {
         super();
 
+        this.logo = logo;
         this.title = "Bike for Brussels | Routeplanner";
         this.mapCenter = [4.3555, 50.8371];
         this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH';
         this.mapZoom = 11.54;
         this.selectedProfile = 'profile1';
         this.profile1 = {
+            backend: null,
             backendName: "bicycle.brussels",
             frontendName: {
                 nl: "Netwerk",
@@ -51,6 +54,7 @@ export class Branding extends BrandingBase {
             }
         };
         this.profile2 = {
+            backend: null,
             backendName: "bicycle.comfort_safety_speed",
             frontendName: {
                 nl: "Gebalanceerd",
@@ -93,6 +97,7 @@ export class Branding extends BrandingBase {
             }
         };
         this.profile3 = {
+            backend: null,
             backendName: "bicycle.fastest",
             frontendName: {
                 nl: "Snelst",
@@ -146,7 +151,7 @@ export class Branding extends BrandingBase {
             en: "To", 
             fr: "À"
         });
-    }
+    }    
 
     addLayers(map: import("mapbox-gl").Map): void {
         
