@@ -161,7 +161,17 @@
     margin-left: 65%
 }
 
-.legend-text {
+.legend-text  {
     text-align: center;
     font-weight: bold;
+}
+
+.gpx-svg path {
+    fill: white !important;
+    stroke: white !important;
+}
+
+.gpx-svg rect {
+    fill: white !important;
+    stroke: white !important;
 }
