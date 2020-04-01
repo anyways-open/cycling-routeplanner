@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <link rel="stylesheet"  href="index.css" />
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body class="nopadding">
@@ -29,7 +29,7 @@
                         <div class="col-9 xs-or-smaller">
                         </div>
                         <div class="col-1 xs-or-smaller" style="height: 100%">
-                            <button class="btn image-button" id="sidebarHamburger"></button>
+                            <button class="btn image-button" id="sidebarHamburger" onclick="toggleSidebar()"></button>
                         </div>
 
 
@@ -83,7 +83,8 @@
 
                         <!-- Show/hide sidebar button on the right -->
                         <div class="col-1 sm-or-bigger" style="height: 100%">
-                            <button class="sidebar-toggle-button btn image-button padding" id="toggleSidebarFull"></button>
+                            <button class="sidebar-toggle-button btn image-button padding"
+                                onclick="toggleSidebar()"></button>
                         </div>
 
                     </div>
@@ -299,6 +300,7 @@
         </div>
     </div>
 
+    <script src="./assets/js/bootstrap3-typeahead.min.js"></script>
     <script src="./index.ts"></script>
 </body>
 
