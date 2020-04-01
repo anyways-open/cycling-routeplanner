@@ -1,11 +1,12 @@
 import mapboxgl from 'mapbox-gl';
 import $ from 'jquery';
 import './assets/js/bootstrap3-typeahead.min.js';
-import networksvg from './assets/img/network.svg';
-import birdsvg from './branding/anyways/bird.svg';
-import fastsvg from './assets/img/fast.svg';
+import { Branding } from './branding/bike4brussels/branding';
+import GlobalSvg from './assets/img/*.svg';
 
 var jQuery = $;
+
+var branding = new Branding();
 
 // constants.js
 
@@ -21,6 +22,19 @@ String.prototype.format = function () {
     return a
 };
 
+const production_urls = {
+    mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
+    network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
+    //route: 'https://cycling-backend.anyways.eu/api',
+    route: 'https://routing.anyways.eu/api',
+    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?`+
+                `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612`+
+                'country=BE&'+
+                'bbox=5.3%2C50.70%2C5.7%2C51.1&'+
+                'limit=5&'+
+                'types=place,locality,neighborhood,address,poi',
+    reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
+};
 
 const test_urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
@@ -35,6 +49,7 @@ const test_urls = {
     reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
 };
 
+var urls = production_urls;
 
 // bike4brussels brandedScript.js
 
@@ -66,233 +81,6 @@ var selectedProfile = 'profile1';
 var anywaysConfigs = {
     apiKey: "mwK4irCD1whXx1XEpLQN6qotuM6P-Rh8"
 };
-
-var profileConfigs = {
-    "profile2": {
-        backendName: "bicycle.comfort_safety_speed",
-        frontendName: {"nl": "Gebalanceerd", "en": "Balanced", "fr": "Équilibrée"},
-        frontendSubtitle: {"nl": "Een gebalanceerd profiel", "en": "A balanced profile", "fr": "Une route équilibrée"},
-        frontendExplanation: {
-            "nl": "Een profiel gemaakt voor de dagelijkse pendelaar, die de voorkeur geeft aan veilige, comfortabele wegen zonder veel tijd in te boeten",
-            "en": "A safe and comfortable route without losing to much time",
-            "fr": "Ce profil évite les plus grandes rues et préfère les pistes cyclables."
-        },
-        frontendLogo: birdsvg,
-
-        layers: {
-            "cyclenetworks": {
-                "default": {
-                    "line-opacity": 1
-                },
-                "route": {
-                    "line-opacity": 0.3
-                }
-            },
-            "cyclenetworks": false,
-            "cyclenetwork-tiles": false,
-            "cyclenetwork-tiles-high": false,
-            "cyclenodes-circles": false,
-            "cyclenodes-circles-high": false,
-            "cyclenodes-circles-center": false,
-            "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false,
-            "cyclenetworks-brussels": false,
-            "cyclenetworks-brussels-shields": false
-        },
-        routecolor: {
-            backend: false,
-            color: "#d9a300"
-        }
-    },
-    "profile1": {
-        backendName: "bicycle.brussels",
-        frontendName: {"nl": "Netwerk", "en": "Network", "fr": "Réseau"},
-        frontendSubtitle: {
-            "nl": "Een route via het Brusselse fietsnetwerk",
-            "en": "A route via the Brussels cycling network",
-            "fr": "Une route via le réseau cyclable de Bruxelles"
-        },
-        frontendExplanation:
-            {
-                "nl": "Een profiel gemaakt om de veilige en comfortabele routes van het Brusselse fietsroutenetwerk te gebruiken",
-                "en": "A safe and comfortable route which follows the Brussels cycling network",
-                "fr": "Une route via le réseau Bruxellois sûr et comfortable"
-            },
-        frontendLogo: networksvg,
-        layers: {
-            "cyclenetworks": false,
-            "cyclenetwork-tiles": false,
-            "cyclenetwork-tiles-high": false,
-            "cyclenodes-circles": false,
-            "cyclenodes-circles-high": false,
-            "cyclenodes-circles-center": false,
-            "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false,
-            "cyclenetworks-brussels": true,
-            "cyclenetworks-brussels-shields": true
-        },
-        routecolor: {
-            backend: true,
-            color: "#000"
-        }
-    },
-    "profile3": {
-        backendName: "bicycle.fastest",
-        frontendName: {"nl": "Snelst", "en": "Fastest", "fr": "Rapide"},
-        frontendSubtitle: {
-            "nl": "De snelste route naar je bestemming",
-            "en": "The fastest route to your destination",
-            "fr": "La route le plus vite vers votre destination"
-        },
-        frontendExplanation:
-            {
-                "nl": "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
-                "en": "Only for real speed devils for whom every minute counts. Might take busy roads",
-                "fr": "Uniquement pour quand chaque minute compte."
-            },
-        frontendLogo: fastsvg,
-        layers: {
-            "cyclenetworks": false,
-            "cyclenetwork-tiles": false,
-            "cyclenetwork-tiles-high": false,
-            "cyclenodes-circles": false,
-            "cyclenodes-circles-high": false,
-            "cyclenodes-circles-center": false,
-            "cyclenodes-labels": false,
-            "cyclenodes-labels-high": false,
-            "cyclenetworks-brussels": false,
-            "cyclenetworks-brussels-shields": false
-        },
-        routecolor: {
-            backend: false,
-            color: "#d9a300"
-        }
-    }
-};
-
-// TODO: also set custom start location.
-//8.64&lat=50.813588&lng=4.868640
-
-// What languages should the interface be shown in?
-// If only one: language button will dissappear
-const supportedLanguages = ["nl", "fr", "en"];
-
-// Leftover strings. The format is {'elementId' --> {'language' --> text to show}}
-const translatedStrings = {
-    "document.title": { 
-        nl: "Bike for Brussels | Routeplanner",
-        fr: "Bike for Brussels | Planificateur d'itinéraire",
-        en: "Bike for Brussels | Routeplanner"
-    },
-    "fromInput.placeholder": {"nl": "Van", "en": "From", "fr": "De"},
-    "toInput.placeholder": {"nl": "Naar", "en": "To", "fr": "À"}
-};
-
-
-function applyBrand() {
-
-}
-
-
-function branding() {
-
-}
-branding.prototype.addLayers = function(map) {
-    var me = this;
-
-    // get lowest label and road.
-    var style = map.getStyle();
-    var lowestRoad = undefined;
-    var lowestLabel = undefined;
-    for (var l = 0; l < style.layers.length; l++) {
-        var layer = style.layers[l];
-
-        if (layer && layer["source-layer"] === "transportation") {
-            if (!lowestRoad) {
-                lowestRoad = layer.id;
-            }
-        }
-
-        if (layer && layer["type"] === "symbol") {
-            if (!lowestLabel) {
-                lowestLabel = layer.id;
-            }
-        }
-    }
-
-    map.addLayer({
-        "id": "cyclenetworks-brussels",
-        "type": "line",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenetwork",
-        "layout": {
-            "line-join": "round",
-            "line-cap": "round"
-          },
-          "paint": {
-            "line-color": ['get', 'colour'],
-            "line-width": [
-                'interpolate', ['linear'], ['zoom'],
-                10, 1,
-                13, 2,
-                16, 4
-              ],
-            "line-opacity": 0.7
-          },
-          "filter": [
-            "all",
-            [
-              "==",
-              "operator",
-              "Brussels Mobility"
-            ]
-          ]
-    }, lowestLabel);
-
-    map.addLayer({
-        "id": "cyclenetworks-brussels-shields",
-        "type": "symbol",
-        "source": "cyclenetworks-tiles",
-        "source-layer": "cyclenetwork",
-        "minzoom": 10,
-        "maxzoom": 24,
-        "layout": {
-          "icon-image": "us-state_{ref_length}",
-          "icon-rotation-alignment": "viewport",
-          "icon-size": 1,
-          "symbol-placement": {
-            "base": 1,
-            "stops": [
-              [
-                10,
-                "point"
-              ],
-              [
-                11,
-                "line"
-              ]
-            ]
-          },
-          "symbol-spacing": 200,
-          "text-field": "{ref}",
-          "text-font": [
-            "Noto Sans Regular"
-          ],
-          "text-rotation-alignment": "viewport",
-          "text-size": 10
-        },
-        "filter": [
-          "all",
-          [
-            "==",
-            "operator",
-            "Brussels Mobility"
-          ]
-        ]
-      });
-};
-
-var brand = new branding();
 
 // browserSpecifics.js
 
@@ -557,22 +345,23 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     }
 
     // get the routing profile.
-    var profileConfig = profileConfigs[profile];
+    var profileConfig = branding.getProfileConfig(profile);
     let profile_url = profileConfig.backendName;
+
     const prof = (profile_url === "" ? "" : `&profile=${profile_url}`);
 
     let endpoint = urls.route;
-    if (profileConfig.backend !== undefined) {
+    if (profileConfig.backend != null) {
         endpoint = profileConfig.backend;
     }
 
     let originS = origin;
     let destinationS = destination;
 
-    if (profileConfig.format === "latlon") {
-        originS = swapArrayValues(origin);
-        destinationS = swapArrayValues(destination);
-    }
+    // if (profileConfig.format === "latlon") {
+    //     originS = swapArrayValues(origin);
+    //     destinationS = swapArrayValues(destination);
+    // }
 
     var url = `${endpoint}loc=${originS}&loc=${destinationS}${prof}`;
     if (apiKey) {
@@ -1259,15 +1048,17 @@ function sidebarDisplayProfile(profile) {
 function loadBrandedTexts(){
     
     for(var profile of availableProfiles){
-        document.getElementById(profile+"-small-logo").src = getTerm(profileConfigs[profile].frontendLogo);
-        document.getElementById(profile+"-small-logo-bottom").src = getTerm(profileConfigs[profile].frontendLogo);
+        var profileConfig = branding.getProfileConfig(profile);
+
+        document.getElementById(profile+"-small-logo").src = getTerm(profileConfig.frontendLogo);
+        document.getElementById(profile+"-small-logo-bottom").src = getTerm(profileConfig.frontendLogo);
         
-        document.getElementById(profile+"-icon").src = getTerm(profileConfigs[profile].frontendLogo);
+        document.getElementById(profile+"-icon").src = getTerm(profileConfig.frontendLogo);
         
-        document.getElementById(profile+"-button-text").innerHTML = getTerm(profileConfigs[profile].frontendName);
-        document.getElementById(profile+"-button-text-bottom").innerHTML = getTerm(profileConfigs[profile].frontendName);
-        document.getElementById(profile+"-subtitle").innerHTML = getTerm(profileConfigs[profile].frontendSubtitle);
-        document.getElementById(profile+"-paragraph").innerHTML = getTerm(profileConfigs[profile].frontendExplanation);
+        document.getElementById(profile+"-button-text").innerHTML = getTerm(profileConfig.frontendName);
+        document.getElementById(profile+"-button-text-bottom").innerHTML = getTerm(profileConfig.frontendName);
+        document.getElementById(profile+"-subtitle").innerHTML = getTerm(profileConfig.frontendSubtitle);
+        document.getElementById(profile+"-paragraph").innerHTML = getTerm(profileConfig.frontendExplanation);
     }
 }
 
@@ -1530,13 +1321,11 @@ function AddMapLayers(){
         }
     });
     
-    if (typeof(brand) !== 'undefined') {
-        brand.addLayers(map);
-    }
+    branding.addLayers(map);
 }
 
 function showLayersForProfile(selectedProfile) {
-    var localConfig = profileConfigs[selectedProfile];
+    var localConfig = branding.getProfileConfig(selectedProfile);
     if (localConfig && localConfig.layers) {
 
         availableProfiles.forEach(function (profile) {
@@ -1660,7 +1449,7 @@ window.onload = function () {
     let startLink = "https://www.openstreetmap.org/edit#map=" +(map.getZoom() + 1)+ "/"+map.getCenter().lat+"/"+map.getCenter().lng;
     let attributionControl = new mapboxgl.AttributionControl({compact:false, customAttribution:
             "<a id=\"edit-button-link\" href=\"" + startLink + "\" target=\"_blank\">\n" +
-            "<img src=\"assets/img/edit.svg\" alt=\"Edit OSM here\"/> </a>"})
+            "<img src=\"" + GlobalSvg["edit"] + "\" alt=\"Edit OSM here\"/> </a>"});
     map.addControl(attributionControl)
     
     if (urlparams.zoom) {
@@ -1742,13 +1531,13 @@ function formatDistance(distance) {
 
 // Global variable containing the current language
 var currentLanguage = "nl";
-if (supportedLanguages !== undefined) {
-    currentLanguage = supportedLanguages[0]
+if (branding.languages !== null) {
+    currentLanguage = branding.languages[0];
 }
 
-
 function initLanguageControls() {
-    if (supportedLanguages === undefined) {
+    var supportedLanguages = branding.languages;
+    if (supportedLanguages == null) {
         return;
     }
     if (supportedLanguages.length === 1) {
@@ -1772,6 +1561,8 @@ function initLanguageControls() {
 }
 
 function applyLanguage(newLanguage) {
+    var supportedLanguages = branding.languages;
+    var translatedStrings = branding.translations;
 
     if (supportedLanguages === undefined) {
         return;
@@ -1787,7 +1578,7 @@ function applyLanguage(newLanguage) {
         return;
     }
 
-    for (var key in translatedStrings) {
+    for (var key in translatedStrings.keys) {
 
         let text = translatedStrings[key][currentLanguage];
 
@@ -1868,7 +1659,6 @@ if (window.innerWidth <= 767) {
 }
 
 loadBrandedTexts();
-applyBrand();
 inlineAllSvgs();
 showOrHideClearButtons();
 initLanguageControls();
