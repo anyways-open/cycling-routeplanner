@@ -27,12 +27,12 @@ const production_urls = {
     network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
     //route: 'https://cycling-backend.anyways.eu/api',
     route: 'https://routing.anyways.eu/api',
-    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?`+
-                `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612`+
-                'country=BE&'+
-                'bbox=5.3%2C50.70%2C5.7%2C51.1&'+
-                'limit=5&'+
-                'types=place,locality,neighborhood,address,poi',
+    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?` +
+        `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612` +
+        'country=BE&' +
+        'bbox=5.3%2C50.70%2C5.7%2C51.1&' +
+        'limit=5&' +
+        'types=place,locality,neighborhood,address,poi',
     reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
 };
 
@@ -40,12 +40,12 @@ const test_urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
     network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
     route: 'http://localhost:5000/route',
-    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?`+
-                `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612`+
-                'country=BE&'+
-                'bbox=5.3%2C50.70%2C5.7%2C51.1&'+
-                'limit=5&'+
-                'types=place,locality,neighborhood,address,poi',
+    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?` +
+        `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612` +
+        'country=BE&' +
+        'bbox=5.3%2C50.70%2C5.7%2C51.1&' +
+        'limit=5&' +
+        'types=place,locality,neighborhood,address,poi',
     reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
 };
 
@@ -67,12 +67,12 @@ var urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
     network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
     route: 'https://routing.anyways.eu/api/route?',
-    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?`+
-                `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612`+
-                'country=BE&'+
-                'bbox=4.22%2C50.76%2C4.52%2C50.93&'+
-                'limit=5&'+
-                'types=place,locality,neighborhood,address,poi',
+    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?` +
+        `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612` +
+        'country=BE&' +
+        'bbox=4.22%2C50.76%2C4.52%2C50.93&' +
+        'limit=5&' +
+        'types=place,locality,neighborhood,address,poi',
     reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
 };
 
@@ -99,7 +99,7 @@ function detectIE() {
         return true;
     }
     return false;
-} 
+}
 
 /*
  * The 'Global state' of the application which is shared between multiple modules
@@ -143,7 +143,7 @@ const profileButtonIds = {
     "network-genk-route": "profile1",
     "fastest-route": "profile2",
     "network-route": "profile3"
-    
+
 };
 
 
@@ -178,11 +178,11 @@ map.addControl(new mapboxgl.NavigationControl());
 // urlhash.js
 var urlhash = {
     updateHash: function (state) {
-        location.hash = urlhash.formatHash(state);  
-        
+        location.hash = urlhash.formatHash(state);
+
         // also update all geo links.
         var locationHash = urlhash.formatHash(state, false);
-        $('.geolink').each(function(geoLink){
+        $('.geolink').each(function (geoLink) {
             var href = this.href;
             var i = href.indexOf('#');
             if (i >= 0) {
@@ -190,27 +190,27 @@ var urlhash = {
             }
             this.href = href + locationHash;
         });
-        
-        
+
+
         // update the 'edit' button
-        try{
-            
-        document.getElementById("edit-button-link").href
-            ="https://www.openstreetmap.org/edit#map=" +(map.getZoom() + 1)+ "/"+map.getCenter().lat+"/"+map.getCenter().lng;
-        }catch(e){
+        try {
+
+            document.getElementById("edit-button-link").href
+                = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
+        } catch (e) {
             // Oops, not initialized yet
             console.log("Could not update edit link", e)
         }
     },
-    
+
     formatHash: function (args, doQuery = true) {
         var center, zoom, query;
-        
+
         zoom = args.zoom;
         center = args.center;
         query = args.query;
-        
-        var precision = urlhash.zoomPrecision(zoom);        
+
+        var precision = urlhash.zoomPrecision(zoom);
         var hash = '#' + zoom.toFixed(2) +
             '/' + center.lat.toFixed(precision) +
             '/' + center.lng.toFixed(precision);
@@ -257,7 +257,7 @@ var urlhash = {
             }
 
         }
-        return args;  
+        return args;
     },
 
     toQueryString: function (paramsObject) {
@@ -283,7 +283,7 @@ if (userLang === 'nl' || userLang === 'fr') {
     language = userLang;
 }
 // Check browser support
-if (typeof(Storage) !== "undefined") {
+if (typeof (Storage) !== "undefined") {
     let temp_lang = localStorage.getItem("lang");
     if (temp_lang) {
         language = temp_lang;
@@ -308,7 +308,7 @@ function timeToText(s) {
     }
     var h = Math.floor(s / 3600);
     var m = Math.floor((s % 3600) / 60);
-    return `${h} uur, ${m}`;    
+    return `${h} uur, ${m}`;
 }
 
 /**
@@ -337,8 +337,8 @@ function calculateAllRoutes(origin, destination, profiles = availableProfiles) {
  * @param {String} lang - en/nl/fr select the language for the instructions
  */
 function calculateRoute(origin, destination, profile = "bicycle.fastest") {
-    
-  
+
+
     var apiKey = "";
     if (anywaysConfigs) {
         apiKey = anywaysConfigs.apiKey;
@@ -414,7 +414,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                 popularColors[route[i].properties.cycle_network_colour] = c;
             } else {
                 let colors = route[i].properties.cycle_network_colour.split(',');
-                colors.forEach(function(color) {
+                colors.forEach(function (color) {
                     let c = popularColors[color];
                     if (c !== undefined) {
                         c++;
@@ -438,7 +438,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                     // choose most popular color.
                     var popularity = 0;
                     var chosen = colors[0];
-                    colors.forEach(function(color) {
+                    colors.forEach(function (color) {
                         var c = popularColors[color];
                         if (c > popularity) {
                             chosen = color;
@@ -460,9 +460,9 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
         if (json.instructions) {
             //addInstructions(json.instructions, profile);
         }
-        var profileDivId = profile+"-instruction";
+        var profileDivId = profile + "-instruction";
         if (routeStops.length === 2) {
-            let totaltimeElectr =  timeToText(routeStops[1].properties.time * 15 / 20 );
+            let totaltimeElectr = timeToText(routeStops[1].properties.time * 15 / 20);
             $(`#${profileDivId} .distance`).html(`${formatDistance(routeStops[1].properties.distance)}`);
             $(`#${profileDivId} .time`).html(`${timeToText(routeStops[1].properties.time)} min`);
             $(`#${profileDivId} .time-electric`).html(`${totaltimeElectr} min`);
@@ -476,27 +476,48 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
             calculatedRoute.setData(json.route);
         } else {
             // Add a new layer
-            map.addSource(profile + "-source", {   
+            map.addSource(profile + "-source", {
                 type: 'geojson',
                 data: json
             });
             //console.log(json.route)
-            
+
             var opacity = routeOpacityAltnerative;
             var width = routeWidthMain;
-            
+
             if (profile === selectedProfile) {
                 width = routeWidthMain;
                 opacity = routeOpacityMain;
             }
             // create the outline of the route
             map.addLayer({
-                    id: profile + '-casing',
+                id: profile + '-casing',
+                type: 'line',
+                source: profile + "-source",
+                paint: {
+                    'line-color': "#FFFFFF",
+                    'line-width': width * 1.9,
+                    'line-opacity': opacity
+                },
+                layout: {
+                    'line-cap': 'round',
+                    'line-join': 'round'
+                }
+            }, labelLayer);
+            if (profileConfig.routecolor.backend) {
+                // create the actual colored line using the colors coming from the API.
+                map.addLayer({
+                    id: profile,
                     type: 'line',
                     source: profile + "-source",
                     paint: {
-                        'line-color': "#FFFFFF",
-                        'line-width': width*1.9,
+                        'line-color':
+                        {   // always use the colors of the cycling network
+                            type: 'identity',
+                            property: 'cycle_network_colour'
+                        }
+                        ,
+                        'line-width': width,
                         'line-opacity': opacity
                     },
                     layout: {
@@ -504,42 +525,21 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                         'line-join': 'round'
                     }
                 }, labelLayer);
-            if (profileConfig.routecolor.backend) {
-                // create the actual colored line using the colors coming from the API.
-                map.addLayer({
-                        id: profile,
-                        type: 'line',
-                        source: profile + "-source",
-                        paint: {
-                            'line-color':
-                                {   // always use the colors of the cycling network
-                                    type: 'identity',
-                                    property: 'cycle_network_colour'
-                                }
-                            ,
-                            'line-width': width,
-                            'line-opacity': opacity
-                        },
-                        layout: {
-                            'line-cap': 'round',
-                            'line-join': 'round'
-                        }
-                    }, labelLayer);
             } else {
                 map.addLayer({
-                        id: profile,
-                        type: 'line',
-                        source: profile + "-source",
-                        paint: {
-                            'line-color': profileConfig.routecolor.color,
-                            'line-width': width,
-                            'line-opacity': opacity
-                        },
-                        layout: {
-                            'line-cap': 'round',
-                            'line-join': 'round'
-                        }
-                    }, labelLayer);
+                    id: profile,
+                    type: 'line',
+                    source: profile + "-source",
+                    paint: {
+                        'line-color': profileConfig.routecolor.color,
+                        'line-width': width,
+                        'line-opacity': opacity
+                    },
+                    layout: {
+                        'line-cap': 'round',
+                        'line-join': 'round'
+                    }
+                }, labelLayer);
             }
 
         }
@@ -560,8 +560,8 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     }
 }
 
- var warningOpen = false;
-   
+var warningOpen = false;
+
 /**
  * Removes routes from map.. obviously
  */
@@ -600,14 +600,14 @@ function showLocationsOnMap() {
             state.location1 = [latLng.lng, latLng.lat];
             showLocationsOnMap();
             // Update 'from'-textfield
-           
-            $.getJSON(urls.reverseGeocoder.format(latLng.lng,latLng.lat), function(data){
+
+            $.getJSON(urls.reverseGeocoder.format(latLng.lng, latLng.lat), function (data) {
                 let address = data.features[0].place_name;
                 let field = document.getElementById('fromInput');
                 field.value = address;
             });
-            
-            
+
+
         });
     }
     if (state.location2Marker !== undefined) {
@@ -620,7 +620,7 @@ function showLocationsOnMap() {
             state.location2 = [latLng.lng, latLng.lat];
             showLocationsOnMap();
             // Update 'to'-textfield
-            $.getJSON(urls.reverseGeocoder.format(latLng.lng,latLng.lat), function(data){
+            $.getJSON(urls.reverseGeocoder.format(latLng.lng, latLng.lat), function (data) {
                 let address = data.features[0].place_name;
                 let field = document.getElementById('toInput');
                 field.value = address;
@@ -629,25 +629,25 @@ function showLocationsOnMap() {
     }
     if (state.location1 !== undefined && state.location2 !== undefined) {
         calculateAllRoutes(state.location1, state.location2);
-    } 
+    }
     updateUrlParams();
 }
 
 // Sets the latitude, longitude, zoom level and router points as params in the url
-function updateUrlParams(){
+function updateUrlParams() {
     var params = {};
     params.zoom = map.getZoom();
     params.center = map.getCenter();
 
     params.query = {};
     if (state.location1) {
-        params.query.o = "" + state.location1[0].toFixed(7) + "," +  state.location1[1].toFixed(7);
+        params.query.o = "" + state.location1[0].toFixed(7) + "," + state.location1[1].toFixed(7);
     }
     if (state.location2) {
-        params.query.d = "" + state.location2[0].toFixed(7) + "," +  state.location2[1].toFixed(7);
+        params.query.d = "" + state.location2[0].toFixed(7) + "," + state.location2[1].toFixed(7);
     }
     params.query.p = selectedProfile;
-    
+
     urlhash.updateHash(params);
 }
 
@@ -795,7 +795,7 @@ function initInputGeocoders() {
 function useCurrentLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, locationFetchFailed);
-        if(typeof(Storage) !== "undefined") {
+        if (typeof (Storage) !== "undefined") {
             localStorage.removeItem("geolocation.permission.denieddate");
         }
     } else {
@@ -808,7 +808,7 @@ function useCurrentLocation() {
  * @param days The number of days to add
  * @returns {Date} The calculated date
  */
-Date.prototype.addDays = function(days) {
+Date.prototype.addDays = function (days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
@@ -834,7 +834,7 @@ function showPosition(position) {
 function locationFetchFailed(error) {
     if (error.code === error.PERMISSION_DENIED) {
         console.log("Geolocation permission denied");
-        if (typeof(Storage) !== "undefined") {
+        if (typeof (Storage) !== "undefined") {
             localStorage.setItem("geolocation.permission.denieddate", new Date());
         }
     } else {
@@ -920,11 +920,11 @@ initInputGeocoders();
  * - Showing/Hiding
  * - Highlighting the selected profile
  */
-function toggleSidebar(){
+function toggleSidebar() {
     var isClosed = sidebarIsClosed();
-    if(isClosed){
+    if (isClosed) {
         openSidebar();
-    }else{
+    } else {
         closeSidebar();
     }
     updateUrlParams();
@@ -942,7 +942,7 @@ function closeSidebar() {
     var container = $("#sidebar-right-container");
 
     container.addClass('hidden-sidebar');
-    
+
     var bar = $("#content-pane");
     bar.removeClass('col-lg-9');
     bar.addClass('col-lg-12');
@@ -951,7 +951,7 @@ function closeSidebar() {
     mobileButtons.removeClass('hidden');
 
     var buttons = document.getElementsByClassName("sidebar-toggle-button");
-    for(var i in buttons){
+    for (var i in buttons) {
         if (buttons[i] &&
             buttons[i].classList) {
             buttons[i].classList.remove('sidebar-toggle-button-close');
@@ -966,16 +966,16 @@ function closeSidebar() {
 function openSidebar() {
     var container = $("#sidebar-right-container");
     container.removeClass('hidden-sidebar');
-    
+
     var bar = $("#content-pane");
     bar.removeClass('col-lg-12');
     bar.addClass('col-lg-9');
 
     var mobileButtons = $(".mobile-buttons");
     mobileButtons.addClass('hidden');
-    
+
     var buttons = document.getElementsByClassName("sidebar-toggle-button");
-    for(var i in buttons){
+    for (var i in buttons) {
         if (buttons[i] &&
             buttons[i].classList) {
             buttons[i].classList.add('sidebar-toggle-button-close');
@@ -1000,19 +1000,19 @@ function sidebarDisplayProfileHtmlId(profile) {
  * @param profile
  */
 function sidebarDisplayProfile(profile) {
-    
-    for(var k in profileButtonIds){
+
+    for (var k in profileButtonIds) {
         // Reset all buttons to the default style
         var kprofile = profileButtonIds[k];
-        var buttons = document.getElementsByClassName(kprofile+"-button");
-        for(var i = 0; i < buttons.length; i++){
+        var buttons = document.getElementsByClassName(kprofile + "-button");
+        for (var i = 0; i < buttons.length; i++) {
             var btn = buttons[i];
             btn.classList.remove("profile-selection-button-active");
             btn.classList.add("profile-selection-button-non-active");
         }
     }
-    var profileButtons = document.getElementsByClassName(profile+"-button");
-    for(var j = 0; j < profileButtons.length; j++){
+    var profileButtons = document.getElementsByClassName(profile + "-button");
+    for (var j = 0; j < profileButtons.length; j++) {
         var pbtn = profileButtons[j];
         pbtn.classList.remove("profile-selection-button-non-active");
         pbtn.classList.add("profile-selection-button-active");
@@ -1023,16 +1023,16 @@ function sidebarDisplayProfile(profile) {
     $(".profile-summary").addClass("height-zero");
     $("#sidebar-top>span").removeClass("active");
     $("#top-overlay-profile-buttons-mobile>span").removeClass("active");
-    
+
     let profileButtonId = Object.keys(profileButtonIds).find(key => profileButtonIds[key] === profile);
-   
-    
+
+
     $(`#${profileButtonId}`).addClass("active");
     $(`#${profileButtonId}-mobile`).addClass("active");
 
 
     if (state.location1 && state.location2) {
-        var profileDivId = profile+"-instruction";
+        var profileDivId = profile + "-instruction";
         $(`#${profileDivId}`).removeClass("height-zero");
     } else {
         var summaryDivId = profile + "-summary";
@@ -1045,20 +1045,20 @@ function sidebarDisplayProfile(profile) {
 /* The branded script contains all the profiles, with texts and images.
  * This piece of javascript adjust the image sources and text to load the branded versions
  */
-function loadBrandedTexts(){
-    
-    for(var profile of availableProfiles){
+function loadBrandedTexts() {
+
+    for (var profile of availableProfiles) {
         var profileConfig = branding.getProfileConfig(profile);
 
-        document.getElementById(profile+"-small-logo").src = getTerm(profileConfig.frontendLogo);
-        document.getElementById(profile+"-small-logo-bottom").src = getTerm(profileConfig.frontendLogo);
-        
-        document.getElementById(profile+"-icon").src = getTerm(profileConfig.frontendLogo);
-        
-        document.getElementById(profile+"-button-text").innerHTML = getTerm(profileConfig.frontendName);
-        document.getElementById(profile+"-button-text-bottom").innerHTML = getTerm(profileConfig.frontendName);
-        document.getElementById(profile+"-subtitle").innerHTML = getTerm(profileConfig.frontendSubtitle);
-        document.getElementById(profile+"-paragraph").innerHTML = getTerm(profileConfig.frontendExplanation);
+        document.getElementById(profile + "-small-logo").src = getTerm(profileConfig.frontendLogo);
+        document.getElementById(profile + "-small-logo-bottom").src = getTerm(profileConfig.frontendLogo);
+
+        document.getElementById(profile + "-icon").src = getTerm(profileConfig.frontendLogo);
+
+        document.getElementById(profile + "-button-text").innerHTML = getTerm(profileConfig.frontendName);
+        document.getElementById(profile + "-button-text-bottom").innerHTML = getTerm(profileConfig.frontendName);
+        document.getElementById(profile + "-subtitle").innerHTML = getTerm(profileConfig.frontendSubtitle);
+        document.getElementById(profile + "-paragraph").innerHTML = getTerm(profileConfig.frontendExplanation);
     }
 }
 
@@ -1069,7 +1069,7 @@ function loadBrandedTexts(){
  * - Placing and removing markers
  * - Reverse geocoding them when placed on click
  * - Geocoding text input from the fields and placing them on the map
- */ 
+ */
 
 
 /**
@@ -1078,16 +1078,16 @@ function loadBrandedTexts(){
  */
 function fromFieldInputDetected() {
     var el = document.getElementById("fromInput");
-    
+
     if ((!el.value || el.value === "")) {
         //show location button
-         if (windowLoaded) {
+        if (windowLoaded) {
             console.log("setting location 1 to undef");
             state.location1 = undefined;
             showLocationsOnMap();
         }
-    } 
-    
+    }
+
     showOrHideClearButtons();
 }
 
@@ -1101,30 +1101,30 @@ function toFieldInputDetected() {
         //show location button
         state.location2 = undefined;
         showLocationsOnMap();
-    } 
+    }
     showOrHideClearButtons();
 }
 
 // Deducts which clear crosses have to be shown, and shows them
-function showOrHideClearButtons(){
-    
+function showOrHideClearButtons() {
+
     let frm = document.getElementById("fromInput");
     let showFromClear = (frm.value !== undefined && frm.value !== "") || state.location1 !== undefined;
-    
-    if(showFromClear){
+
+    if (showFromClear) {
         $("#clearInputFieldFromButton").show();
         $("#useLocationInputFieldButton").hide();
-    }else{
+    } else {
         $("#clearInputFieldFromButton").hide();
         $("#useLocationInputFieldButton").show();
     }
-    
+
     let to = document.getElementById("toInput");
     let showToClear = (to.value !== undefined && to.value !== "") || state.location2 !== undefined;
-    
-    if(showToClear){
+
+    if (showToClear) {
         $("#clearInputFieldToButton").show();
-    }else{
+    } else {
         $("#clearInputFieldToButton").hide();
     }
 }
@@ -1158,7 +1158,7 @@ function clearInputFieldTo() {
 function reverseGeocode(location, callback) {
     var lng = location[0];
     var lat = location[1];
-    $.getJSON(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=0`, function (data) {   
+    $.getJSON(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=0`, function (data) {
         callback(data.display_name);
     });
     /*/
@@ -1172,18 +1172,18 @@ function reverseGeocode(location, callback) {
 
 /*
  * This javascript only handles the different extra layers that have to be added onto the map
- */ 
+ */
 
-function AddMapLayers(){
+function AddMapLayers() {
     map.resize();
 
-    map.addSource('cyclenetworks-tiles', { 
+    map.addSource('cyclenetworks-tiles', {
         type: 'vector',
         // url: 'https://localhost:5001/cyclenetworks/mvt.json' /*/
-       // url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks-test/mvt.json' //*/ 
+        // url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks-test/mvt.json' //*/ 
         url: 'https://staging.anyways.eu/api/vector-tiles/cyclenetworks/mvt.json',
-    });   
-    
+    });
+
     map.addLayer({
         "id": "cyclenetwork-tiles",
         "type": "line",
@@ -1193,20 +1193,20 @@ function AddMapLayers(){
         "layout": {
             "visibility": "none",
             "line-join": "round"
-          },
-          "paint": {
+        },
+        "paint": {
             "line-color": "#0ea9b7",
             "line-width": 2,
             "line-dasharray": [2, 2]
-          },
-          "filter": [
+        },
+        "filter": [
             "all",
             [
-              "!=",
-              "brussels",
-              "yes"
+                "!=",
+                "brussels",
+                "yes"
             ]
-          ]
+        ]
     }, labelLayer);
 
     map.addLayer({
@@ -1218,19 +1218,19 @@ function AddMapLayers(){
         "layout": {
             "visibility": "visible",
             "line-join": "round"
-          },
-          "paint": {
+        },
+        "paint": {
             "line-color": "#0ea9b7",
             "line-width": 1
-          },
-          "filter": [
+        },
+        "filter": [
             "all",
             [
-              "!=",
-              "brussels",
-              "yes"
+                "!=",
+                "brussels",
+                "yes"
             ]
-          ]
+        ]
     }, labelLayer);
 
     map.addLayer({
@@ -1320,7 +1320,7 @@ function AddMapLayers(){
             "text-halo-blur": 0
         }
     });
-    
+
     branding.addLayers(map);
 }
 
@@ -1333,7 +1333,7 @@ function showLayersForProfile(selectedProfile) {
                 map.setLayoutProperty(profile, 'visibility', 'none');
                 map.setPaintProperty(profile, 'line-opacity', routeOpacityAltnerative);
                 map.setPaintProperty(profile + '-casing', 'line-opacity', routeOpacityAltnerative);
-            }    
+            }
         });
 
         if (map.getLayer(selectedProfile)) {
@@ -1382,29 +1382,29 @@ let windowLoaded = false;
  */
 window.onload = function () {
     let urlparams = urlhash.parseHash(location.hash);
-    
-    if(selectedProfile === undefined){
+
+    if (selectedProfile === undefined) {
         selectedProfile = "profile1";
     }
-    
+
     sidebarDisplayProfile(selectedProfile);
 
-	if(urlparams.query){
-		state.sideBarIsOpen = urlparams.query.sb !== "false";
-		if(state.sideBarIsOpen){
-		    openSidebar();
-		}else{
-		    closeSidebar();
-		}
+    if (urlparams.query) {
+        state.sideBarIsOpen = urlparams.query.sb !== "false";
+        if (state.sideBarIsOpen) {
+            openSidebar();
+        } else {
+            closeSidebar();
+        }
     }
-    
+
     //console.log(location.hash, state, "Sidebar is ", state.sideBarIsOpen);
     if (urlparams.query && urlparams.query.o) {
         // Note: the definition of 'state' can be found in 'state.js'
         var c = urlparams.query.o.split(',');
-        state.location1 = [ parseFloat(c[0]), parseFloat(c[1]) ];
+        state.location1 = [parseFloat(c[0]), parseFloat(c[1])];
     } else {
-        if (!(typeof (Storage) !== "undefined" && 
+        if (!(typeof (Storage) !== "undefined" &&
             new Date(localStorage.getItem("geolocation.permission.denieddate")).addDays(7) > new Date())) {
             setTimeout(function () {
                 useCurrentLocation();
@@ -1413,15 +1413,15 @@ window.onload = function () {
     }
     if (urlparams.query && urlparams.query.d) {
         var c = urlparams.query.d.split(',');
-        state.location2 = [ parseFloat(c[0]), parseFloat(c[1]) ];
+        state.location2 = [parseFloat(c[0]), parseFloat(c[1])];
     }
 
     if (urlparams.query && urlparams.query.p) {
         if (urlparams.query.p !== selectedProfile) {
             sidebarDisplayProfile(urlparams.query.p);
         }
-    }    
-    
+    }
+
     if (state.location1) {
         reverseGeocode(state.location1, function (adress) {
             $("#fromInput").val(adress);
@@ -1435,8 +1435,8 @@ window.onload = function () {
         });
         $("#clearInputFieldToButton").show();
     }
-    
-    
+
+
     map.addControl(new mapboxgl.GeolocateControl({
         positionOptions: {
             enableHighAccuracy: true
@@ -1444,14 +1444,16 @@ window.onload = function () {
         trackUserLocation: true
     }), 'top-left');
     map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
-    
-    
-    let startLink = "https://www.openstreetmap.org/edit#map=" +(map.getZoom() + 1)+ "/"+map.getCenter().lat+"/"+map.getCenter().lng;
-    let attributionControl = new mapboxgl.AttributionControl({compact:false, customAttribution:
+
+
+    let startLink = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
+    let attributionControl = new mapboxgl.AttributionControl({
+        compact: false, customAttribution:
             "<a id=\"edit-button-link\" href=\"" + startLink + "\" target=\"_blank\">\n" +
-            "<img src=\"" + GlobalSvg["edit"] + "\" alt=\"Edit OSM here\"/> </a>"});
+            "<img src=\"" + GlobalSvg["edit"] + "\" alt=\"Edit OSM here\"/> </a>"
+    });
     map.addControl(attributionControl)
-    
+
     if (urlparams.zoom) {
         // jump to view.
         map.jumpTo({
@@ -1474,7 +1476,7 @@ window.onload = function () {
 /**
  * Replace all SVG images with inline SVG, so they can be styled
  */
-function inlineAllSvgs(){
+function inlineAllSvgs() {
     jQuery('img.svg').each(function () {
         var $img = jQuery(this);
         var imgID = $img.attr('id');
@@ -1494,7 +1496,7 @@ function inlineAllSvgs(){
             if (typeof imgClass !== 'undefined') {
                 $svg = $svg.attr('class', imgClass + ' replaced-svg');
             }
-            
+
             // Add replaced image's actions to the new svg
             if (typeof imgOnClick !== 'undefined') {
                 $svg = $svg.attr('onclick', imgOnClick);
@@ -1530,10 +1532,11 @@ function formatDistance(distance) {
  */
 
 // Global variable containing the current language
-var currentLanguage = "nl";
+var currentLanguage = "en";
 if (branding.languages !== null) {
     currentLanguage = branding.languages[0];
 }
+var languageButtons: HTMLLabelElement[] = [];
 
 function initLanguageControls() {
     var supportedLanguages = branding.languages;
@@ -1545,19 +1548,25 @@ function initLanguageControls() {
     }
 
     let container = document.getElementById("language-buttons");
-
-    var elements = "";
     for (var i in supportedLanguages) {
         let lng = supportedLanguages[i];
         let Lng = lng.toUpperCase();
-            let el = "<label class='btn language-button' onclick='applyLanguage(\"" + lng + "\");'> <input type='radio' name='options' autocomplete='off' checked> " + Lng + " </label>";
-        elements += el;
+        var langButton = document.createElement("label");
+        langButton.className = "btn language-button";   
+        langButton.id = "lang-" + lng;     
+        langButton.addEventListener("click", (ev) => {
+            applyLanguage(lng);
+        });
+        if (lng == currentLanguage) {
+            langButton.className = "btn language-button active";
+        }
+        langButton.innerHTML = Lng;
+        container.appendChild(langButton);
+
+        languageButtons.push(langButton);
     }
-    container.innerHTML = elements;
 
     container.classList.remove("hidden");
-
-
 }
 
 function applyLanguage(newLanguage) {
@@ -1573,6 +1582,14 @@ function applyLanguage(newLanguage) {
 
     currentLanguage = newLanguage;
     loadBrandedTexts(); // or rather - reload them
+
+    languageButtons.forEach(lb => {
+       if (lb.id == "lang-" + currentLanguage){
+        lb.className = "btn language-button active";
+       } else {
+        lb.className = "btn language-button";  
+       }
+    });
 
     if (translatedStrings === undefined) {
         return;
