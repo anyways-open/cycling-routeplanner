@@ -1,8 +1,8 @@
 import { BrandingBase } from "../brandingBase";
 import { ProfileConfig } from "../profileConfig";
-import LocalSvg from "*.svg";
+import LocalSvg from "./assets/img/*.svg";
 import GlobalSvg from "../../assets/img/*.svg";
-import logo from "./favicon-96.png";
+import logo from "./assets/img/favicon-96.png";
 import { IDictionary, Dictionary } from "../../Dictionary";
 import { TranslatedString } from "../translatedString";
 

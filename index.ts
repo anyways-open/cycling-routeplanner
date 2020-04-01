@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 import $ from 'jquery';
 import './assets/js/bootstrap3-typeahead.min.js';
-import { Branding } from './branding/bike4brussels/branding';
+import { Branding } from './instances/bike4brussels/index';
 import GlobalSvg from './assets/img/*.svg';
 
 var jQuery = $;
