@@ -254,7 +254,7 @@ html, body {
     display: none;
 }
 
-#swap-origin-destination-button:before {
+#swapOriginDestination:before {
     background-image: url(icons/baseline-swap_vert-24px.svg);
 }
 

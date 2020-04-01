@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <link rel="stylesheet"  href="index.css" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
 <body class="nopadding">
@@ -48,17 +48,19 @@
                                             <div class="location-circle-centered">A</div>
                                         </div>
                                         <input class="form-control typeahead geocoder-input" type="text" id="fromInput"
-                                            placeholder="Van" oninput="fromFieldInputDetected()">
+                                            placeholder="Van">
                                         <img id="useLocationInputFieldButton" src="./assets/img/currentLocation.svg" />
-                                        <img id="clearInputFieldFromButton" class="svg"
-                                            src="./assets/css/icons/ic_clear_black_24px.svg"
-                                            onclick="clearInputFieldFrom()" />
+                                        <div id="clearInputFieldFromButton">
+                                            <img class="svg" src="./assets/css/icons/ic_clear_black_24px.svg" />
+                                        </div>
                                     </div>
 
                                     <!-- SWAP -->
                                     <div class="col-1 col-md-1 justify-content-center">
-                                        <button class="btn btn-warning image-button" id="swap-origin-destination-button"
-                                            onclick="swapOriginDestination()"></button>
+                                        <button id="swapOriginDestination" class="btn btn-warning image-button"
+                                            id="swap-origin-destination-button">
+
+                                        </button>
                                     </div>
 
                                     <!-- TO -->
@@ -69,11 +71,10 @@
                                             <div class="location-circle-centered">B</div>
                                         </div>
                                         <input class="form-control typeahead geocoder-input" type="text" id="toInput"
-                                            placeholder="Naar" oninput="toFieldInputDetected()">
-                                        <img id="clearInputFieldToButton" class="svg"
-                                            src="./assets/css/icons/ic_clear_black_24px.svg"
-                                            onclick="clearInputFieldTo()" />
-
+                                            placeholder="Naar">
+                                        <div id="clearInputFieldToButton">
+                                            <img class="svg" src="./assets/css/icons/ic_clear_black_24px.svg" />
+                                        </div>
                                     </div>
 
                                 </div>
@@ -82,7 +83,8 @@
 
                         <!-- Show/hide sidebar button on the right -->
                         <div class="col-1 sm-or-bigger" style="height: 100%">
-                            <button class="sidebar-toggle-button btn image-button padding" id="toggleSidebarFull"></button>
+                            <button class="sidebar-toggle-button btn image-button padding"
+                                id="toggleSidebarFull"></button>
                         </div>
 
                     </div>
@@ -178,9 +180,8 @@
                 </div>
 
                 <!-- Close button. Only on small screens -->
-                <div class="md-or-smaller close-button-small-screen btn-lg image-button" id="sidebarClose"
-                    onclick="closeSidebar()"><img class="svg" alt="close options"
-                        src="assets/css/icons/ic_clear_black_24px.svg" />
+                <div class="md-or-smaller close-button-small-screen btn-lg image-button" id="sidebarClose"><img
+                        class="svg" alt="close options" src="assets/css/icons/ic_clear_black_24px.svg" />
                 </div>
             </div>
 

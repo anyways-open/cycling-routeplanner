@@ -1112,20 +1112,20 @@ function showOrHideClearButtons() {
     let showFromClear = (frm.value !== undefined && frm.value !== "") || state.location1 !== undefined;
 
     if (showFromClear) {
-        $("#clearInputFieldFromButton").show();
-        $("#useLocationInputFieldButton").hide();
+        document.getElementById("clearInputFieldFromButton").style = "display: inline;";
+        document.getElementById("useLocationInputFieldButton").style = "display: none;";
     } else {
-        $("#clearInputFieldFromButton").hide();
-        $("#useLocationInputFieldButton").show();
+        document.getElementById("useLocationInputFieldButton").style = "display: inline;";
+        document.getElementById("clearInputFieldFromButton").style = "display: none;";
     }
 
     let to = document.getElementById("toInput");
     let showToClear = (to.value !== undefined && to.value !== "") || state.location2 !== undefined;
 
     if (showToClear) {
-        $("#clearInputFieldToButton").show();
+        document.getElementById("clearInputFieldToButton").style = "display: inline;";
     } else {
-        $("#clearInputFieldToButton").hide();
+        document.getElementById("clearInputFieldToButton").style = "display: none;";
     }
 }
 
@@ -1426,14 +1426,14 @@ window.onload = function () {
         reverseGeocode(state.location1, function (adress) {
             $("#fromInput").val(adress);
         });
-        $("#useLocationInputFieldButton").hide();
-        $("#clearInputFieldFromButton").show();
+        document.getElementById("useLocationInputFieldButton").style = "display: none;";
+        document.getElementById("clearInputFieldFromButton").style = "display: inline;";
     }
     if (state.location2) {
         reverseGeocode(state.location2, function (adress) {
             $("#toInput").val(adress);
         });
-        $("#clearInputFieldToButton").show();
+        document.getElementById("clearInputFieldToButton").style = "display: inline;";
     }
 
 
@@ -1649,6 +1649,7 @@ if (detectIE()) {
 
 document.getElementById("sidebarHamburger").addEventListener("click", toggleSidebar);
 document.getElementById("toggleSidebarFull").addEventListener("click", toggleSidebar);
+document.getElementById("sidebarClose").addEventListener("click", closeSidebar);
 document.getElementById("profile1").addEventListener("click", (ev) => {
     sidebarDisplayProfileHtmlId('profile1');
 });
@@ -1668,7 +1669,11 @@ document.getElementById("profile3-full").addEventListener("click", (ev) => {
     sidebarDisplayProfileHtmlId('profile3');
 });
 document.getElementById("useLocationInputFieldButton").addEventListener("click", useCurrentLocation);
-
+document.getElementById("fromInput").addEventListener("input", fromFieldInputDetected);
+document.getElementById("toInput").addEventListener("input", toFieldInputDetected);
+document.getElementById("clearInputFieldFromButton").addEventListener("click", clearInputFieldFrom);
+document.getElementById("swapOriginDestination").addEventListener("click", swapOriginDestination);
+document.getElementById("clearInputFieldToButton").addEventListener("click", clearInputFieldTo);
 
 if (window.innerWidth <= 767) {
     closeSidebar();
