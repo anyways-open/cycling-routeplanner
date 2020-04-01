@@ -469,6 +469,20 @@ input[type="text"], textarea {
     font-weight: 400;
 }
 
+.profile-gpx-div {
+    padding: 10px;
+    width: 90%;
+}
+
+.profile-gpx-button {
+    text-align: right;
+    border: 0.3rem solid rgb(134, 154, 184);
+    border-radius: .3rem;
+    padding: 10px;
+
+    position: relative;
+    float: right;
+}
 
 .electricity path {
     fill: white;

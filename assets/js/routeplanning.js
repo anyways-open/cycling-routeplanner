@@ -104,7 +104,7 @@ function timeToText(s) {
 function calculateAllRoutes(origin, destination, profiles = availableProfiles) {
     $(".route-instructions ul").html("");
     $(`.route-instructions .elevation-info`).html("<img src='./img/Loading.gif' style='width: 100%;'  alt=\"Loading...\" />");
-    routes = {};
+    state.routes = {};
     removeAllRoutesFromMap();
     profiles.forEach(function (profile) {
         calculateRoute(origin, destination, profile);
@@ -149,7 +149,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     if (apiKey) {
         url = url + "&api-key=" + apiKey;
     }
-    routes[profile] = [];
+    state.routes[profile] = [];
 
     if (state.routeRequests[profile]) {
         try {
@@ -178,7 +178,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
         let routeStops = [];
         let heightInfo = [];
 
-        route = json.features;
+        let route = json.features;
 
         var popularColors = {};
         for (let i in route) {
@@ -238,7 +238,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                 console.log("Failed to read height info", e);
             }
         }
-        routes[profile] = route;
+        state.routes[profile] = route;
         if (json.instructions) {
             addInstructions(json.instructions, profile);
         }
