@@ -1667,6 +1667,7 @@ document.getElementById("profile3").addEventListener("click", (ev) => {
 document.getElementById("profile3-full").addEventListener("click", (ev) => {
     sidebarDisplayProfileHtmlId('profile3');
 });
+document.getElementById("useLocationInputFieldButton").addEventListener("click", useCurrentLocation);
 
 
 if (window.innerWidth <= 767) {
