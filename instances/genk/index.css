@@ -17,7 +17,7 @@
 /*********************** TOP BAR ********************/
 
 .logo-image {
-    background: url("./logo.svg");
+    background: url("./assets/img/logo.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center top

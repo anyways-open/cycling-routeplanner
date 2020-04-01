@@ -1,12 +1,11 @@
 import mapboxgl from 'mapbox-gl';
 import $ from 'jquery';
 import './assets/js/bootstrap3-typeahead.min.js';
-import { Branding } from './instances/bike4brussels/index';
 import GlobalSvg from './assets/img/*.svg';
+import { branding } from './instance';
 
 var jQuery = $;
 
-var branding = new Branding();
 
 // constants.js
 
@@ -53,14 +52,14 @@ var urls = production_urls;
 
 // bike4brussels brandedScript.js
 
-document.title = "Bike for Brussels | Routeplanner";
+document.title = branding.title;
 
 var mapboxAccessCode = "pk.eyJ1IjoiYmVuLWFueXdheXMiLCJhIjoiY2szdWhla3R5MGNoajN1cHMyZG51aXF3byJ9.kcM0vy7kDdugKiur9g6lWw";
 
 var initialMap = {
-    center: [4.3555, 50.8371],
-    zoom: 11.54,
-    style: 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH'
+    center: branding.mapCenter,
+    zoom: branding.mapZoom,
+    style: branding.mapStyle
 };
 
 var urls = {
@@ -81,6 +80,10 @@ var selectedProfile = 'profile1';
 var anywaysConfigs = {
     apiKey: "mwK4irCD1whXx1XEpLQN6qotuM6P-Rh8"
 };
+
+if (branding.apiKey != null) {
+    anywaysConfigs.apiKey = branding.apiKey;
+}
 
 // browserSpecifics.js
 

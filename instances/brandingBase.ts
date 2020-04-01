@@ -9,6 +9,7 @@ export class BrandingBase {
     mapCenter: number[];
     mapStyle: string;
     mapZoom: number;
+    apiKey: string;
     profile1: ProfileConfig;
     profile2: ProfileConfig;
     profile3: ProfileConfig;
