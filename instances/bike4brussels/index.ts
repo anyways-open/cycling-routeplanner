@@ -33,7 +33,7 @@ export class Branding extends BrandingBase {
             {
                 nl: "Een profiel gemaakt om de veilige en comfortabele routes van het Brusselse fietsroutenetwerk te gebruiken",
                 en: "A safe and comfortable route which follows the Brussels cycling network",
-                fr: "Une route via le réseau Bruxellois sûr et comfortable"
+                fr: "Une route sûre et comfortable via le réseau Bruxellois"
             },
             frontendLogo: GlobalSvg["network"],
             layers: {
@@ -59,17 +59,17 @@ export class Branding extends BrandingBase {
             frontendName: {
                 nl: "Recreatief",
                 en: "Recreational",
-                fr: "Équilibrée"
+                fr: "Loisir"
             },
             frontendSubtitle: {
                 nl: "Een recreatief profiel",
                 en: "A recreational profile",
-                fr: "Une route équilibrée"
+                fr: "Un profil pour le loisir"
             },
             frontendExplanation: {
                 nl: "Een profiel gemaakt voor de recreatieve fietser, die de voorkeur geeft aan veilige, comfortabele wegen.",
                 en: "A profile for recreational cycling with safe and comfortable route.",
-                fr: "Ce profil évite les plus grandes rues et préfère les pistes cyclables."
+                fr: "Ce profil est fait pour le cyclisme de loisir, priorité aux routes sûres et confortable."
             },
             frontendLogo: LocalSvg["bird"],
             layers: {
@@ -102,18 +102,18 @@ export class Branding extends BrandingBase {
             frontendName: {
                 nl: "Woon-werk",
                 en: "Commute",
-                fr: "Rapide"
+                fr: "Navette"
             },
             frontendSubtitle: {
                 nl: "De snelste route naar je bestemming",
                 en: "The fastest route to your destination",
-                fr: "La route le plus vite vers votre destination"
+                fr: "La route la plus rapide vers votre destination"
             },
             frontendExplanation:
             {
                 nl: "Een route voor woon-werk.",
                 en: "A route for commuting.",
-                fr: "Uniquement pour quand chaque minute compte."
+                fr: "Une route pour votre trajet maison-travail."
             },
             frontendLogo: GlobalSvg["fast"],
             layers: {
