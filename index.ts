@@ -1694,10 +1694,10 @@ function applyNavigatorLanguage() {
 // index.html
 // inline scripts
 
-// if (detectIE()) {
-//     alert("Het programma dat je gebruikt om op het internet te gaan is te oud. Gelieve een andere browser te installeren. We sturen je door...");
-//     window.location.replace("https://www.mozilla.org/en-US/firefox/new/");
-// }
+if (detectIE()) {
+    alert("Internet explorer is not supported, please use a more recent browser.");
+    window.location.replace("https://www.mozilla.org/en-US/firefox/new/");
+}
 
 document.getElementById("sidebarHamburger").addEventListener("click", toggleSidebar);
 document.getElementById("toggleSidebarFull").addEventListener("click", toggleSidebar);
