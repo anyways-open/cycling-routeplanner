@@ -4,10 +4,17 @@ import './assets/js/bootstrap3-typeahead.min.js';
 import GlobalSvg from './assets/img/*.svg';
 import { branding } from './instance';
 import { GpxExporter} from './components/gpx/gpxExport';
+import { HeightChart } from './components/height/heightChart';
 
 var jQuery = $;
 
 var gpxExporter = new GpxExporter();
+
+var heightCharts = {
+    profile1: new HeightChart("profile1-height-chart"),
+    profile2: new HeightChart("profile2-height-chart"),
+    profile3: new HeightChart("profile3-height-chart"),
+}
 
 // constants.js
 
@@ -472,6 +479,9 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
             $(`#${profileDivId} .time`).html(`${timeToText(routeStops[1].properties.time)} min`);
             $(`#${profileDivId} .time-electric`).html(`${totaltimeElectr} min`);
             //$instrResume.html(`<div></div><div>min<br><div><img class="electricity" src="assets/img/electricity.svg"/>  </div></div>`);
+
+            var heightChart = heightCharts[profile];
+            heightChart.showRoute(route);
         }
 
         // Check if profile already exists

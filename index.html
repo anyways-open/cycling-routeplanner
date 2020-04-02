@@ -198,8 +198,8 @@
             </div>
 
 
-            <div id="profile1-instruction" class="route-instructions sidebar-colors height-zero">
-                <div class="profile-explanation m-3">
+            <div id="profile1-instruction" class="route-instructions sidebar-colors height-zero container d-flex flex-column">
+                <div class="row profile-explanation m-3">
                     <div class="profile-explanation-overview">
                         <div class="instructions-resume">
                             <div class="distance">0 km</div>
@@ -214,7 +214,14 @@
                         <p id="profile1-paragraph">Profile1-paragraph</p>
                     </div>
                 </div>
-                <span id="profile1-instruction-extra"></span>
+                <div class="row">
+                    <span id="profile1-instruction-extra"></span>
+                </div>
+                <div class="row d-flex align-items-end flex-grow-1">
+                    <svg id="profile1-height-chart">
+
+                    </svg>
+                </div>
             </div>
 
 
@@ -271,7 +278,6 @@
                         <p id="profile3-paragraph">profile3-paragraph</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -291,7 +297,7 @@
         <div class="btn-group btn-group-toggle translation-buttons hidden" data-toggle="buttons" id="language-buttons">
 
         </div>
-        <div class="btn-group btn-group-toggle translation-buttons" data-toggle="buttons" >
+        <div class="btn-group btn-group-toggle translation-buttons" data-toggle="buttons">
             <button class="btn language-button" id="gpx-export-button">
                 <span><img class="svg gpx-svg" src="assets/img/download.svg"></span>
                 <span class="ml-2">GPX</span>

@@ -21,6 +21,7 @@
   "homepage": "https://github.com/anyways-open/cycling-frontend#readme",
   "dependencies": {
     "@types/mapbox-gl": "^1.7.0",
+    "d3": "^5.15.1",
     "instances": "0.0.1",
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.7.0",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@types/d3": "^5.7.2",
     "@types/jquery": "^3.3.34",
     "babel-preset-env": "^1.7.0",
     "cssnano": "^4.1.10",

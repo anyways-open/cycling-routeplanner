@@ -6,6 +6,9 @@
 @import './instance.css';
 
 
+
+/*********************** gpx button *************************/
+
 .gpx-svg {
     height: 20px;
     vertical-align: middle;
@@ -15,4 +18,7 @@
     fill: gray;
     stroke: gray;
 }
+
+
+/*********************** chart aligment *************************/
 
