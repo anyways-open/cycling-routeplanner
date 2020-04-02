@@ -560,8 +560,8 @@ table tr td {
     }
 
     .mapboxgl-ctrl-group > button {
-        width: 35px;
-        height: 35px;
+        width: 25px;
+        height: 25px;
     }
 
     #swap-origin-destination-button {
