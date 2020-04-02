@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/anyways-open/cycling-frontend#readme",
   "dependencies": {
+    "@turf/turf": "^5.1.6",
     "@types/mapbox-gl": "^1.7.0",
     "d3": "^5.15.1",
     "instances": "0.0.1",
