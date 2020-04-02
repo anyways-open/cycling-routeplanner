@@ -13,9 +13,9 @@ export class Branding extends BrandingBase {
         this.logo = logo;
         this.apiKey = "a-non-operational-key";
         this.title = "LANTIS | Fietsrouteplanner";
-        this.mapCenter = [4.3387,50.8435];
+        this.mapCenter = [4.3723,51.2062];
+        this.mapZoom = 10;
         this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH';
-        this.mapZoom = 7;
         this.selectedProfile = 'profile1';
         this.profile1 =  {
             backendName: "bicycle.genk", // TODO The lantis network in shortcut is mapped as 'operator=Stad Genk' in order to reuse the Genk-specific profile. This should be fixed one day 
