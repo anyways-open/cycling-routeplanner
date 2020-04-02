@@ -132,19 +132,35 @@ export class Branding extends BrandingBase {
                 {ref: 6, name: "Zwartberg - Centrum", colour: "#9837C1"},
                 {ref: 7, name: "Genkerring", colour: "#b81e54"}];
         
-        
+            var contents = "<div class='container'>";
            
-        
-            var contents = "<table class='table table-sm table-borderless'><tbody>";
-        
-        
             for (var i in routes) {
                 var route = routes[i];
-                contents += "<tr><td><div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div></td><td><div class='legend-text'>" + route.name + "</div></td>"
+                contents += "<div class='row mb-2'>";
+
+                contents += "<div class='col-2'>";
+                contents += "<div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div>";
+                contents += "</div>"
+
+                contents += "<div class='col-8'>";
+                contents += "<h5 class='legend-text'>" + route.name + "</h5>";
+                contents += "</div>"
+
+                contents += "</div>"
             }
+
+            contents += "</div>";
         
-            contents += "</tbody></table>";
-            element.innerHTML = "<h4>" + contents + "</h4>";
+            // var contents = "<table class='table table-sm table-borderless'><tbody>";
+        
+        
+            // for (var i in routes) {
+            //     var route = routes[i];
+            //     contents += "<tr><td><div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div></td><td><div class='legend-text'>" + route.name + "</div></td>"
+            // }
+        
+            // contents += "</tbody></table>";
+            element.innerHTML = "<div>" + contents + "</div>";
         }
 
         addLegendEntriesTo("profile1-summary-extra");

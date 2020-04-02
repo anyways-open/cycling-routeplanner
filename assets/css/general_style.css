@@ -437,7 +437,6 @@ input[type="text"], textarea {
 }
 
 .profile-summary-explanation {
-    margin: 20% auto auto;
     width: 90%;
     padding: 10px;
     text-align: center;
@@ -445,7 +444,6 @@ input[type="text"], textarea {
 
 .profile-summary {
     height: 100%;
-    font-size: 10px;
 }
 
 .profile-summary svg {
@@ -461,12 +459,6 @@ input[type="text"], textarea {
 .profile-summary svg polyline,
 .profile-summary svg circle {
     stroke: white;
-}
-
-.profile-summary h5 {
-    margin: 20px;
-    font-size: 1rem;
-    font-weight: 400;
 }
 
 .profile-gpx-div {
