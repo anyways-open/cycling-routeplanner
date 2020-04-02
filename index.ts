@@ -363,10 +363,10 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     let originS = origin;
     let destinationS = destination;
 
-    // if (profileConfig.format === "latlon") {
-    //     originS = swapArrayValues(origin);
-    //     destinationS = swapArrayValues(destination);
-    // }
+    if (profileConfig.reverseLatLon) {
+        originS = swapArrayValues(origin);
+        destinationS = swapArrayValues(destination);
+    }
 
     var url = `${endpoint}loc=${originS}&loc=${destinationS}${prof}`;
     if (apiKey) {
