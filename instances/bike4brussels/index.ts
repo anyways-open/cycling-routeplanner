@@ -57,18 +57,18 @@ export class Branding extends BrandingBase {
             backend: null,
             backendName: "bicycle.comfort_safety_speed",
             frontendName: {
-                nl: "Gebalanceerd",
-                en: "Balanced",
+                nl: "Recreatief",
+                en: "Recreational",
                 fr: "Équilibrée"
             },
             frontendSubtitle: {
-                nl: "Een gebalanceerd profiel",
-                en: "A balanced profile",
+                nl: "Een recreatief profiel",
+                en: "A recreational profile",
                 fr: "Une route équilibrée"
             },
             frontendExplanation: {
-                nl: "Een profiel gemaakt voor de dagelijkse pendelaar, die de voorkeur geeft aan veilige, comfortabele wegen zonder veel tijd in te boeten",
-                en: "A safe and comfortable route without losing to much time",
+                nl: "Een profiel gemaakt voor de recreatieve fietser, die de voorkeur geeft aan veilige, comfortabele wegen.",
+                en: "A profile for recreational cycling with safe and comfortable route.",
                 fr: "Ce profil évite les plus grandes rues et préfère les pistes cyclables."
             },
             frontendLogo: LocalSvg["bird"],
@@ -100,8 +100,8 @@ export class Branding extends BrandingBase {
             backend: null,
             backendName: "bicycle.fastest",
             frontendName: {
-                nl: "Snelst",
-                en: "Fastest",
+                nl: "Woon-werk",
+                en: "Commute",
                 fr: "Rapide"
             },
             frontendSubtitle: {
@@ -111,8 +111,8 @@ export class Branding extends BrandingBase {
             },
             frontendExplanation:
             {
-                nl: "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen",
-                en: "Only for real speed devils for whom every minute counts. Might take busy roads",
+                nl: "Een route voor woon-werk.",
+                en: "A route for commuting.",
                 fr: "Uniquement pour quand chaque minute compte."
             },
             frontendLogo: GlobalSvg["fast"],
