@@ -98,7 +98,7 @@ export class Branding extends BrandingBase {
         };
         this.profile3 = {
             backend: null,
-            backendName: "bicycle.fastest",
+            backendName: "bicycle.commute",
             frontendName: {
                 nl: "Woon-werk",
                 en: "Commute",
