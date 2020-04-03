@@ -105,9 +105,9 @@ export class Branding extends BrandingBase {
                 fr: "Navette"
             },
             frontendSubtitle: {
-                nl: "De snelste route naar je bestemming",
-                en: "The fastest route to your destination",
-                fr: "La route la plus rapide vers votre destination"
+                nl: "Een route voor woon-werk.",
+                en: "A route for commuting.",
+                fr: "Une route pour votre trajet maison-travail."
             },
             frontendExplanation:
             {
