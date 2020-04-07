@@ -181,7 +181,14 @@ export class Branding extends BrandingBase {
                     "==",
                     "$type",
                     "LineString"
+                ],
+                [
+                    "==",
+                    "network:operator:Stad Genk",
+                    "yes"
                 ]
+                   
+                
             ]
         }, lowestLabel);
       
