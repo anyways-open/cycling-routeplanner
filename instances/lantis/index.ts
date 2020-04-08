@@ -18,8 +18,8 @@ export class Branding extends BrandingBase {
         this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH';
         this.selectedProfile = 'profile1';
         this.profile1 =  {
-            backendName: "bicycle.genk", // TODO The lantis network in shortcut is mapped as 'operator=Stad Genk' in order to reuse the Genk-specific profile. This should be fixed one day 
-            backend: "https://api.anyways.eu/publish/opa/lantis/antwerpen/1/routing?", // overwrites the default backend endpoint
+            backendName: "anyways.network",
+            backend: "https://api.anyways.eu/publish/opa/lantis/antwerpen/2/routing?", // overwrites the default backend endpoint
             reverseLatLon: true, // shortcut still uses lat,lon as format
             frontendName: {"nl": "Lantis-fietsneterk", "en": "Lantis network", "fr": "Équilibrée"},
             frontendSubtitle: {"nl": "Lantis-netwerk (Shortcut)", "en": "Lantis network", "fr": "Reseau Lantis"},
@@ -184,7 +184,7 @@ export class Branding extends BrandingBase {
                 ],
                 [
                     "==",
-                    "network:operator:Stad Genk",
+                    "network:operator:Anyways",
                     "yes"
                 ]
                    
