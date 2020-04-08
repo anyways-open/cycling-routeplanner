@@ -173,7 +173,7 @@ export class Branding extends BrandingBase {
                     13, 2,
                     16, 6
                 ],
-                "line-opacity": 0.5
+                "line-opacity": 0.8
             },
             "filter": [
                 "all",
