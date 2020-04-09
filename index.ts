@@ -370,10 +370,10 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     let originS = origin;
     let destinationS = destination;
 
-    // if (profileConfig.format === "latlon") {
-    //     originS = swapArrayValues(origin);
-    //     destinationS = swapArrayValues(destination);
-    // }
+    if (profileConfig.reverseLatLon) {
+        originS = swapArrayValues(origin);
+        destinationS = swapArrayValues(destination);
+    }
 
     var url = `${endpoint}loc=${originS}&loc=${destinationS}${prof}`;
     if (apiKey) {
@@ -1257,9 +1257,9 @@ function AddMapLayers() {
             "line-join": "round"
         },
         "paint": {
-            "line-color": "#0ea9b7",
-            "line-width": 2,
-            "line-dasharray": [2, 2]
+            "line-color": "#0c99a6",
+            "line-width": 1.5,
+            "line-dasharray": [2, 1]
         },
         "filter": [
             "all",
@@ -1282,7 +1282,7 @@ function AddMapLayers() {
             "line-join": "round"
         },
         "paint": {
-            "line-color": "#0ea9b7",
+            "line-color": "#0c99a6",
             "line-width": 1
         },
         "filter": [
@@ -1306,7 +1306,7 @@ function AddMapLayers() {
         },
         "paint": {
             "circle-stroke-width": 2,
-            "circle-stroke-color": "#0ea9b7",
+            "circle-stroke-color": "#0c99a6",
             "circle-radius": 10,
             "circle-color": "#000000",
             "circle-opacity": 0

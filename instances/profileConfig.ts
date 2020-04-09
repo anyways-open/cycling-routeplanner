@@ -2,6 +2,7 @@ import { TranslatedString } from './translatedString';
 
 export interface ProfileConfig {
     readonly backend?: string,
+    readonly reverseLatLon?: boolean,
     readonly backendName: string,
     readonly frontendName: TranslatedString,
     readonly frontendSubtitle: TranslatedString,

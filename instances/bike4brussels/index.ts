@@ -34,7 +34,7 @@ export class Branding extends BrandingBase {
             {
                 nl: "Een profiel gemaakt om de veilige en comfortabele routes van het Brusselse fietsroutenetwerk te gebruiken",
                 en: "A safe and comfortable route which follows the Brussels cycling network",
-                fr: "Une route via le réseau Bruxellois sûr et comfortable"
+                fr: "Une route sûre et comfortable via le réseau Bruxellois"
             },
             frontendLogo: GlobalSvg["network"],
             layers: {
@@ -61,17 +61,17 @@ export class Branding extends BrandingBase {
             frontendName: {
                 nl: "Recreatief",
                 en: "Recreational",
-                fr: "Équilibrée"
+                fr: "Loisir"
             },
             frontendSubtitle: {
                 nl: "Een recreatief profiel",
                 en: "A recreational profile",
-                fr: "Une route équilibrée"
+                fr: "Un profil pour le loisir"
             },
             frontendExplanation: {
                 nl: "Een profiel gemaakt voor de recreatieve fietser, die de voorkeur geeft aan veilige, comfortabele wegen.",
                 en: "A profile for recreational cycling with safe and comfortable route.",
-                fr: "Ce profil évite les plus grandes rues et préfère les pistes cyclables."
+                fr: "Ce profil est fait pour le cyclisme de loisir, priorité aux routes sûres et confortable."
             },
             frontendLogo: LocalSvg["bird"],
             layers: {
@@ -101,22 +101,22 @@ export class Branding extends BrandingBase {
         this.profile3 = {
             backend: null,
             showHeight: true,
-            backendName: "bicycle.fastest",
+            backendName: "bicycle.commute",
             frontendName: {
                 nl: "Woon-werk",
                 en: "Commute",
-                fr: "Rapide"
+                fr: "Navette"
             },
             frontendSubtitle: {
-                nl: "De snelste route naar je bestemming",
-                en: "The fastest route to your destination",
-                fr: "La route le plus vite vers votre destination"
+                nl: "Een route voor woon-werk.",
+                en: "A route for commuting.",
+                fr: "Une route pour votre trajet maison-travail."
             },
             frontendExplanation:
             {
                 nl: "Een route voor woon-werk.",
                 en: "A route for commuting.",
-                fr: "Uniquement pour quand chaque minute compte."
+                fr: "Une route pour votre trajet maison-travail."
             },
             frontendLogo: GlobalSvg["fast"],
             layers: {
@@ -137,47 +137,47 @@ export class Branding extends BrandingBase {
             }
         };
 
-        this.languages = [ "en", "nl", "fr" ];
+        this.languages = ["en", "nl", "fr"];
         this.translations = new Dictionary<TranslatedString>();
-        this.translations.add("document.title",{ 
+        this.translations.add("document.title", {
             nl: "Bike for Brussels | Routeplanner",
             fr: "Bike for Brussels | Planificateur d'itinéraire",
             en: "Bike for Brussels | Routeplanner"
         });
         this.translations.add("fromInput.placeholder", {
-            nl: "Van", 
-            en: "From", 
+            nl: "Van",
+            en: "From",
             fr: "De"
         });
         this.translations.add("toInput.placeholder", {
-            nl: "Naar", 
-            en: "To", 
+            nl: "Naar",
+            en: "To",
             fr: "À"
         });
-    }    
+    }
 
     addLayers(map: import("mapbox-gl").Map): void {
-        
+
         // get lowest label and road.
         var style = map.getStyle();
         var lowestRoad = undefined;
         var lowestLabel = undefined;
         for (var l = 0; l < style.layers.length; l++) {
             var layer = style.layers[l];
-    
+
             if (layer && layer["source-layer"] === "transportation") {
                 if (!lowestRoad) {
                     lowestRoad = layer.id;
                 }
             }
-    
+
             if (layer && layer["type"] === "symbol") {
                 if (!lowestLabel) {
                     lowestLabel = layer.id;
                 }
             }
         }
-    
+
         map.addLayer({
             "id": "cyclenetworks-brussels",
             "type": "line",
@@ -186,27 +186,27 @@ export class Branding extends BrandingBase {
             "layout": {
                 "line-join": "round",
                 "line-cap": "round"
-              },
-              "paint": {
+            },
+            "paint": {
                 "line-color": ['get', 'colour'],
                 "line-width": [
                     'interpolate', ['linear'], ['zoom'],
                     10, 1,
                     13, 2,
                     16, 4
-                  ],
+                ],
                 "line-opacity": 0.7
-              },
-              "filter": [
+            },
+            "filter": [
                 "all",
                 [
-                  "==",
-                  "operator",
-                  "Brussels Mobility"
+                    "==",
+                    "operator",
+                    "Brussels Mobility"
                 ]
-              ]
+            ]
         }, lowestLabel);
-    
+
         map.addLayer({
             "id": "cyclenetworks-brussels-shields",
             "type": "symbol",
@@ -215,38 +215,51 @@ export class Branding extends BrandingBase {
             "minzoom": 10,
             "maxzoom": 24,
             "layout": {
-              "icon-image": "us-state_{ref_length}",
-              "icon-rotation-alignment": "viewport",
-              "icon-size": 1,
-              "symbol-placement": {
-                "base": 1,
-                "stops": [
-                  [
-                    10,
-                    "point"
-                  ],
-                  [
-                    11,
-                    "line"
-                  ]
-                ]
-              },
-              "symbol-spacing": 200,
-              "text-field": "{ref}",
-              "text-font": [
-                "Noto Sans Regular"
-              ],
-              "text-rotation-alignment": "viewport",
-              "text-size": 10
+                "icon-image": "us-state_{ref_length}",
+                "icon-rotation-alignment": "viewport",
+                "icon-size": 1,
+                "symbol-placement": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            10,
+                            "point"
+                        ],
+                        [
+                            11,
+                            "line"
+                        ]
+                    ]
+                },
+                "symbol-spacing": 200,
+                "text-field": "{ref}",
+                "text-font": [
+                    "Noto Sans Regular"
+                ],
+                "text-rotation-alignment": "viewport",
+                "text-size": 10
             },
             "filter": [
-              "all",
-              [
-                "==",
-                "operator",
-                "Brussels Mobility"
-              ]
+                "all",
+                [
+                    "==",
+                    "operator",
+                    "Brussels Mobility"
+                ]
             ]
-          });
+        });
+
+
+        (function (f, a, t, h, o, m) {
+            a[h] = a[h] || function () {
+                (a[h].q = a[h].q || []).push(arguments)
+            };
+            o = f.createElement('script'),
+                m = f.getElementsByTagName('script')[0];
+            o.async = 1; o.src = t; o.id = 'fathom-script';
+            m.parentNode.insertBefore(o, m)
+        })(document, window, 'https://cdn.usefathom.com/tracker.js', 'fathom');
+        fathom('set', 'siteId', 'VZYSYDVC');
+        fathom('trackPageview');
     }
 }
