@@ -18,7 +18,7 @@ export class Branding extends BrandingBase {
         this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH';
         this.selectedProfile = 'profile1';
         this.profile1 =  {
-            backendName: "anyways.network",
+            backendName: "bicycle.anyways.network",
             backend: "https://api.anyways.eu/publish/opa/lantis/antwerpen/2/routing?", // overwrites the default backend endpoint
             reverseLatLon: true, // shortcut still uses lat,lon as format
             frontendName: {"nl": "Lantis-fietsneterk", "en": "Lantis network", "fr": "Équilibrée"},

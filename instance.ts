@@ -1,3 +1,3 @@
-import { Branding } from './instances/bike4brussels/index';
+import { Branding } from './instances/lantis/index';
 
 export const branding = new Branding();
