@@ -18,6 +18,7 @@ export class Branding extends BrandingBase {
         this.selectedProfile = 'profile1';
         this.profile1 = {
             backend: null,
+            showHeight: true,
             backendName: "bicycle.brussels",
             frontendName: {
                 nl: "Netwerk",
@@ -55,6 +56,7 @@ export class Branding extends BrandingBase {
         };
         this.profile2 = {
             backend: null,
+            showHeight: true,
             backendName: "bicycle.comfort_safety_speed",
             frontendName: {
                 nl: "Recreatief",
@@ -98,6 +100,7 @@ export class Branding extends BrandingBase {
         };
         this.profile3 = {
             backend: null,
+            showHeight: true,
             backendName: "bicycle.fastest",
             frontendName: {
                 nl: "Woon-werk",

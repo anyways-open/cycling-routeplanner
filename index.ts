@@ -480,8 +480,10 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
             $(`#${profileDivId} .time-electric`).html(`${totaltimeElectr} min`);
             //$instrResume.html(`<div></div><div>min<br><div><img class="electricity" src="assets/img/electricity.svg"/>  </div></div>`);
 
-            var heightChart = heightCharts[profile];
-            heightChart.showRoute(route);
+            if (profileConfig.showHeight) {
+                var heightChart = heightCharts[profile];
+                heightChart.showRoute(route);
+            }
         }
 
         // Check if profile already exists

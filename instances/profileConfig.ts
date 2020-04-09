@@ -9,4 +9,5 @@ export interface ProfileConfig {
     readonly frontendLogo: string,
     readonly layers: any,
     readonly routecolor: {backend: boolean, color: string}
+    readonly showHeight: boolean;
 }

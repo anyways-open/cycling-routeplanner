@@ -51,7 +51,7 @@ export class HeightChart {
         // set the dimensions and margins of the graph
         var margin = { top: 20, right: 0, bottom: 20, left: 40 };
         var width: number = 500 - margin.left - margin.right;
-        var height: number = 300 - margin.top - margin.bottom;
+        var height: number = 200 - margin.top - margin.bottom;
 
         // append the svg object to the body of the page
         var totalWidth: number = width + margin.left + margin.right;
@@ -79,14 +79,13 @@ export class HeightChart {
         svg.append("g")
             .call(xAxis);
 
-
         var y = d3.scaleLinear()
             .domain([0, d3.max(data, d => d.ele)]).nice()
             .range([height - margin.bottom, margin.top])
 
         var yAxis = g => g
             .attr("transform", `translate(${margin.left},0)`)
-            .call(d3.axisLeft(y).ticks(height / 20).tickPadding(5))
+            .call(d3.axisLeft(y).ticks(height / 30).tickPadding(10))
             .call(g => g.select(".tick:last-of-type text").clone()
                 .attr("x", 3)
                 .attr("text-anchor", "start")
