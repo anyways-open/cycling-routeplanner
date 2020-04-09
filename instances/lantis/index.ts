@@ -38,7 +38,8 @@ export class Branding extends BrandingBase {
                 "cyclenodes-circles-high": false,
                 "cyclenodes-circles-center": false,
                 "cyclenodes-labels": false,
-                "cyclenodes-labels-high": false
+                "cyclenodes-labels-high": false,
+                "cyclenetworks-lantis": true
             },
             routecolor: {
                 backend: false, // set to true if 'cycle_network_colour'-attribute should be used (thus if cycle networks should be rendered)
@@ -79,7 +80,8 @@ export class Branding extends BrandingBase {
                 "cyclenodes-circles-high": true,
                 "cyclenodes-circles-center": true,
                 "cyclenodes-labels": true,
-                "cyclenodes-labels-high": true
+                "cyclenodes-labels-high": true,
+                "cyclenetworks-lantis": false
             },
             routecolor: {
                 backend: false,
@@ -105,7 +107,8 @@ export class Branding extends BrandingBase {
                 "cyclenodes-circles-high": false,
                 "cyclenodes-circles-center": false,
                 "cyclenodes-labels": false,
-                "cyclenodes-labels-high": false
+                "cyclenodes-labels-high": false,
+                "cyclenetworks-lantis": false
             },
             routecolor: {
                 backend: false,
@@ -166,7 +169,7 @@ export class Branding extends BrandingBase {
                 "line-cap": "round"
             },
             "paint": {
-                "line-color": "#e570d9",
+                "line-color": "#d9a300",
                 "line-width": [
                     'interpolate', ['linear'], ['zoom'],
                     10, 1,
