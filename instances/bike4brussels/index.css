@@ -1,5 +1,3 @@
-/** ANYWAYS BRANDING STYLE **/
-
 /***********************General stuff ********************/
 
 @font-face {
@@ -179,10 +177,6 @@ body {
 
 
 /*********************** Translation buttons ********************/
-
-.translation-buttons {
-    
-}
 
 .language-button {
     background-color: white;

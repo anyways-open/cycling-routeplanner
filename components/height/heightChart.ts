@@ -36,7 +36,7 @@ export class HeightChart {
         });
         
         // clear chart.
-        var svg = d3.select("#" + this.elementId)
+        var svg = d3.select("#" + this.elementId).select("svg");
         svg.selectAll("*").remove();
 
         if (data.length == 0) return;
