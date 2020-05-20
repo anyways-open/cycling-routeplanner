@@ -4,13 +4,13 @@
 
 This our cycling route planner web app. This was originally built during [Open Summer of Code](https://summerofcode.be/) [here](https://github.com/oSoc18/bike4brussels) and we polished and finished it. The branding in this route planner can be customized to your project/company/city/region.
 
-It uses the ANYWAYS route planning API to handle:
+It uses the ANYWAYS route planning [API](https://docs.anyways.eu/routing-api/) to handle:
 
-- Cycling networks :
-  - Cycle highways.
-  - Node networks.
-  - Regional and city networks.
-- Elevation :mountain_bicyclist:
+- Cycling networks :100:  
+  - Cycle highways
+  - Node networks
+  - Regional and city networks
+- Elevation :mountain_bicyclist: :wavy_dash:  
 - Multiple routing profiles.
 
 ## Screenshots
