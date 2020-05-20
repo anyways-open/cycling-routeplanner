@@ -6,11 +6,11 @@ This our cycling route planner web app. This was originally built during [Open S
 
 It uses the ANYWAYS route planning [API](https://docs.anyways.eu/routing-api/) to handle:
 
-- Cycling networks :100:  
+- Cycling networks
   - Cycle highways
   - Node networks
   - Regional and city networks
-- Elevation :mountain_bicyclist: :wavy_dash:  
+- Elevation :mountain_bicyclist:
 - Multiple routing profiles.
 
 ## Screenshots
