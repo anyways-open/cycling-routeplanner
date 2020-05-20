@@ -1,8 +1,17 @@
-# Cycling Route Planner
+# Cycling Route Planner :bicyclist: :bicyclist: :bicyclist:
 
 [![Build status](https://build.anyways.eu/app/rest/builds/buildType:(id:anyways_routing_CyclingRouteplanner)/statusIcon)](https://build.anyways.eu/buildConfiguration/anyways_routing_CyclingRouteplanner#all-projects)  
 
-This our cycling route planner web app. This was originally built using [Open Summer of Code](https://summerofcode.be/) [here](https://github.com/oSoc18/bike4brussels) and we polished and finished it. The branding in this route planner can be customized to your project/company/city/region.
+This our cycling route planner web app. This was originally built during [Open Summer of Code](https://summerofcode.be/) [here](https://github.com/oSoc18/bike4brussels) and we polished and finished it. The branding in this route planner can be customized to your project/company/city/region.
+
+It uses the ANYWAYS route planning API to handle:
+
+- Cycling networks :
+  - Cycle highways.
+  - Node networks.
+  - Regional and city networks.
+- Elevation :mountain_bicyclist:
+- Multiple routing profiles.
 
 ## Screenshots
 
@@ -17,7 +26,6 @@ To brand the website:
 3) Pick texts and icons in 'brandedScripts'. 'profileConfigs' describe what profiles are used for routeplanning and what accompagniying texts they have, with layers and stuff
 4) Additional code can be put into 'applyBrand()'. This is extra code, e.g. rendering specific legend entries
 5) Go to index.html and change around ten lines in '<head>', between the comments '<!-- start of branding-->' and '<!-- end of branding-->'. That should be enough
-
 
 Caveats/todo's:
 
