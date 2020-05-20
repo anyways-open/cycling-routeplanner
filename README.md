@@ -1,14 +1,12 @@
 # Cycling Route Planner
 
-This our cycling route planner web app. This was originally built using [Open Summer of Code](https://summerofcode.be/) [here](https://github.com/oSoc18/bike4brussels) and we polished and finished it.
-
 [![Build status](https://build.anyways.eu/app/rest/builds/buildType:(id:anyways_routing_CyclingRouteplanner)/statusIcon)](https://build.anyways.eu/buildConfiguration/anyways_routing_CyclingRouteplanner#all-projects)  
 
-The branding in this route planner can be customized to your project/company/city/region.
+This our cycling route planner web app. This was originally built using [Open Summer of Code](https://summerofcode.be/) [here](https://github.com/oSoc18/bike4brussels) and we polished and finished it. The branding in this route planner can be customized to your project/company/city/region.
 
 ## Screenshots
 
-<img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot01.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot02.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot03.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot04.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot05.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot06.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot07.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot08.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot09.png" width="170"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot10.png" width="170"/> 
+<img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot01.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot02.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot03.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot04.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot05.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot06.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot07.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot08.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot09.png" width="300"/> <img src="https://github.com/anyways-open/cycling-routeplanner/raw/master/docs/screenshots/screenshot10.png" width="300"/> 
 
 ## Branding the website
 
