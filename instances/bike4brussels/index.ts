@@ -57,7 +57,7 @@ export class Branding extends BrandingBase {
         this.profile2 = {
             backend: null,
             showHeight: true,
-            backendName: "bicycle.comfort_safety_speed",
+            backendName: "bicycle.comfort_safety",
             frontendName: {
                 nl: "Recreatief",
                 en: "Recreational",
