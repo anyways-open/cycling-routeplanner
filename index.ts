@@ -30,38 +30,8 @@ String.prototype.format = function () {
     return a
 };
 
-const production_urls = {
-    mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
-    network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
-    //route: 'https://cycling-backend.anyways.eu/api',
-    route: 'https://staging.anyways.eu/routing-api/',
-    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?` +
-        `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612` +
-        'country=BE&' +
-        'bbox=5.3%2C50.70%2C5.7%2C51.1&' +
-        'limit=5&' +
-        'types=place,locality,neighborhood,address,poi',
-    reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
-};
-
-const test_urls = {
-    mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
-    network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
-    route: 'http://localhost:5000/route',
-    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?` +
-        `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612` +
-        'country=BE&' +
-        'bbox=5.3%2C50.70%2C5.7%2C51.1&' +
-        'limit=5&' +
-        'types=place,locality,neighborhood,address,poi',
-    reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
-};
-
-var urls = production_urls;
-
-// bike4brussels brandedScript.js
-
 document.title = branding.title;
+console.log("Branding ",branding)
 
 var mapboxAccessCode = "pk.eyJ1IjoiYmVuLWFueXdheXMiLCJhIjoiY2szdWhla3R5MGNoajN1cHMyZG51aXF3byJ9.kcM0vy7kDdugKiur9g6lWw";
 
@@ -75,12 +45,8 @@ var urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
     network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
     route: 'https://staging.anyways.eu/routing-api/route?',
-    geocoder: `https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?` +
-        `access_token=${mapboxAccessCode}&proximity=5.5196%2c50.9612` +
-        'country=BE&' +
-        'bbox=4.22%2C50.76%2C4.52%2C50.93&' +
-        'limit=5&' +
-        'types=place,locality,neighborhood,address,poi',
+    geocoder: 
+        branding.geocoder + `&access_token=${mapboxAccessCode}`,
     reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
 };
 
@@ -577,7 +543,6 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     }
 }
 
-var warningOpen = false;
 
 /**
  * Removes routes from map.. obviously
@@ -1220,14 +1185,11 @@ function clearInputFieldTo() {
 function reverseGeocode(location, callback) {
     var lng = location[0];
     var lat = location[1];
-    $.getJSON(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=0`, function (data) {
-        callback(data.display_name);
-    });
-    /*/
+
     $.getJSON(urls.reverseGeocoder.format(lng, lat), function (data) { 
         callback(data.features[0].text + " (" + data.features[0].place_name + ")");
     });
-    //*/
+
 }
 
 // layercontrol.js

@@ -16,6 +16,14 @@ export class Branding extends BrandingBase {
         this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH';
         this.mapZoom = 11.54;
         this.selectedProfile = 'profile1';
+
+       this.geocoder =  'https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?' +
+           'proximity=5.5196%2c50.9612&' +
+           'country=BE&' +
+           'bbox=4.22%2C50.76%2C4.52%2C50.93&' +
+           'limit=5&' +
+           'types=place,locality,neighborhood,address,poi';
+        
         this.profile1 = {
             backend: null,
             showHeight: true,
@@ -31,11 +39,11 @@ export class Branding extends BrandingBase {
                 fr: "Une route via le réseau cyclable de Bruxelles"
             },
             frontendExplanation:
-            {
-                nl: "Een profiel gemaakt om de veilige en comfortabele routes van het Brusselse fietsroutenetwerk te gebruiken",
-                en: "A safe and comfortable route which follows the Brussels cycling network",
-                fr: "Une route sûre et comfortable via le réseau Bruxellois"
-            },
+                {
+                    nl: "Een profiel gemaakt om de veilige en comfortabele routes van het Brusselse fietsroutenetwerk te gebruiken",
+                    en: "A safe and comfortable route which follows the Brussels cycling network",
+                    fr: "Une route sûre et comfortable via le réseau Bruxellois"
+                },
             frontendLogo: GlobalSvg["network"],
             layers: {
                 "cyclenetworks": false,

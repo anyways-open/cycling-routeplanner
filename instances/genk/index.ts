@@ -16,6 +16,15 @@ export class Branding extends BrandingBase {
         this.mapCenter = [5.5063, 50.9625];
         this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH';
         this.mapZoom = 12.82;
+
+        this.geocoder =
+            'https://api.mapbox.com/geocoding/v5/mapbox.places/{0}.json?' +
+            'proximity=5.5196%2c50.9612&' +
+            'country=BE&' +
+            'bbox=5.35%2C50.88%2C5.62%2C51.09&' +
+            'limit=5&' +
+            'types=place,locality,neighborhood,address,poi';
+        
         this.selectedProfile = 'profile1';
         this.profile1 = {
             backendName: "bicycle.genk",
@@ -118,19 +127,21 @@ export class Branding extends BrandingBase {
 
     apply(): void {
         super.apply();
+        
+        console.log("URLS are: ", this.urls)
 
         function addLegendEntriesTo(pane){
        
             var element = document.getElementById(pane);
         
             // The data to add. Eventually, this can be changed to an overpass-query or external data set someday
-            var routes = [{ref: 1, name: "Industrie-Zuid – C-mine", colour: "#fce34b"}, // The yellow is darkened a little for readability
-                {ref: 2, name: "Vallei-route", colour: "#35b1f4"},
-                {ref: 3, name: "Bokrijk - Kattevennen", colour: "#24ef15"},
-                {ref: 4, name: "Industrie-Noord – Gelieren", colour: "#efa639"},
-                {ref: 5, name: "Nieuwe Kempen – Sledderlo", colour: "#d8863e"},
-                {ref: 6, name: "Zwartberg - Centrum", colour: "#9837C1"},
-                {ref: 7, name: "Genkerring", colour: "#b81e54"}];
+            var routes = [{ref: 1, name: "Industrie-Zuid – C-mine", colour: "#fada7f"}, // The yellow is darkened a little for readability
+                {ref: 2, name: "Valleiroute", colour: "#a59a79"},
+                {ref: 3, name: "Bokrijk - Kattevennen", colour: "#e8542e"},
+                {ref: 4, name: "Industrie Noord - Gelieren", colour: "#c72471"},
+                {ref: 5, name: "Nieuwe Kempen - Sledderlo", colour: "#1491cf"},
+                {ref: 6, name: "Zwartberg - Centrum", colour: "#03ab8b"},
+                {ref: 7, name: "Genkerring", colour: "#b3bcbc"}];
         
             var contents = "<div class='container'>";
            

@@ -17,6 +17,7 @@ export class Branding extends BrandingBase {
         this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=jwL83LCYXcsbjHQxJcVH';
         this.mapZoom = 11.54;
         this.selectedProfile = 'profile1';
+        
         this.profile1 = {
             backendName: "bicycle.commute",
             frontendName: {"nl": "Woon-Werk"},
