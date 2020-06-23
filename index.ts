@@ -44,7 +44,7 @@ var initialMap = {
 var urls = {
     mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
     network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
-    route: 'https://staging.anyways.eu/routing-api/route?',
+    route: 'https://routing.anyways.eu/api/route?',
     geocoder: 
         branding.geocoder + `&access_token=${mapboxAccessCode}`,
     reverseGeocoder: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{0},{1}.json?limit=1&access_token=' + mapboxAccessCode
