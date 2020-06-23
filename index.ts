@@ -1204,8 +1204,8 @@ function AddMapLayers() {
     map.addSource('cyclenetworks-tiles', {
         type: 'vector',
         // url: 'https://localhost:5001/cyclenetworks/mvt.json' /*/
-        // url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks-test/mvt.json' //*/ 
-        url: 'https://staging.anyways.eu/api/vector-tiles/cyclenetworks/mvt.json',
+        url: 'https://routing.anyways.eu/vector-tiles/cyclenetworks/mvt.json' //*/ 
+        //url: 'https://staging.anyways.eu/api/vector-tiles/cyclenetworks/mvt.json',
     });
 
     map.addLayer({
