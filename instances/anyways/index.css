@@ -1,4 +1,4 @@
-/** ANYWAYS BRANDING STYLE **/
+/** Bike2Work BRANDING STYLE **/
 
 /***********************General stuff ********************/
 
@@ -62,7 +62,7 @@ body {
 
 
 .logo-image {
-    background: url("./logo.svg");
+    background: url("./assets/img/logo.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center top
@@ -103,7 +103,7 @@ body {
 
 .close-button-small-screen {
     background: rgb(241, 244, 248);
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }
 
