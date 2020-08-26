@@ -47,7 +47,7 @@ export class Branding extends BrandingBase {
             },
             routecolor: {
                 backend: true,
-                color: "#2D4959"
+                color: "#ebaeb3"
             }
         };
         this.profile2 = {
@@ -85,7 +85,7 @@ export class Branding extends BrandingBase {
             },
             routecolor: {
                 backend: false,
-                color: "#2D4959"
+                color: "#ebaeb3"
             }
         };
         this.profile3 = {
@@ -108,7 +108,7 @@ export class Branding extends BrandingBase {
             },
             routecolor: {
                 backend: false,
-                color: "#2D4959"
+                color: "#ebaeb3"
             }
         };
 
@@ -216,8 +216,8 @@ export class Branding extends BrandingBase {
                 "line-width": [
                     'interpolate', ['linear'], ['zoom'],
                     10, 2,
-                    13, 3,
-                    16, 8
+                    13, 4,
+                    16, 10
                 ],
                 "line-opacity": 0.9
             },
