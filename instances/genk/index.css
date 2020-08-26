@@ -42,21 +42,21 @@ body {
 .location-input-group {
     padding-left: 0;
     padding-right: 5px;
-    border-bottom: 2px solid #f3f3f5 !important;
+    border-bottom: 2px solid #e3e6e8 !important;
 }
 
 .location-circle-container {
     /*The small 'A' or 'B' in the circle in the from/to fields */
     position: relative;
     text-align: center;
-    color: #cbcdd0;
+    color: #f3f3f5;
     padding-top: 7px;
 }
 
 
 .form-control,
 .form-control::placeholder {
-    color: #cbcdd0;
+    color: #f3f3f5;
 }
 
 
@@ -64,19 +64,19 @@ body {
 
 
 .sidebar-colors {
-    background: #cbcdd0;
+    background: #f3f3f5;
     color: #000;
 }
 
 
-
-.close-button-small-screen {
-    background: #cbcdd0;
-    color: #000;
-}
 
 .close-button-small-screen {
     background: #f3f3f5;
+    color: #000;
+}
+
+.close-button-small-screen {
+    background: #e3e6e8;
     margin: 0;
     padding: 0;
 }
@@ -88,15 +88,27 @@ body {
     fill: red;
 }
 
+.profile-summary svg {
+    height: 100%;
+    width: 100%;
+}
 
+.profile-summary-explanation svg {
+    height: 25%;
+    width: 25%;
+}
+
+.profile-summary svg path {
+    fill: unset;
+}
 
 .profile-selection-button-non-active {
-    background: #f3f3f5;
+    background: #e3e6e8;
     color: 000;
 }
 
 .profile-selection-button-active {
-    background: #cbcdd0;
+    background: #f3f3f5;
     color: #000;
 }
 
@@ -113,7 +125,7 @@ body {
 }
 
 .electric-bike-speedup {
-    background: #cbcdd0;
+    background: #f3f3f5;
     color: #000;
 }
 
@@ -125,7 +137,7 @@ body {
 .location-circle-container {
     position: relative;
     text-align: center;
-    color: #cbcdd0;
+    color: #f3f3f5;
     padding-top: 7px;
 }
 
@@ -141,12 +153,12 @@ body {
 }
 
 .language-button {
-    background-color: #cbcdd0;
+    background-color: #f3f3f5;
     color: #000;
 }
 
 .language-button.active {
-    background-color: #f3f3f5;
+    background-color: #e3e6e8;
     box-shadow: none !important;
 }
 
@@ -169,20 +181,9 @@ body {
     color: rgb(134, 154, 184); /* Colour of the 'A' and 'B' on a marker in the map*/
 }
 
-
-.legend-ref {
-    width: 1.75em;
-    height: 1.75em;
-    border-radius: 50%;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    line-height: 1em;
-    padding-top: 15%;
-    margin-left: 65%
-}
-
 .legend-text  {
+    margin-top: 10px;
+    margin-left: 10px;
     text-align: left;
     font-size: 1em;
 }

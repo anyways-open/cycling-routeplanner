@@ -29,8 +29,8 @@ export class Branding extends BrandingBase {
         this.profile1 = {
             backendName: "bicycle.genk",
             frontendName: { nl: "Fietsnet Genk" },
-            frontendSubtitle: { nl: "Fietsnet Genk bestaat uit routes die je aangenaam en snel naar je bestemming brengen. " },
-            frontendExplanation: { nl: "Fietsnet Genk bestaat uit routes die je aangenaam en snel naar je bestemming brengen. " },
+            frontendSubtitle: { nl: "Fiets gemakkelijk naar je bestemming met het fietsnet. De pijlen op de grond wijzen jou de weg." },
+            frontendExplanation: { nl: "Fiets gemakkelijk naar je bestemming met het fietsnet. De pijlen op de grond wijzen jou de weg." },
             frontendLogo: LocalSvg["genk-networks"],
 
             layers: {
@@ -151,11 +151,12 @@ export class Branding extends BrandingBase {
                 var route = routes[i];
                 contents += "<div class='row mb-2'>";
 
-                contents += "<div class='col-2'>";
-                contents += "<div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div>";
+                contents += "<div class='col-4'>";
+                // contents += "<div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div>";
+                contents += "<div class='network-icon'><img class='svg' src='" + LocalSvg["network" + route.ref] + "'></div>";
                 contents += "</div>"
 
-                contents += "<div class='col-10'>";
+                contents += "<div class='col'>";
                 contents += "<h5 class='legend-text'>" + route.name + "</h5>";
                 contents += "</div>"
 
