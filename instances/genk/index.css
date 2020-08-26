@@ -2,6 +2,11 @@
 
 /***********************General stuff ********************/
 
+@import './assets/fonts/HelveticaNeueLTStd-Md.css';
+
+body {
+    font-family: 'HelveticaNeueLTStd-Md', serif;
+}
 
 .btn {
     background-color: #FFFFFF;
@@ -14,6 +19,14 @@
 
 .profile1-instruction-extra {
     width: 100%
+}
+
+.profile-explanation {
+    font-family: 'HelveticaNeueLTStd-Md', serif;
+}
+
+.profile-explanation p {
+    font-size: 1.125em;
 }
 
 
@@ -29,21 +42,21 @@
 .location-input-group {
     padding-left: 0;
     padding-right: 5px;
-    border-bottom: 2px solid #2D4959 !important;
+    border-bottom: 2px solid #f3f3f5 !important;
 }
 
 .location-circle-container {
     /*The small 'A' or 'B' in the circle in the from/to fields */
     position: relative;
     text-align: center;
-    color: #00808B;
+    color: #cbcdd0;
     padding-top: 7px;
 }
 
 
 .form-control,
 .form-control::placeholder {
-    color: #00808B;
+    color: #cbcdd0;
 }
 
 
@@ -51,19 +64,19 @@
 
 
 .sidebar-colors {
-    background: #00808B;
-    color: #ffffff;
+    background: #cbcdd0;
+    color: #000;
 }
 
 
 
 .close-button-small-screen {
-    background: #00808B;
-    color: #FFFFFF;
+    background: #cbcdd0;
+    color: #000;
 }
 
 .close-button-small-screen {
-    background: #2D4959;
+    background: #f3f3f5;
     margin: 0;
     padding: 0;
 }
@@ -78,36 +91,41 @@
 
 
 .profile-selection-button-non-active {
-    background: #2D4959;
-    color: white;
+    background: #f3f3f5;
+    color: 000;
 }
 
 .profile-selection-button-active {
-    background: #00808B;
-    color: #FFFFFF;
+    background: #cbcdd0;
+    color: #000;
 }
 
 .profile-selection-button-active svg path,
 .profile-selection-button-active svg circle {
-    fill: white;
-    stroke: white;
+    fill: #000;
+    stroke: #000;
 }
 
 .profile-selection-button-non-active svg path,
 .profile-selection-button-non-active svg circle{
-    fill: white;
-    stroke: white;
+    fill: #000;
+    stroke: #000;
 }
 
 .electric-bike-speedup {
-    background: #00808B;
-    color: #FFFFFF;
+    background: #cbcdd0;
+    color: #000;
+}
+
+.electricity path {
+    fill: #000;
+    stroke: #000;
 }
 
 .location-circle-container {
     position: relative;
     text-align: center;
-    color: #00808B;
+    color: #cbcdd0;
     padding-top: 7px;
 }
 
@@ -123,12 +141,12 @@
 }
 
 .language-button {
-    background-color: #00808B;
-    color: #ffffff;
+    background-color: #cbcdd0;
+    color: #000;
 }
 
 .language-button.active {
-    background-color: #2D4959;
+    background-color: #f3f3f5;
     box-shadow: none !important;
 }
 
@@ -165,15 +183,16 @@
 }
 
 .legend-text  {
-    text-align: center;
+    text-align: left;
+    font-size: 1em;
 }
 
 .gpx-svg path {
-    fill: white !important;
-    stroke: white !important;
+    fill: #000 !important;
+    stroke: #000 !important;
 }
 
 .gpx-svg rect {
-    fill: white !important;
-    stroke: white !important;
+    fill: #000 !important;
+    stroke: #000 !important;
 }

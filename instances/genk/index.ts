@@ -135,13 +135,15 @@ export class Branding extends BrandingBase {
             var element = document.getElementById(pane);
         
             // The data to add. Eventually, this can be changed to an overpass-query or external data set someday
-            var routes = [{ref: 1, name: "Industrie-Zuid – C-mine", colour: "#fada7f"}, // The yellow is darkened a little for readability
-                {ref: 2, name: "Valleiroute", colour: "#a59a79"},
-                {ref: 3, name: "Bokrijk - Kattevennen", colour: "#e8542e"},
-                {ref: 4, name: "Industrie Noord - Gelieren", colour: "#c72471"},
-                {ref: 5, name: "Nieuwe Kempen - Sledderlo", colour: "#1491cf"},
-                {ref: 6, name: "Zwartberg - Centrum", colour: "#03ab8b"},
-                {ref: 7, name: "Genkerring", colour: "#b3bcbc"}];
+            var routes = [
+                {ref: 1, name: "Industrie-Zuid – C-mine", colour: "#fdc300"}, // The yellow is darkened a little for readability
+                {ref: 2, name: "Bokrijk - Thor Park", colour: "#2c89c2"},
+                {ref: 3, name: "Bokrijk - Kattevennen", colour: "#e84c0a"},
+                {ref: 4, name: "Industrie Noord - Gelieren", colour: "#873e0a"},
+                {ref: 5, name: "Nieuwe Kempen - Caetsbeek", colour: "#ecafb5"},
+                {ref: 6, name: "Zwartberg - Genk Centrum", colour: "#c9328b"},
+                {ref: 7, name: "Genkerring", colour: "#4faf47"}
+            ];
         
             var contents = "<div class='container'>";
            
@@ -153,7 +155,7 @@ export class Branding extends BrandingBase {
                 contents += "<div class='legend-ref' style='background-color:" + route.colour + "'>" + route.ref + "</div>";
                 contents += "</div>"
 
-                contents += "<div class='col-8'>";
+                contents += "<div class='col-10'>";
                 contents += "<h5 class='legend-text'>" + route.name + "</h5>";
                 contents += "</div>"
 
@@ -212,11 +214,11 @@ export class Branding extends BrandingBase {
                 "line-color": ['get', 'colour'],
                 "line-width": [
                     'interpolate', ['linear'], ['zoom'],
-                    10, 1,
-                    13, 2,
-                    16, 6
+                    10, 2,
+                    13, 3,
+                    16, 8
                 ],
-                "line-opacity": 0.5
+                "line-opacity": 0.9
             },
             "filter": [
                 "all",
