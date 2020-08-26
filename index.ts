@@ -149,10 +149,6 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 
-
-
-
-
 // urlhash.js
 var urlhash = {
     updateHash: function (state) {
@@ -251,10 +247,6 @@ var urlhash = {
     }
 };
 
-
-
-
-
 //set the corect language
 var userLang = navigator.language || navigator.userLanguage;
 if (userLang === 'nl' || userLang === 'fr') {
@@ -269,8 +261,6 @@ if (typeof (Storage) !== "undefined") {
 } else {
     console.log("Sorry, your browser does not support Web Storage.");
 }
-
-
 
 /**
  * Convert the time returned by the routing api to a string representation readable for humans

@@ -64,7 +64,7 @@ export class Branding extends BrandingBase {
                         "line-opacity": 1
                     },
                     "route": {
-                        "line-opacity": 0.5
+                        "line-opacity": 0.75
                     }
                 },
                 "cyclenetwork-tiles-high": {
@@ -72,7 +72,7 @@ export class Branding extends BrandingBase {
                         "line-opacity": 1
                     },
                     "route": {
-                        "line-opacity": 0.5
+                        "line-opacity": 0.75
                     }
                 },
                 "cyclenodes-circles": true,
