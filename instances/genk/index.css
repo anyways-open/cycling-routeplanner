@@ -42,46 +42,39 @@ body {
 .location-input-group {
     padding-left: 0;
     padding-right: 5px;
-    border-bottom: 2px solid #e3e6e8 !important;
+    border-bottom: 2px solid #f3f3f5 !important;
 }
 
 .location-circle-container {
     /*The small 'A' or 'B' in the circle in the from/to fields */
     position: relative;
     text-align: center;
-    color: #f3f3f5;
+    color: #e3e6e8;
     padding-top: 7px;
 }
 
-
 .form-control,
 .form-control::placeholder {
-    color: #f3f3f5;
+    color: #e3e6e8;
 }
-
 
 /*********************** Profile selection/sidebar styling ********************/
 
-
 .sidebar-colors {
-    background: #f3f3f5;
-    color: #000;
-}
-
-
-
-.close-button-small-screen {
-    background: #f3f3f5;
+    background: #e3e6e8;
     color: #000;
 }
 
 .close-button-small-screen {
     background: #e3e6e8;
+    color: #000;
+}
+
+.close-button-small-screen {
+    background: #f3f3f5;
     margin: 0;
     padding: 0;
 }
-
-
 
 .close-button-small-screen svg path {
     stroke: red;
@@ -103,12 +96,12 @@ body {
 }
 
 .profile-selection-button-non-active {
-    background: #e3e6e8;
+    background: #f3f3f5;
     color: 000;
 }
 
 .profile-selection-button-active {
-    background: #f3f3f5;
+    background: #e3e6e8;
     color: #000;
 }
 
@@ -125,7 +118,7 @@ body {
 }
 
 .electric-bike-speedup {
-    background: #f3f3f5;
+    background: #e3e6e8;
     color: #000;
 }
 
@@ -137,7 +130,7 @@ body {
 .location-circle-container {
     position: relative;
     text-align: center;
-    color: #f3f3f5;
+    color: #e3e6e8;
     padding-top: 7px;
 }
 
@@ -153,12 +146,12 @@ body {
 }
 
 .language-button {
-    background-color: #f3f3f5;
+    background-color: #e3e6e8;
     color: #000;
 }
 
 .language-button.active {
-    background-color: #e3e6e8;
+    background-color: #f3f3f5;
     box-shadow: none !important;
 }
 
