@@ -48,7 +48,7 @@ export class Branding extends BrandingBase {
             },
             routecolor: {
                 backend: true,
-                color: "#ebaeb3"
+                color: "#000000"
             }
         };
         this.profile2 = {
@@ -86,7 +86,7 @@ export class Branding extends BrandingBase {
             },
             routecolor: {
                 backend: false,
-                color: "#ebaeb3"
+                color: "#000000"
             }
         };
         this.profile3 = {
@@ -109,7 +109,7 @@ export class Branding extends BrandingBase {
             },
             routecolor: {
                 backend: false,
-                color: "#ebaeb3"
+                color: "#000000"
             }
         };
 

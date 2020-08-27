@@ -14,7 +14,7 @@ body {
 }
 
 .btn:hover {
-    background-color: rgb(134, 154, 184);
+    background-color: #e3e6e8;
 }
 
 .profile1-instruction-extra {
@@ -69,7 +69,7 @@ body {
 
 .form-control,
 .form-control::placeholder {
-    color: #e3e6e8;
+    color: #000000;
 }
 
 /*********************** Profile selection/sidebar styling ********************/
