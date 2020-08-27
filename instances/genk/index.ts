@@ -1,6 +1,7 @@
 import { BrandingBase } from "../brandingBase";
 import { ProfileConfig } from "../profileConfig";
 import LocalSvg from "./assets/img/*.svg";
+import LocalPng from "./assets/img/*.png";
 import GlobalSvg from "../../assets/img/*.svg";
 import logo from "./assets/img/favicon-96.png";
 import { IDictionary, Dictionary } from "../../Dictionary";
@@ -237,6 +238,20 @@ export class Branding extends BrandingBase {
             ]
         }, lowestLabel);
 
+        function loadImage(i: number) {
+            map.loadImage(LocalPng[`network${ i }-icon.svg.50`], function(error: any, image: HTMLImageElement | ArrayBufferView | { width: number; height: number; data: Uint8Array | Uint8ClampedArray; } | ImageData) {
+                console.log("loading" + image);
+                if (error) throw error;
+                if (!map.hasImage(`network-${ i }-shield`)) map.addImage(`network-${ i }-shield`, image, {
+                    pixelRatio: 1
+                });
+            });
+        }
+
+        for (var x = 1; x <= 7; x++) {
+            loadImage(x);       
+        }
+
         map.addLayer({
             "id": "cyclenetworks-genk-shields",
             "type": "symbol",
@@ -245,29 +260,30 @@ export class Branding extends BrandingBase {
             "minzoom": 10,
             "maxzoom": 24,
             "layout": {
-                "icon-image": "us-state_1",
+                "icon-image": "network-{ref}-shield",
                 "icon-rotation-alignment": "viewport",
-                "icon-size": 1,
-                "symbol-placement": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            10,
-                            "point"
-                        ],
-                        [
-                            11,
-                            "line"
-                        ]
-                    ]
-                },
-                "symbol-spacing": 200,
-                "text-field": "{ref}",
-                "text-font": [
-                    "Noto Sans Regular"
+                "icon-size": [
+                    'interpolate', ['linear'], ['zoom'],
+                    15, 0.5,
+                    18, 1
                 ],
-                "text-rotation-alignment": "viewport",
-                "text-size": 10
+                "icon-padding": 25,
+                // "symbol-placement": {
+                //     "base": 1,
+                //     "stops": [
+                //         [
+                //             10,
+                //             "point"
+                //         ],
+                //         [
+                //             110,
+                //             "line"
+                //         ]
+                //     ]
+                // },
+                "symbol-placement": "line",
+                "symbol-sort-key": ["-", 10, ["get", "ref"]], // { "type": "identity", "property": "ref" },
+                "symbol-spacing": 10000
             },
             "filter": [
                 "all",
