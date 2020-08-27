@@ -128,8 +128,6 @@ export class Branding extends BrandingBase {
     apply(): void {
         super.apply();
         
-        console.log("URLS are: ", this.urls)
-
         function addLegendEntriesTo(pane){
        
             var element = document.getElementById(pane);

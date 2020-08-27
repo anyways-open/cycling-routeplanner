@@ -50,7 +50,17 @@ body {
     position: relative;
     text-align: center;
     color: #e3e6e8;
-    padding-top: 7px;
+    padding-top: 5px;
+}
+
+.location-circle-centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: black;
 }
 
 .form-control,
