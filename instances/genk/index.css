@@ -58,9 +58,13 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	font-size: 0.8rem;
-	font-weight: 700;
-	color: black;
+	font-size: 1rem;
+	font-weight: 400;
+	color: #ffffff;
+}
+
+.location-circle-container svg circle {
+    fill: #000000;
 }
 
 .form-control,
@@ -137,17 +141,6 @@ body {
     stroke: #000;
 }
 
-.location-circle-container {
-    position: relative;
-    text-align: center;
-    color: #e3e6e8;
-    padding-top: 7px;
-}
-
-.location-circle-container svg circle {
-    fill: lightgrey;
-}
-
 
 /*********************** Translation buttons ********************/
 
@@ -170,18 +163,23 @@ body {
 
 /* The marker on the map */
 .marker {
-    background-image: url('../../assets/img/marker.svg');
+    background-image: url('./assets/img/marker.svg');
     background-size: cover;
     width: 31px;
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-family: 'HelveticaNeueLTStd-Md', serif;
+    font-size: 1rem;
+    font-weight: 400;
     line-height: 1.5;
     text-align: center;
-    color: rgb(134, 154, 184); /* Colour of the 'A' and 'B' on a marker in the map*/
+    color: #ffffff; /* Colour of the 'A' and 'B' on a marker in the map*/
+}
+
+.marker-text {
+    display: flex;
+    margin-top: 7px;
 }
 
 .legend-text  {
