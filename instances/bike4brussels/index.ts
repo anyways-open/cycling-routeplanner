@@ -13,7 +13,7 @@ export class Branding extends BrandingBase {
         this.logo = logo;
         this.title = "Bike for Brussels | Routeplanner";
         this.mapCenter = [4.3555, 50.8371];
-        this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=63xcUNTjl3MuHvlfctw0';
+        this.mapStyle = 'https://api.maptiler.com/maps/32498a28-6ce3-40c5-bbb6-cb0d3374a9a2/style.json?key=63xcUNTjl3MuHvlfctw0';
         this.mapZoom = 11.54;
         this.selectedProfile = 'profile1';
 
