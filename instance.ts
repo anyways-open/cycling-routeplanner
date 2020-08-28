@@ -1,3 +1,3 @@
-import { Branding } from './instances/genk/index';
+import { Branding } from './instances/bike4brussels/index';
 
 export const branding = new Branding();
