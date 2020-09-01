@@ -13,7 +13,7 @@ export class Branding extends BrandingBase {
 
         this.logo = logo;
         this.apiKey = "Vc32GLKD1wjxyiloWhlcFReFor7aAAOz";
-        this.title = "Genk | Fietsrouteplanner";
+        this.title = "Genk | Fietsnet";
         this.mapCenter = [5.5063, 50.9625];
         this.mapStyle = 'https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/style.json?key=4GEuYRy0C8pjLa3x1u8M';
         this.mapZoom = 12.82;

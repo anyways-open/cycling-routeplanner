@@ -74,6 +74,13 @@ body {
 
 /*********************** Profile selection/sidebar styling ********************/
 
+#profile1-small-logo, 
+#profile2-small-logo, 
+#profile3-small-logo
+{
+    display: none;
+}
+
 .sidebar-colors {
     background: #e3e6e8;
     color: #000;
