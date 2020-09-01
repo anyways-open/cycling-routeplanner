@@ -30,8 +30,8 @@ export class Branding extends BrandingBase {
         this.profile1 = {
             backendName: "bicycle.genk",
             frontendName: { nl: "Fietsnet Genk" },
-            frontendSubtitle: { nl: "Fiets gemakkelijk naar je bestemming met het fietsnet. De pijlen op de grond wijzen jou de weg." },
-            frontendExplanation: { nl: "Fiets gemakkelijk naar je bestemming met het fietsnet. De pijlen op de grond wijzen jou de weg." },
+            frontendSubtitle: { nl: "Fiets gemakkelijk van A naar B met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net." },
+            frontendExplanation: { nl: "Fiets gemakkelijk van A naar B met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net." },
             frontendLogo: LocalSvg["genk-networks"],
 
             layers: {
@@ -50,7 +50,8 @@ export class Branding extends BrandingBase {
             routecolor: {
                 backend: true,
                 color: "#000000"
-            }
+            },
+            showHeight: false
         };
         this.profile2 = {
             backendName: "bicycle.networks",
@@ -89,7 +90,8 @@ export class Branding extends BrandingBase {
             routecolor: {
                 backend: false,
                 color: "#000000"
-            }
+            },
+            showHeight: false
         };
         this.profile3 = {
             backendName: "bicycle.shortest",
@@ -113,7 +115,8 @@ export class Branding extends BrandingBase {
             routecolor: {
                 backend: false,
                 color: "#000000"
-            }
+            },
+            showHeight: false
         };
 
         this.languages = ["nl"];
