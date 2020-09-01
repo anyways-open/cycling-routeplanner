@@ -244,9 +244,9 @@ export class Branding extends BrandingBase {
                 "line-color": ['get', 'colour'],
                 "line-width": [
                     'interpolate', ['linear'], ['zoom'],
-                    10, 2,
-                    13, 4,
-                    16, 10
+                    10, 1,
+                    13, 3,
+                    16, 7
                 ],
                 "line-opacity": 0.9
             },
