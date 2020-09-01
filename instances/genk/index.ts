@@ -44,7 +44,8 @@ export class Branding extends BrandingBase {
                 "cyclenodes-labels": false,
                 "cyclenodes-labels-high": false,
                 "cyclenetworks-genk": true,
-                "cyclenetworks-genk-shields": true
+                "cyclenetworks-genk-shields": true,
+                "cyclenetworks-genk-shields-endpoints": true
             },
             routecolor: {
                 backend: true,
@@ -82,7 +83,8 @@ export class Branding extends BrandingBase {
                 "cyclenodes-labels": true,
                 "cyclenodes-labels-high": true,
                 "cyclenetworks-genk": false,
-                "cyclenetworks-genk-shields": false
+                "cyclenetworks-genk-shields": false,
+                "cyclenetworks-genk-shields-endpoints": false
             },
             routecolor: {
                 backend: false,
@@ -105,7 +107,8 @@ export class Branding extends BrandingBase {
                 "cyclenodes-labels": false,
                 "cyclenodes-labels-high": false,
                 "cyclenetworks-genk": false,
-                "cyclenetworks-genk-shields": false
+                "cyclenetworks-genk-shields": false,
+                "cyclenetworks-genk-shields-endpoints": false
             },
             routecolor: {
                 backend: false,
