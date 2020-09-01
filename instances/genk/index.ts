@@ -43,9 +43,30 @@ export class Branding extends BrandingBase {
                 "cyclenodes-circles-center": false,
                 "cyclenodes-labels": false,
                 "cyclenodes-labels-high": false,
-                "cyclenetworks-genk": true,
-                "cyclenetworks-genk-shields": true,
-                "cyclenetworks-genk-shields-endpoints": true
+                "cyclenetworks-genk": {
+                    "default": {
+                        "visible": true
+                    },
+                    "route": {
+                        "visible": false
+                    }
+                },
+                "cyclenetworks-genk-shields": {
+                    "default": {
+                        "visible": true
+                    },
+                    "route": {
+                        "visible": false
+                    }
+                },
+                "cyclenetworks-genk-shields-endpoints": {
+                    "default": {
+                        "visible": true
+                    },
+                    "route": {
+                        "visible": false
+                    }
+                }
             },
             routecolor: {
                 backend: true,
@@ -531,6 +552,61 @@ export class Branding extends BrandingBase {
             "type": "symbol",
             "source": "cyclenetworks-tiles",
             "source-layer": "cyclenetwork",
+            "minzoom": 14,
+            "maxzoom": 24,
+            "layout": {
+                "icon-image": "network-{ref}-shield",
+                "icon-rotation-alignment": "viewport",
+                "icon-size": [
+                    'interpolate', ['linear'], ['zoom'],
+                    15, 0.5,
+                    18, 1
+                ],
+                "icon-padding": 25,
+                // "symbol-placement": {
+                //     "base": 1,
+                //     "stops": [
+                //         [
+                //             10,
+                //             "point"
+                //         ],
+                //         [
+                //             110,
+                //             "line"
+                //         ]
+                //     ]
+                // },
+                "symbol-placement": "line",
+                "symbol-sort-key": ["-", 10, ["get", "ref"]], // { "type": "identity", "property": "ref" },
+                "symbol-spacing": 10000
+            },
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "$type",
+                    "LineString"
+                ],
+                [
+                    "all",
+                    [
+                        "==",
+                        "operator",
+                        "Stad Genk"
+                    ]
+                ]
+            ]
+        });
+
+        map.addSource("profile1-source", {
+            type: 'geojson',
+            data: { "type": "FeatureCollection", "features": [] }
+        });
+
+        map.addLayer({
+            "id": "cyclenetworks-genk-shields-route",
+            "type": "symbol",
+            "source": "profile1-source",
             "minzoom": 14,
             "maxzoom": 24,
             "layout": {

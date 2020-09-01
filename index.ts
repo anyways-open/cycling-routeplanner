@@ -442,19 +442,23 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
             }
         }
 
-        // Check if profile already exists
+        // update or add source.
         const calculatedRoute = map.getSource(profile + "-source");
         if (calculatedRoute) {
             // Just set the data
-            calculatedRoute.setData(json.route);
+            calculatedRoute.setData(json);
         } else {
             // Add a new layer
             map.addSource(profile + "-source", {
                 type: 'geojson',
                 data: json
             });
-            //console.log(json.route)
+        }
 
+        // add layer if needed.
+        var routeLayer = map.getLayer(profile);
+        if (routeLayer) {
+        } else {
             var opacity = routeOpacityAltnerative;
             var width = routeWidthMain;
 
@@ -514,7 +518,6 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                     }
                 }, labelLayer);
             }
-
         }
         //fitToBounds(origin, destination);   //Called again to make sure the start or endpoint are not hidden behind sidebar
     }
@@ -522,11 +525,12 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     // Request failed, cleanup nicely
     function requestError(jqXHR, textStatus, errorThrown) {
         if (textStatus !== "abort") {
-            if (map.getLayer(profile)) {
-                map.removeLayer(profile);
-            }
+            // if (map.getLayer(profile)) {
+            //     map.removeLayer(profile);
+            // }
             if (map.getSource(profile)) {
-                map.removeSource(profile);
+                map.getSource(profile).setData({ "type": "FeatureCollection", "features": [] });
+                //map.removeSource(profile);
             }
             console.warn('Problem calculating route: ', errorThrown, textStatus, jqXHR);
         }
@@ -541,14 +545,15 @@ function removeAllRoutesFromMap() {
     sidebarDisplayProfile(selectedProfile);
     for (let i in availableProfiles) {
         var profile = availableProfiles[i];
-        if (map.getLayer(profile)) {
-            map.removeLayer(profile);
-        }
-        if (map.getLayer(profile + "-casing")) {
-            map.removeLayer(profile + "-casing");
-        }
+        // if (map.getLayer(profile)) {
+        //     map.removeLayer(profile);
+        // }
+        // if (map.getLayer(profile + "-casing")) {
+        //     map.removeLayer(profile + "-casing");
+        // }
         if (map.getSource(profile + "-source")) {
-            map.removeSource(profile + "-source");
+        //     map.removeSource(profile + "-source");
+            map.getSource(profile + "-source").setData({ "type": "FeatureCollection", "features": [] });
         }
     }
 }
@@ -1366,12 +1371,26 @@ function showLayersForProfile(selectedProfile) {
 
                         if (state.location1 && state.location2) {
                             if (styleConfig.route) {
+                                if (styleConfig.route.visible !== undefined) {
+                                    if (styleConfig.route.visible) {
+                                        map.setLayoutProperty(layerId, 'visibility', 'visible');
+                                    } else {
+                                        map.setLayoutProperty(layerId, 'visibility', 'none');
+                                    }
+                                }
                                 if (styleConfig.route["line-opacity"]) {
                                     map.setPaintProperty(layerId, 'line-opacity', styleConfig.route["line-opacity"]);
                                 }
                             }
                         } else {
                             if (styleConfig.default) {
+                                if (styleConfig.default.visible !== undefined) {
+                                    if (styleConfig.default.visible) {
+                                        map.setLayoutProperty(layerId, 'visibility', 'visible');
+                                    } else {
+                                        map.setLayoutProperty(layerId, 'visibility', 'none');
+                                    }
+                                }
                                 if (styleConfig.default["line-opacity"]) {
                                     map.setPaintProperty(layerId, 'line-opacity', styleConfig.default["line-opacity"]);
                                 }
