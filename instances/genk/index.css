@@ -148,6 +148,10 @@ body {
     stroke: #000;
 }
 
+.time-electric {
+    font-size: 1.5rem;
+}
+
 .location-circle-container-inline {
     display: inline-flex;
     top: 10px;
@@ -157,10 +161,21 @@ body {
     padding-bottom: 0px;
 }
 
+.profile-explanation-container {
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+}
+
 .profile-summary-explanation .inline-svg {
     height: 30px;
     width: 30px;
     margin-bottom: 10px;
+}
+
+.profile-vertical-center {
+    top: 20px;
+    position: relative;
 }
 
 /*********************** Translation buttons ********************/

@@ -638,3 +638,11 @@ table tr td {
         display: none;
     }
 }
+
+.height-50 {
+    height: 50px;
+}
+
+.font-big {
+    font-size: 1.5rem;
+}
