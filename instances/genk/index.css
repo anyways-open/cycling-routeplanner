@@ -148,6 +148,20 @@ body {
     stroke: #000;
 }
 
+.location-circle-container-inline {
+    display: inline-flex;
+    top: 10px;
+}
+
+.location-circle-inline {
+    padding-bottom: 0px;
+}
+
+.profile-summary-explanation .inline-svg {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
+}
 
 /*********************** Translation buttons ********************/
 

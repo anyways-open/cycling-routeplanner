@@ -3,6 +3,7 @@ import { ProfileConfig } from "../profileConfig";
 import LocalSvg from "./assets/img/*.svg";
 import LocalPng from "./assets/img/*.png";
 import GlobalSvg from "../../assets/img/*.svg";
+import Partials from "../../partials/*.html";
 import logo from "./assets/img/favicon-96.png";
 import { IDictionary, Dictionary } from "../../Dictionary";
 import { TranslatedString } from "../translatedString";
@@ -26,12 +27,18 @@ export class Branding extends BrandingBase {
             'limit=5&' +
             'types=place,locality,neighborhood,address,poi';
 
+    
+        var aCircle = Partials["circle-a"];
+        var bCircle = Partials["circle-b"];
+
+        var frontendExplanation = "Fiets gemakkelijk van " + aCircle +  " naar " + bCircle + " met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net."
+
         this.selectedProfile = 'profile1';
         this.profile1 = {
             backendName: "bicycle.genk",
             frontendName: { nl: "Fietsnet Genk" },
-            frontendSubtitle: { nl: "Fiets gemakkelijk van A naar B met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net." },
-            frontendExplanation: { nl: "Fiets gemakkelijk van A naar B met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net." },
+            frontendSubtitle: { nl: frontendExplanation },
+            frontendExplanation: { nl: frontendExplanation },
             frontendLogo: LocalSvg["genk-networks"],
 
             layers: {
@@ -204,7 +211,24 @@ export class Branding extends BrandingBase {
         }
 
         addLegendEntriesTo("profile1-summary-extra");
-        addLegendEntriesTo("profile1-instruction-extra");
+        // addLegendEntriesTo("profile1-instruction-extra");
+
+        function addProfileOverview1() {
+            var contents = "<div class='instructions-resume'>" +
+                "<div class='distance'>qsdf qdsf qsdf 15,38 km</div> qsdf qsdf " +
+                "<div>" +
+                    "<div class='time'>1 uur, 17 min</div>" +
+                    "<div class='electricity-box electric-bike-speedup' style='display:flex'>" +
+                        "<svg xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns='http://www.w3.org/2000/svg' xml:space='preserve' height='75' width='75' version='1.1' y='0px' x='0px' xmlns:cc='http://creativecommons.org/ns#' xmlns:dc='http://purl.org/dc/elements/1.1/' viewBox='0 0 75 75' class='svg electricity replaced-svg'><metadata><rdf:RDF><cc:Work rdf:about=''><dc:format>image/svg+xml</dc:format><dc:type rdf:resource='http://purl.org/dc/dcmitype/StillImage'></dc:type><dc:title></dc:title></cc:Work></rdf:RDF></metadata><g transform='rotate(90 51.165 37.182)'><path d='m51.422 19.293c-0.25391-0.55713-0.82617-0.8623-1.3984-0.73682-0.60156 0.12988-1.0215 0.68213-1.0215 1.3428l-0.001 22.507-16.161-0.984c-0.4248-0.02002-0.8418 0.1792-1.0957 0.54736-0.28516 0.41455-0.33203 0.96045-0.12109 1.4272l16.958 37.311c0.21582 0.47412 0.66308 0.76416 1.1436 0.76416 0.08398 0 0.16895-0.0088 0.25391-0.02734 0.60156-0.12988 1.0215-0.68213 1.0215-1.3433l0.002-22.507 16.155 0.97754c0.43164 0.02539 0.84375-0.17773 1.0986-0.54736 0.28613-0.41504 0.33203-0.96191 0.12012-1.4277v0.000488z'></path></g></svg><span class='time-electric'>58 min</span>" +
+                    "</div>" +
+                "</div>" +
+            "</div>" +
+            "<p id='profile1-paragraph'>Fiets gemakkelijk van A naar B met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net.</p>"
+
+            var element = document.getElementById("profile1-overview");
+            element.innerHTML = contents;
+        }
+        // addProfileOverview1();
     }
 
     addLayers(map: import("mapbox-gl").Map): void {
