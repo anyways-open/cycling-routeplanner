@@ -168,9 +168,10 @@ var urlhash = {
 
         // update the 'edit' button
         try {
-
-            document.getElementById("edit-button-link").href
-                = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
+            var editButtonLink = document.getElementById("edit-button-link")
+            if (editButtonLink) { 
+                editButtonLink.href = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
+            }
         } catch (e) {
             // Oops, not initialized yet
             console.log("Could not update edit link", e)
@@ -1414,6 +1415,7 @@ let windowLoaded = false;
  * Do stuff when the window is done loading, such as interpreting the URL parameters
  */
 window.onload = function () {
+    console.log("onload");
     let urlparams = urlhash.parseHash(location.hash);
 
     if (selectedProfile === undefined) {
@@ -1479,6 +1481,7 @@ window.onload = function () {
     map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
 
 
+    console.log("Adding attribution");
     let startLink = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
     let attributionControl = new mapboxgl.AttributionControl({
         compact: false, customAttribution:

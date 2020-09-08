@@ -32,14 +32,16 @@ export class Branding extends BrandingBase {
         var aCircle = Partials["circle-a"];
         var bCircle = Partials["circle-b"];
 
-        var frontendExplanation = "Fiets gemakkelijk van " + aCircle +  " naar " + bCircle + " met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net."
+        var profile1Explanation = "Fiets gemakkelijk van " + aCircle +  " naar " + bCircle + " met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net."
+        var profile2Explanation = "Volg de genummerde knooppunten om je te verplaatsen van " + aCircle +  " naar " + bCircle +  " . Volg de zwarte route om aan te sluiten op dit net. Meer info over fietsen in Limburg: <a href='https://www.visitlimburg.be/nl/fietsen'>visitlimburg.be</a>"
+        var profile3Explanation = "Dit is de snelste fietsroute van " + aCircle +  " naar " + bCircle +  " . Deze route loopt vaak langs drukke wegen."
 
         this.selectedProfile = 'profile1';
         this.profile1 = {
             backendName: "bicycle.genk",
             frontendName: { nl: "Fietsnet Genk" },
-            frontendSubtitle: { nl: frontendExplanation },
-            frontendExplanation: { nl: frontendExplanation },
+            frontendSubtitle: { nl: profile1Explanation },
+            frontendExplanation: { nl: profile1Explanation },
             frontendLogo: LocalSvg["genk-networks"],
 
             layers: {
@@ -85,8 +87,8 @@ export class Branding extends BrandingBase {
         this.profile2 = {
             backendName: "bicycle.networks",
             frontendName: { nl: "Knooppunten" },
-            frontendSubtitle: { nl: "Dit is het bekende toeristische fietsknoopuntennetwerk. Je rijdt via de genummerde knooppunten." },
-            frontendExplanation: { nl: "Dit is het bekende toeristische fietsknoopuntennetwerk. Je rijdt via de genummerde knooppunten." },
+            frontendSubtitle: { nl: profile2Explanation },
+            frontendExplanation: { nl: profile2Explanation },
             frontendLogo: GlobalSvg["network"],
 
             layers: {
@@ -124,9 +126,9 @@ export class Branding extends BrandingBase {
         };
         this.profile3 = {
             backendName: "bicycle.shortest",
-            frontendName: { nl: "Snelst" },
-            frontendSubtitle: { nl: "Dit is de snelste route" },
-            frontendExplanation: { nl: "Enkel voor echte snelheidsduivels voor wie iedere minuut telt. Gaat vaak langs drukke banen" },
+            frontendName: { nl: "Snelste route" },
+            frontendSubtitle: { nl: profile3Explanation },
+            frontendExplanation: { nl: profile3Explanation },
             frontendLogo: GlobalSvg["fast"],
             layers: {
                 "cyclenetworks": false,
@@ -214,11 +216,14 @@ export class Branding extends BrandingBase {
         addLegendEntriesTo("profile1-summary-extra");
         // addLegendEntriesTo("profile1-instruction-extra");
 
-        function replaceProfile1Instruction() {
-            var element = document.getElementById("profile1-instruction");
-            element.innerHTML = LocalPartials["profile1-instruction"];
-        }
-        replaceProfile1Instruction();
+        var element = document.getElementById("profile1-instruction");
+        element.innerHTML = LocalPartials["profile1-instruction"];
+
+        element = document.getElementById("profile2-instruction");
+        element.innerHTML = LocalPartials["profile2-instruction"];
+
+        element = document.getElementById("profile3-instruction");
+        element.innerHTML = LocalPartials["profile3-instruction"];
     }
 
     addLayers(map: import("mapbox-gl").Map): void {

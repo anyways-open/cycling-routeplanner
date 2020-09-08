@@ -235,5 +235,12 @@ body {
 }
 
 .background-white {
+ 
     background-color: white;
+}
+
+.large-summary-icon-container svg polyline,
+.large-summary-icon-container svg circle,
+.large-summary-icon-container svg path {
+    stroke: white;
 }
