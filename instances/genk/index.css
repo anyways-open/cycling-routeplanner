@@ -159,11 +159,10 @@ body {
 
 .location-circle-inline {
     padding-bottom: 0px;
+    top: 21px;
 }
 
 .profile-explanation-container {
-    width: 90%;
-    padding: 10px;
     text-align: center;
 }
 
@@ -233,4 +232,8 @@ body {
 .gpx-svg rect {
     fill: #000 !important;
     stroke: #000 !important;
+}
+
+.background-white {
+    background-color: white;
 }

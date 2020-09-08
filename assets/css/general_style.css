@@ -643,6 +643,14 @@ table tr td {
     height: 50px;
 }
 
+.min-height-50 {
+    min-height: 50px;
+}
+
+.min-height-70 {
+    min-height: 70px;
+}
+
 .font-big {
     font-size: 1.5rem;
 }
