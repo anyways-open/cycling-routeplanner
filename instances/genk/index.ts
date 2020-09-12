@@ -124,7 +124,7 @@ export class Branding extends BrandingBase {
             },
             routecolor: {
                 backend: false,
-                color: "#000000"
+                color: "#0c99a6"
             },
             showHeight: false
         };
