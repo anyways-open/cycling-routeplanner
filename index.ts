@@ -357,6 +357,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     // method to be executed on successfull ajax call (we have a route now)
     function success(json) {
         var routeColor = profileConfig.routecolor.color;
+        var filter = profileConfig.routecolor.filter;
 
         if (profile === selectedProfile) {
             sidebarDisplayProfile(selectedProfile);
@@ -369,10 +370,18 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
 
         var popularColors = {};
         for (let i in route) {
+            if (filter) {
+                if (route[i].properties[filter.key] != filter.value) {
+                    route[i].properties.cycle_network_colour = undefined;
+                }
+            }
+
             if (route[i].properties === undefined ||
                 route[i].properties.cycle_network_colour === undefined) {
                 // nothing to see here.
             } else if (route[i].properties.cycle_network_colour.length === 7) {
+                
+
                 // exactly one color.
                 var c = popularColors[route[i].properties.cycle_network_colour];
                 if (c !== undefined) {
