@@ -223,14 +223,23 @@ export class Branding extends BrandingBase {
         var element = document.getElementById("profile1-instruction");
         element.innerHTML = LocalPartials["profile1-instruction"];
 
+        element = document.getElementById("profile1-full");
+        element.innerHTML = LocalPartials["profile1-full"];
+
         element = document.getElementById("profile2-instruction");
         element.innerHTML = LocalPartials["profile2-instruction"];
+
+        element = document.getElementById("profile2-full");
+        element.innerHTML = LocalPartials["profile2-full"];
 
         element = document.getElementById("profile2-summary");
         element.innerHTML = LocalPartials["profile2-summary"];
 
         element = document.getElementById("profile3-instruction");
         element.innerHTML = LocalPartials["profile3-instruction"];
+
+        element = document.getElementById("profile3-full");
+        element.innerHTML = LocalPartials["profile3-full"];
     }
 
     addLayers(map: import("mapbox-gl").Map): void {

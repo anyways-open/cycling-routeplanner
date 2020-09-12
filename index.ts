@@ -1082,15 +1082,26 @@ function loadBrandedTexts() {
     for (var profile of availableProfiles) {
         var profileConfig = branding.getProfileConfig(profile);
 
-        document.getElementById(profile + "-small-logo").src = getTerm(profileConfig.frontendLogo);
-        document.getElementById(profile + "-small-logo-bottom").src = getTerm(profileConfig.frontendLogo);
+        var element = document.getElementById(profile + "-small-logo");
+        if (element) element.src = getTerm(profileConfig.frontendLogo);
 
-        document.getElementById(profile + "-icon").src = getTerm(profileConfig.frontendLogo);
+        element = document.getElementById(profile + "-small-logo-bottom");
+        if (element) element.src = getTerm(profileConfig.frontendLogo);
 
-        document.getElementById(profile + "-button-text").innerHTML = getTerm(profileConfig.frontendName);
-        document.getElementById(profile + "-button-text-bottom").innerHTML = getTerm(profileConfig.frontendName);
-        document.getElementById(profile + "-subtitle").innerHTML = getTerm(profileConfig.frontendSubtitle);
-        document.getElementById(profile + "-paragraph").innerHTML = getTerm(profileConfig.frontendExplanation);
+        element = document.getElementById(profile + "-icon");
+        if (element) element.src = getTerm(profileConfig.frontendLogo);
+
+        element = document.getElementById(profile + "-button-text"); 
+        if (element) element.innerHTML = getTerm(profileConfig.frontendName);
+
+        element = document.getElementById(profile + "-button-text-bottom");
+        if (element) element.innerHTML = getTerm(profileConfig.frontendName);
+
+        element = document.getElementById(profile + "-subtitle");
+        if (element) element.innerHTML = getTerm(profileConfig.frontendSubtitle);
+
+        element = document.getElementById(profile + "-paragraph");
+        if (element) element.innerHTML = getTerm(profileConfig.frontendExplanation);
     }
 }
 

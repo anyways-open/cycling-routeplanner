@@ -88,6 +88,21 @@ body {
 
 /*********************** Profile selection/sidebar styling ********************/
 
+#profile1-full {
+    height: 65px;
+}
+
+.profile-button {
+    margin-top: 15px;
+}
+
+#profile1-logo-container,
+#profile2-logo-container,
+#profile3-logo-container
+{
+    display: none;
+}
+
 #profile1-small-logo, 
 #profile2-small-logo, 
 #profile3-small-logo
