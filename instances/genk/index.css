@@ -26,7 +26,8 @@ body {
 }
 
 .profile-explanation p {
-    font-size: 1.125em;
+    font-size: 1.25em;
+    line-height: 1.4;
 }
 
 
@@ -50,7 +51,15 @@ body {
     position: relative;
     text-align: center;
     color: #e3e6e8;
-    padding-top: 5px;
+}
+
+.location-circle {
+    margin-top: 5px;
+}
+
+.profile-explanation-overview .location-circle,
+.profile-summary .location-circle {
+    margin-top: 0px;
 }
 
 .location-circle-centered {
@@ -61,6 +70,11 @@ body {
 	font-size: 1rem;
 	font-weight: 400;
 	color: #ffffff;
+}
+
+.profile-explanation-overview .location-circle-centered,
+.profile-summary .location-circle-centered {
+	font-size: 0.8rem;
 }
 
 .location-circle-container svg circle {
@@ -100,6 +114,10 @@ body {
 .close-button-small-screen svg path {
     stroke: red;
     fill: red;
+}
+
+.profile-summary h5 {
+    line-height: 1.4;
 }
 
 .profile-summary svg {
@@ -154,22 +172,22 @@ body {
 
 .location-circle-container-inline {
     display: inline-flex;
-    top: 10px;
+    top: 5px;
 }
 
 .location-circle-inline {
     padding-bottom: 0px;
-    top: 21px;
+    top: 12px;
 }
 
 .profile-explanation-container {
     text-align: center;
 }
 
+.profile-explanation-overview .inline-svg,
 .profile-summary-explanation .inline-svg {
-    height: 30px;
-    width: 30px;
-    margin-bottom: 10px;
+    height: 20px;
+    width: 20px;
 }
 
 .profile-vertical-center {
