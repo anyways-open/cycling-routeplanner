@@ -33,8 +33,8 @@ export class Branding extends BrandingBase {
         var bCircle = Partials["circle-b"];
 
         var profile1Explanation = "Fiets gemakkelijk van " + aCircle +  " naar " + bCircle + " met de gekleurde routes van het <a href='http://www.fietsnetgenk.be/'>Genkse fietsnet</a>. Volg de zwarte route om aan te sluiten op dit net."
-        var profile2Explanation = "Volg de genummerde knooppunten om je te verplaatsen van " + aCircle +  " naar " + bCircle +  " . Volg de zwarte route om aan te sluiten op dit net. Meer info over fietsen in Limburg: <a href='https://www.visitlimburg.be/nl/fietsen'>visitlimburg.be</a>"
-        var profile3Explanation = "Dit is de snelste fietsroute van " + aCircle +  " naar " + bCircle +  " . Deze route loopt vaak langs drukke wegen."
+        var profile2Explanation = "Volg de genummerde knooppunten om je te verplaatsen van " + aCircle +  " naar " + bCircle +  ". Volg de zwarte route om aan te sluiten op dit net."
+        var profile3Explanation = "Dit is de snelste fietsroute van " + aCircle +  " naar " + bCircle +  ". Deze route loopt vaak langs drukke wegen."
 
         this.selectedProfile = 'profile1';
         this.profile1 = {
@@ -225,6 +225,9 @@ export class Branding extends BrandingBase {
 
         element = document.getElementById("profile2-instruction");
         element.innerHTML = LocalPartials["profile2-instruction"];
+
+        element = document.getElementById("profile2-summary");
+        element.innerHTML = LocalPartials["profile2-summary"];
 
         element = document.getElementById("profile3-instruction");
         element.innerHTML = LocalPartials["profile3-instruction"];
