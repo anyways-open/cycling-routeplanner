@@ -225,11 +225,15 @@ export class Branding extends BrandingBase {
 
         element = document.getElementById("profile1-full");
         element.innerHTML = LocalPartials["profile1-full"];
+        element = document.getElementById("profile1");
+        element.innerHTML = LocalPartials["profile1-full"];
 
         element = document.getElementById("profile2-instruction");
         element.innerHTML = LocalPartials["profile2-instruction"];
 
         element = document.getElementById("profile2-full");
+        element.innerHTML = LocalPartials["profile2-full"];
+        element = document.getElementById("profile2");
         element.innerHTML = LocalPartials["profile2-full"];
 
         element = document.getElementById("profile2-summary");
@@ -239,6 +243,8 @@ export class Branding extends BrandingBase {
         element.innerHTML = LocalPartials["profile3-instruction"];
 
         element = document.getElementById("profile3-full");
+        element.innerHTML = LocalPartials["profile3-full"];
+        element = document.getElementById("profile3");
         element.innerHTML = LocalPartials["profile3-full"];
     }
 

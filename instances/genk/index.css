@@ -102,7 +102,9 @@ body {
 {
     display: none;
 }
-
+#profile1-small-logo-bottom,
+#profile2-small-logo-bottom,
+#profile3-small-logo-bottom,
 #profile1-small-logo, 
 #profile2-small-logo, 
 #profile3-small-logo
