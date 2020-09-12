@@ -32,7 +32,7 @@ export class Branding extends BrandingBase {
         var aCircle = Partials["circle-a"];
         var bCircle = Partials["circle-b"];
 
-        var profile1Explanation = "Fiets gemakkelijk van " + aCircle +  " naar " + bCircle + " met de gekleurde routes van het Genkse fietsnet. Volg de zwarte route om aan te sluiten op dit net."
+        var profile1Explanation = "Fiets gemakkelijk van " + aCircle +  " naar " + bCircle + " met de gekleurde routes van het <a href='http://www.fietsnetgenk.be/'>Genkse fietsnet</a>. Volg de zwarte route om aan te sluiten op dit net."
         var profile2Explanation = "Volg de genummerde knooppunten om je te verplaatsen van " + aCircle +  " naar " + bCircle +  " . Volg de zwarte route om aan te sluiten op dit net. Meer info over fietsen in Limburg: <a href='https://www.visitlimburg.be/nl/fietsen'>visitlimburg.be</a>"
         var profile3Explanation = "Dit is de snelste fietsroute van " + aCircle +  " naar " + bCircle +  " . Deze route loopt vaak langs drukke wegen."
 
