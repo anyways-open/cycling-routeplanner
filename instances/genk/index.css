@@ -30,6 +30,10 @@ body {
     line-height: 1.4;
 }
 
+.profile-explanation-overview {
+    margin-left: 0px;
+    margin-right: 0px;
+}
 
 /*********************** TOP BAR ********************/
 
@@ -84,6 +88,13 @@ body {
 .form-control,
 .form-control::placeholder {
     color: #000000;
+}
+
+#sidebar-right-container .btn-lg {
+    font-size: 1rem;
+    border-radius: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 /*********************** Profile selection/sidebar styling ********************/
