@@ -112,10 +112,6 @@ body {
     display: none;
 }
 
-#profile1-summary-extra .legend-text {
-    margin-top: 6px;
-}
-
 .sidebar-colors {
     background: #e3e6e8;
     color: #000;
@@ -180,6 +176,11 @@ body {
 .electric-bike-speedup {
     background: #e3e6e8;
     color: #000;
+}
+
+.network-icon {
+    vertical-align: middle;
+    display: inline;
 }
 
 .electricity path {
