@@ -130,7 +130,7 @@ export class Branding extends BrandingBase {
             showHeight: false
         };
         this.profile3 = {
-            backendName: "bicycle.shortest",
+            backendName: "bicycle.commute",
             frontendName: { nl: "Snelste route" },
             frontendSubtitle: { nl: profile3Explanation },
             frontendExplanation: { nl: profile3Explanation },
