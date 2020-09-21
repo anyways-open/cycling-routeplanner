@@ -373,6 +373,10 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
             if (filter) {
                 if (route[i].properties[filter.key] != filter.value) {
                     route[i].properties.cycle_network_colour = undefined;
+                } else {
+                    if (filter.color) {
+                        route[i].properties.cycle_network_colour = filter.color;
+                    }
                 }
             }
 

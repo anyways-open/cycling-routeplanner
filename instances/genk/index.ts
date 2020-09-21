@@ -124,8 +124,13 @@ export class Branding extends BrandingBase {
                 "cyclenetworks-genk-shields-endpoints": false
             },
             routecolor: {
-                backend: false,
-                color: "#0c99a6"
+                backend: true,
+                filter: {
+                    key: "_relation:bicycle_network_is_nodenetwork",
+                    value: "yes",
+                    color: "#0c99a6"
+                },
+                color: "#000000"
             },
             showHeight: false
         };
