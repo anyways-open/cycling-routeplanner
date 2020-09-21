@@ -112,6 +112,10 @@ body {
     display: none;
 }
 
+#profile1-summary-extra .legend-text {
+    margin-top: 6px;
+}
+
 .sidebar-colors {
     background: #e3e6e8;
     color: #000;
