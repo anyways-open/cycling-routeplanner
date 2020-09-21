@@ -1752,5 +1752,4 @@ showOrHideClearButtons();
 initLanguageControls();
 applyNavigatorLanguage();
 
-
-window.onload = onLoadWindow;
+onLoadWindow();
