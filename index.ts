@@ -1430,11 +1430,10 @@ function showLayersForProfile(selectedProfile) {
 
 let windowLoaded = false;
 
-
 /**
  * Do stuff when the window is done loading, such as interpreting the URL parameters
  */
-window.onload = function () {
+function onLoadWindow () {
     console.log("onload");
     let urlparams = urlhash.parseHash(location.hash);
 
@@ -1491,7 +1490,6 @@ window.onload = function () {
         document.getElementById("clearInputFieldToButton").style = "display: inline;";
     }
 
-
     map.addControl(new mapboxgl.GeolocateControl({
         positionOptions: {
             enableHighAccuracy: true
@@ -1499,7 +1497,6 @@ window.onload = function () {
         trackUserLocation: true
     }), 'top-left');
     map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
-
 
     console.log("Adding attribution");
     let startLink = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
@@ -1750,3 +1747,6 @@ inlineAllSvgs();
 showOrHideClearButtons();
 initLanguageControls();
 applyNavigatorLanguage();
+
+
+window.onload = onLoadWindow;
