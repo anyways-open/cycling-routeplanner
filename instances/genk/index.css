@@ -137,6 +137,11 @@ body {
     background: #f3f3f5;
     margin: 0;
     padding: 0;
+    width: 36px;
+    /* height: 20px; */
+    display: inline-block;
+    padding-right: 8px;
+    padding-left: 8px;
 }
 
 .close-button-small-screen svg path {

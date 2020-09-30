@@ -34,6 +34,8 @@ html, body {
     background-image: url(icons/arrow-right-thin.svg);
 }
 
+
+
 .close-button-small-screen svg {
     float: bottom;
     display:block;
@@ -155,7 +157,6 @@ html, body {
     vertical-align: text-top;
     background: transparent no-repeat center center;
 }
-
 /******* TO CLEAN UP - Probably contains lots of dead code *******/
 
 .top-overlap-nav {
