@@ -23,7 +23,6 @@
     "@turf/turf": "^5.1.6",
     "@types/mapbox-gl": "^1.7.0",
     "d3": "^5.15.1",
-    "instances": "0.0.1",
     "jquery": "^3.5.0",
     "mapbox-gl": "^1.7.0",
     "mapbox-gl-geocoder": "^2.0.1",
