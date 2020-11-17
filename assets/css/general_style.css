@@ -42,6 +42,26 @@ html, body {
     width: 100%;
 }
 
+#profile1-small-logo-bottom {
+    width: 24px;
+}
+#profile2-small-logo-bottom {
+    width: 24px;
+}
+#profile3-small-logo-bottom {
+    width: 24px;
+}
+
+#profile1-logo-container svg {
+    width: 24px;
+}
+#profile2-logo-container svg {
+    width: 24px;
+}
+#profile3-logo-container svg {
+    width: 24px;
+}
+
 #top-overlay-input {
     margin-bottom: 1vh;
 }
