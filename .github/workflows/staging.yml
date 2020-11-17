@@ -22,3 +22,11 @@ jobs:
       run: docker push anywaysopen/cycling-routeplanner-bikeforbrussels:staging
     - name: Push Docker image.
       run: docker push anywaysopen/cycling-routeplanner-bikeforbrussels:staging-0.$GITHUB_RUN_NUMBER
+    - name: Prepare Genk
+      run: cp instance.genk.ts instance.ts & cp instance.genk.css instance.css
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag anywaysopen/cycling-routeplanner-genk:staging --tag anywaysopen/cycling-routeplanner-genk:staging-0.$GITHUB_RUN_NUMBER
+    - name: Push Docker image.
+      run: docker push anywaysopen/cycling-routeplanner-genk:staging
+    - name: Push Docker image.
+      run: docker push anywaysopen/cycling-routeplanner-genk:staging-0.$GITHUB_RUN_NUMBER
