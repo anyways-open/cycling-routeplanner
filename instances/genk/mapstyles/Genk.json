@@ -1,8 +1,8 @@
 {
   "bearing": 0,
   "center": [
-    5.5108797033626615,
-    50.9658130927491
+    5.495148987674156,
+    50.96573804964581
   ],
   "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=2Piy1GKXoXq0rHzzBVDA",
   "id": "3327a63f-c15d-462a-9f23-ebf73a14254a",
@@ -4331,7 +4331,7 @@
       "maxzoom": 24,
       "minzoom": 10,
       "paint": {
-        "text-color": "rgb(134, 134, 134)",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-blur": 0.5,
         "text-halo-color": "rgb(255, 255, 255)",
         "text-halo-width": 1
@@ -4469,7 +4469,7 @@
       },
       "minzoom": 15.5,
       "paint": {
-        "text-color": "#b2b2b7",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-color": "rgb(255, 255, 255)",
         "text-halo-width": 0.5
       },
@@ -4518,7 +4518,7 @@
       },
       "minzoom": 15,
       "paint": {
-        "text-color": "#b2b2b7",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-blur": 0.5,
         "text-halo-width": 1
       },
@@ -4560,7 +4560,7 @@
       },
       "minzoom": 12.2,
       "paint": {
-        "text-color": "#b2b2b7",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-blur": 0.5,
         "text-halo-width": 1
       },
@@ -4811,7 +4811,7 @@
         "mapbox:group": "1444849242106.713"
       },
       "paint": {
-        "text-color": "#b2b2b7",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.2
       },
@@ -4851,7 +4851,7 @@
         "mapbox:group": "1444849242106.713"
       },
       "paint": {
-        "text-color": "#b2b2b7",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.2
       },
@@ -4892,7 +4892,7 @@
         "mapbox:group": "1444849242106.713"
       },
       "paint": {
-        "text-color": "#b2b2b7",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.2
       },
@@ -5306,5 +5306,5 @@
   },
   "sprite": "https://api.maptiler.com/maps/3327a63f-c15d-462a-9f23-ebf73a14254a/sprite",
   "version": 8,
-  "zoom": 14.46795363980296
+  "zoom": 15.385740886934164
 }

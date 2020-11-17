@@ -23,17 +23,16 @@
     "@turf/turf": "^5.1.6",
     "@types/mapbox-gl": "^1.7.0",
     "d3": "^5.15.1",
-    "instances": "0.0.1",
     "jquery": "^3.5.0",
     "mapbox-gl": "^1.7.0",
     "mapbox-gl-geocoder": "^2.0.1",
+    "parcel-bundler": "^1.12.4",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@types/d3": "^5.7.2",
     "@types/jquery": "^3.3.34",
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "cssnano": "^4.1.10",
     "typescript": "^3.8.3"

@@ -1,0 +1,32 @@
+name: Staging
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to Dock Hub
+      run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u anywaysopen --password-stdin
+    - name: Prepare Brussels
+      run: cp instance.bike4brussels.ts instance.ts & cp instance.bike4brussels.css instance.css
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag anywaysopen/cycling-routeplanner-bikeforbrussels:staging --tag anywaysopen/cycling-routeplanner-bikeforbrussels:staging-0.$GITHUB_RUN_NUMBER
+    - name: Push Docker image.
+      run: docker push anywaysopen/cycling-routeplanner-bikeforbrussels:staging
+    - name: Push Docker image.
+      run: docker push anywaysopen/cycling-routeplanner-bikeforbrussels:staging-0.$GITHUB_RUN_NUMBER
+    - name: Prepare Genk
+      run: cp instance.genk.ts instance.ts & cp instance.genk.css instance.css
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag anywaysopen/cycling-routeplanner-genk:staging --tag anywaysopen/cycling-routeplanner-genk:staging-0.$GITHUB_RUN_NUMBER
+    - name: Push Docker image.
+      run: docker push anywaysopen/cycling-routeplanner-genk:staging
+    - name: Push Docker image.
+      run: docker push anywaysopen/cycling-routeplanner-genk:staging-0.$GITHUB_RUN_NUMBER

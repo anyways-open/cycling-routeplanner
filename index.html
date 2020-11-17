@@ -135,7 +135,7 @@
     </div>
 
     <!-- Sidebar on the right-->
-    <div id="sidebar-right-container" class="col-lg-3 col-sm-12 hidden-sidebar smooth-transition">
+    <div id="sidebar-right-container" class="col-xl-3 col-lg-4 col-md-5 col-sm-12 hidden-sidebar smooth-transition">
 
         <!-- All the sidebar content -->
         <div id='sidebar-right-content'>
@@ -151,7 +151,7 @@
 
                         <!-- Beware: class names 'profile1-button', 'fastest-button' ... are used in the script and not in the css. Don't remove 'em-->
                         <div id="profile1-full" class="col-4 btn-lg text-center profile1-button">
-                            <span>
+                            <span id="profile1-logo-container">
                                 <img class="svg" id="profile1-small-logo" alt="profile1-small-logo" />
                             </span>
                             <br>
@@ -159,7 +159,7 @@
                         </div>
 
                         <div id="profile2-full" class="col-4 btn-lg text-center profile2-button">
-                            <span>
+                            <span id="profile2-logo-container">
                                 <img class="svg" id="profile2-small-logo" alt="profile2-small-logo" />
                             </span>
                             <br>
@@ -168,7 +168,7 @@
 
 
                         <div id="profile3-full" class="col-4 btn-lg text-center profile3-button">
-                            <span>
+                            <span id="profile3-logo-container">
                                 <img class="svg" id="profile3-small-logo" alt="profile3-small-logo" />
                             </span>
                             <br>
@@ -180,7 +180,7 @@
                 </div>
 
                 <!-- Close button. Only on small screens -->
-                <div class="md-or-smaller close-button-small-screen btn-lg image-button" id="sidebarClose"><img
+                <div class="md-or-smaller close-button-small-screen image-button" id="sidebarClose"><img
                         class="svg" alt="close options" src="assets/css/icons/ic_clear_black_24px.svg" />
                 </div>
             </div>
@@ -200,7 +200,7 @@
 
             <div id="profile1-instruction" class="route-instructions sidebar-colors height-zero container d-flex flex-column">
                 <div class="row profile-explanation m-3">
-                    <div class="profile-explanation-overview">
+                    <div id="profile1-overview" class="profile-explanation-overview">
                         <div class="instructions-resume">
                             <div class="distance">0 km</div>
                             <div>
@@ -236,7 +236,7 @@
 
             <div id="profile2-instruction" class="route-instructions sidebar-colors height-zero container d-flex flex-column">
                 <div class="profile-explanation m-3">
-                    <div class="profile-explanation-overview">
+                    <div id="profile2-overview" class="profile-explanation-overview">
                         <div class="instructions-resume">
                             <div class="distance">0 km</div>
                             <div>
@@ -272,7 +272,7 @@
 
             <div id="profile3-instruction" class="route-instructions sidebar-colors height-zero container d-flex flex-column">
                 <div class="profile-explanation m-3">
-                    <div class="profile-explanation-overview">
+                    <div id="profile3-overview" class="profile-explanation-overview">
                         <div class="instructions-resume">
                             <div class="distance">0 km</div>
                             <div>

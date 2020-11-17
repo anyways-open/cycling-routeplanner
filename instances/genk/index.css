@@ -2,6 +2,11 @@
 
 /***********************General stuff ********************/
 
+@import './assets/fonts/HelveticaNeueLTStd-Md.css';
+
+body {
+    font-family: 'HelveticaNeueLTStd-Md', serif;
+}
 
 .btn {
     background-color: #FFFFFF;
@@ -9,13 +14,26 @@
 }
 
 .btn:hover {
-    background-color: rgb(134, 154, 184);
+    background-color: #e3e6e8;
 }
 
 .profile1-instruction-extra {
     width: 100%
 }
 
+.profile-explanation {
+    font-family: 'HelveticaNeueLTStd-Md', serif;
+}
+
+.profile-explanation {
+    font-size: 1.25em;
+    line-height: 1.4;
+}
+
+.profile-explanation-overview {
+    margin-left: 0px;
+    margin-right: 0px;
+}
 
 /*********************** TOP BAR ********************/
 
@@ -29,92 +47,190 @@
 .location-input-group {
     padding-left: 0;
     padding-right: 5px;
-    border-bottom: 2px solid #2D4959 !important;
+    border-bottom: 2px solid #f3f3f5 !important;
 }
 
 .location-circle-container {
     /*The small 'A' or 'B' in the circle in the from/to fields */
     position: relative;
     text-align: center;
-    color: #00808B;
-    padding-top: 7px;
+    color: #e3e6e8;
 }
 
+.location-circle {
+    margin-top: 5px;
+}
+
+.profile-explanation-overview .location-circle,
+.profile-summary .location-circle {
+    margin-top: 0px;
+}
+
+.location-circle-centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1rem;
+	font-weight: 400;
+	color: #ffffff;
+}
+
+.profile-explanation-overview .location-circle-centered,
+.profile-summary .location-circle-centered {
+	font-size: 0.8rem;
+}
+
+.location-circle-container svg circle {
+    fill: #000000;
+}
 
 .form-control,
 .form-control::placeholder {
-    color: #00808B;
+    color: #000000;
 }
 
+#sidebar-right-container .btn-lg {
+    font-size: 1rem;
+    border-radius: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
 
 /*********************** Profile selection/sidebar styling ********************/
 
+#profile1-full {
+    height: 65px;
+}
+
+.profile-button {
+    margin-top: 15px;
+}
+
+#profile1-logo-container,
+#profile2-logo-container,
+#profile3-logo-container
+{
+    display: none;
+}
+#profile1-small-logo-bottom,
+#profile2-small-logo-bottom,
+#profile3-small-logo-bottom,
+#profile1-small-logo, 
+#profile2-small-logo, 
+#profile3-small-logo
+{
+    display: none;
+}
 
 .sidebar-colors {
-    background: #00808B;
-    color: #ffffff;
-}
-
-
-
-.close-button-small-screen {
-    background: #00808B;
-    color: #FFFFFF;
+    background: #e3e6e8;
+    color: #000;
 }
 
 .close-button-small-screen {
-    background: #2D4959;
+    background: #e3e6e8;
+    color: #000;
+}
+
+.close-button-small-screen {
+    background: #f3f3f5;
     margin: 0;
     padding: 0;
+    width: 36px;
+    /* height: 20px; */
+    display: inline-block;
+    padding-right: 8px;
+    padding-left: 8px;
 }
-
-
 
 .close-button-small-screen svg path {
     stroke: red;
     fill: red;
 }
 
+.profile-summary h5 {
+    line-height: 1.4;
+}
 
+.profile-summary svg {
+    height: 100%;
+    width: 100%;
+}
+
+.profile-summary-explanation svg {
+    height: 25%;
+    width: 25%;
+}
+
+.profile-summary svg path {
+    fill: unset;
+}
 
 .profile-selection-button-non-active {
-    background: #2D4959;
-    color: white;
+    background: #f3f3f5;
+    color: 000;
 }
 
 .profile-selection-button-active {
-    background: #00808B;
-    color: #FFFFFF;
+    background: #e3e6e8;
+    color: #000;
 }
 
 .profile-selection-button-active svg path,
 .profile-selection-button-active svg circle {
-    fill: white;
-    stroke: white;
+    fill: #000;
+    stroke: #000;
 }
 
 .profile-selection-button-non-active svg path,
 .profile-selection-button-non-active svg circle{
-    fill: white;
-    stroke: white;
+    fill: #000;
+    stroke: #000;
 }
 
 .electric-bike-speedup {
-    background: #00808B;
-    color: #FFFFFF;
+    background: #e3e6e8;
+    color: #000;
 }
 
-.location-circle-container {
-    position: relative;
+.network-icon {
+    vertical-align: middle;
+    display: inline;
+}
+
+.electricity path {
+    fill: #000;
+    stroke: #000;
+}
+
+.time-electric {
+    font-size: 1.5rem;
+}
+
+.location-circle-container-inline {
+    display: inline-flex;
+    top: 5px;
+}
+
+.location-circle-inline {
+    padding-bottom: 0px;
+}
+
+.profile-explanation-container {
     text-align: center;
-    color: #00808B;
-    padding-top: 7px;
 }
 
-.location-circle-container svg circle {
-    fill: lightgrey;
+.profile-explanation-overview .inline-svg,
+.profile-summary-explanation .inline-svg {
+    height: 20px;
+    width: 20px;
 }
 
+.profile-vertical-center {
+    top: 20px;
+    position: relative;
+}
 
 /*********************** Translation buttons ********************/
 
@@ -123,12 +239,12 @@
 }
 
 .language-button {
-    background-color: #00808B;
-    color: #ffffff;
+    background-color: #e3e6e8;
+    color: #000;
 }
 
 .language-button.active {
-    background-color: #2D4959;
+    background-color: #f3f3f5;
     box-shadow: none !important;
 }
 
@@ -137,43 +253,49 @@
 
 /* The marker on the map */
 .marker {
-    background-image: url('../../assets/img/marker.svg');
+    background-image: url('./assets/img/marker.svg');
     background-size: cover;
     width: 31px;
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-family: 'HelveticaNeueLTStd-Md', serif;
+    font-size: 1rem;
+    font-weight: 400;
     line-height: 1.5;
     text-align: center;
-    color: rgb(134, 154, 184); /* Colour of the 'A' and 'B' on a marker in the map*/
+    color: #ffffff; /* Colour of the 'A' and 'B' on a marker in the map*/
 }
 
-
-.legend-ref {
-    width: 1.75em;
-    height: 1.75em;
-    border-radius: 50%;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    line-height: 1em;
-    padding-top: 15%;
-    margin-left: 65%
+.marker-text {
+    display: flex;
+    margin-top: 7px;
 }
 
 .legend-text  {
-    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 1em;
 }
 
 .gpx-svg path {
-    fill: white !important;
-    stroke: white !important;
+    fill: #000 !important;
+    stroke: #000 !important;
 }
 
 .gpx-svg rect {
-    fill: white !important;
-    stroke: white !important;
+    fill: #000 !important;
+    stroke: #000 !important;
+}
+
+.background-white {
+ 
+    background-color: white;
+}
+
+.large-summary-icon-container svg polyline,
+.large-summary-icon-container svg circle,
+.large-summary-icon-container svg path {
+    stroke: white;
 }

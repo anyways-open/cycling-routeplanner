@@ -149,10 +149,6 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 
-
-
-
-
 // urlhash.js
 var urlhash = {
     updateHash: function (state) {
@@ -172,9 +168,10 @@ var urlhash = {
 
         // update the 'edit' button
         try {
-
-            document.getElementById("edit-button-link").href
-                = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
+            var editButtonLink = document.getElementById("edit-button-link")
+            if (editButtonLink) { 
+                editButtonLink.href = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
+            }
         } catch (e) {
             // Oops, not initialized yet
             console.log("Could not update edit link", e)
@@ -251,10 +248,6 @@ var urlhash = {
     }
 };
 
-
-
-
-
 //set the corect language
 var userLang = navigator.language || navigator.userLanguage;
 if (userLang === 'nl' || userLang === 'fr') {
@@ -269,8 +262,6 @@ if (typeof (Storage) !== "undefined") {
 } else {
     console.log("Sorry, your browser does not support Web Storage.");
 }
-
-
 
 /**
  * Convert the time returned by the routing api to a string representation readable for humans
@@ -366,6 +357,7 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     // method to be executed on successfull ajax call (we have a route now)
     function success(json) {
         var routeColor = profileConfig.routecolor.color;
+        var filter = profileConfig.routecolor.filter;
 
         if (profile === selectedProfile) {
             sidebarDisplayProfile(selectedProfile);
@@ -378,10 +370,22 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
 
         var popularColors = {};
         for (let i in route) {
+            if (filter) {
+                if (route[i].properties[filter.key] != filter.value) {
+                    route[i].properties.cycle_network_colour = undefined;
+                } else {
+                    if (filter.color) {
+                        route[i].properties.cycle_network_colour = filter.color;
+                    }
+                }
+            }
+
             if (route[i].properties === undefined ||
                 route[i].properties.cycle_network_colour === undefined) {
                 // nothing to see here.
             } else if (route[i].properties.cycle_network_colour.length === 7) {
+                
+
                 // exactly one color.
                 var c = popularColors[route[i].properties.cycle_network_colour];
                 if (c !== undefined) {
@@ -452,19 +456,23 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
             }
         }
 
-        // Check if profile already exists
+        // update or add source.
         const calculatedRoute = map.getSource(profile + "-source");
         if (calculatedRoute) {
             // Just set the data
-            calculatedRoute.setData(json.route);
+            calculatedRoute.setData(json);
         } else {
             // Add a new layer
             map.addSource(profile + "-source", {
                 type: 'geojson',
                 data: json
             });
-            //console.log(json.route)
+        }
 
+        // add layer if needed.
+        var routeLayer = map.getLayer(profile);
+        if (routeLayer) {
+        } else {
             var opacity = routeOpacityAltnerative;
             var width = routeWidthMain;
 
@@ -524,7 +532,6 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
                     }
                 }, labelLayer);
             }
-
         }
         //fitToBounds(origin, destination);   //Called again to make sure the start or endpoint are not hidden behind sidebar
     }
@@ -532,11 +539,12 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
     // Request failed, cleanup nicely
     function requestError(jqXHR, textStatus, errorThrown) {
         if (textStatus !== "abort") {
-            if (map.getLayer(profile)) {
-                map.removeLayer(profile);
-            }
+            // if (map.getLayer(profile)) {
+            //     map.removeLayer(profile);
+            // }
             if (map.getSource(profile)) {
-                map.removeSource(profile);
+                map.getSource(profile).setData({ "type": "FeatureCollection", "features": [] });
+                //map.removeSource(profile);
             }
             console.warn('Problem calculating route: ', errorThrown, textStatus, jqXHR);
         }
@@ -551,14 +559,15 @@ function removeAllRoutesFromMap() {
     sidebarDisplayProfile(selectedProfile);
     for (let i in availableProfiles) {
         var profile = availableProfiles[i];
-        if (map.getLayer(profile)) {
-            map.removeLayer(profile);
-        }
-        if (map.getLayer(profile + "-casing")) {
-            map.removeLayer(profile + "-casing");
-        }
+        // if (map.getLayer(profile)) {
+        //     map.removeLayer(profile);
+        // }
+        // if (map.getLayer(profile + "-casing")) {
+        //     map.removeLayer(profile + "-casing");
+        // }
         if (map.getSource(profile + "-source")) {
-            map.removeSource(profile + "-source");
+        //     map.removeSource(profile + "-source");
+            map.getSource(profile + "-source").setData({ "type": "FeatureCollection", "features": [] });
         }
     }
 }
@@ -1077,15 +1086,26 @@ function loadBrandedTexts() {
     for (var profile of availableProfiles) {
         var profileConfig = branding.getProfileConfig(profile);
 
-        document.getElementById(profile + "-small-logo").src = getTerm(profileConfig.frontendLogo);
-        document.getElementById(profile + "-small-logo-bottom").src = getTerm(profileConfig.frontendLogo);
+        var element = document.getElementById(profile + "-small-logo");
+        if (element) element.src = getTerm(profileConfig.frontendLogo);
 
-        document.getElementById(profile + "-icon").src = getTerm(profileConfig.frontendLogo);
+        element = document.getElementById(profile + "-small-logo-bottom");
+        if (element) element.src = getTerm(profileConfig.frontendLogo);
 
-        document.getElementById(profile + "-button-text").innerHTML = getTerm(profileConfig.frontendName);
-        document.getElementById(profile + "-button-text-bottom").innerHTML = getTerm(profileConfig.frontendName);
-        document.getElementById(profile + "-subtitle").innerHTML = getTerm(profileConfig.frontendSubtitle);
-        document.getElementById(profile + "-paragraph").innerHTML = getTerm(profileConfig.frontendExplanation);
+        element = document.getElementById(profile + "-icon");
+        if (element) element.src = getTerm(profileConfig.frontendLogo);
+
+        element = document.getElementById(profile + "-button-text"); 
+        if (element) element.innerHTML = getTerm(profileConfig.frontendName);
+
+        element = document.getElementById(profile + "-button-text-bottom");
+        if (element) element.innerHTML = getTerm(profileConfig.frontendName);
+
+        element = document.getElementById(profile + "-subtitle");
+        if (element) element.innerHTML = getTerm(profileConfig.frontendSubtitle);
+
+        element = document.getElementById(profile + "-paragraph");
+        if (element) element.innerHTML = getTerm(profileConfig.frontendExplanation);
     }
 }
 
@@ -1376,12 +1396,26 @@ function showLayersForProfile(selectedProfile) {
 
                         if (state.location1 && state.location2) {
                             if (styleConfig.route) {
+                                if (styleConfig.route.visible !== undefined) {
+                                    if (styleConfig.route.visible) {
+                                        map.setLayoutProperty(layerId, 'visibility', 'visible');
+                                    } else {
+                                        map.setLayoutProperty(layerId, 'visibility', 'none');
+                                    }
+                                }
                                 if (styleConfig.route["line-opacity"]) {
                                     map.setPaintProperty(layerId, 'line-opacity', styleConfig.route["line-opacity"]);
                                 }
                             }
                         } else {
                             if (styleConfig.default) {
+                                if (styleConfig.default.visible !== undefined) {
+                                    if (styleConfig.default.visible) {
+                                        map.setLayoutProperty(layerId, 'visibility', 'visible');
+                                    } else {
+                                        map.setLayoutProperty(layerId, 'visibility', 'none');
+                                    }
+                                }
                                 if (styleConfig.default["line-opacity"]) {
                                     map.setPaintProperty(layerId, 'line-opacity', styleConfig.default["line-opacity"]);
                                 }
@@ -1400,11 +1434,11 @@ function showLayersForProfile(selectedProfile) {
 
 let windowLoaded = false;
 
-
 /**
  * Do stuff when the window is done loading, such as interpreting the URL parameters
  */
-window.onload = function () {
+function onLoadWindow () {
+    console.log("onload");
     let urlparams = urlhash.parseHash(location.hash);
 
     if (selectedProfile === undefined) {
@@ -1460,7 +1494,6 @@ window.onload = function () {
         document.getElementById("clearInputFieldToButton").style = "display: inline;";
     }
 
-
     map.addControl(new mapboxgl.GeolocateControl({
         positionOptions: {
             enableHighAccuracy: true
@@ -1469,7 +1502,7 @@ window.onload = function () {
     }), 'top-left');
     map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
 
-
+    console.log("Adding attribution");
     let startLink = "https://www.openstreetmap.org/edit#map=" + (map.getZoom() + 1) + "/" + map.getCenter().lat + "/" + map.getCenter().lng;
     let attributionControl = new mapboxgl.AttributionControl({
         compact: false, customAttribution:
@@ -1718,3 +1751,5 @@ inlineAllSvgs();
 showOrHideClearButtons();
 initLanguageControls();
 applyNavigatorLanguage();
+
+onLoadWindow();
