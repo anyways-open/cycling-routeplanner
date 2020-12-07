@@ -1,6 +1,7 @@
 # Cycling Route Planner :bicyclist: :bicyclist: :bicyclist:
 
-[![Build status](https://build.anyways.eu/app/rest/builds/buildType:(id:anyways_routing_CyclingRouteplanner)/statusIcon)](https://build.anyways.eu/buildConfiguration/anyways_routing_CyclingRouteplanner#all-projects)  
+![Production](https://github.com/anyways-open/cycling-routeplanner/workflows/Production/badge.svg)  
+![Staging](https://github.com/anyways-open/cycling-routeplanner/workflows/Staging/badge.svg)  
 
 This our cycling route planner web app. This was originally built during [Open Summer of Code](https://summerofcode.be/) [here](https://github.com/oSoc18/bike4brussels) and we polished and finished it. The branding in this route planner can be customized to your project/company/city/region.
 

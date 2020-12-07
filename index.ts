@@ -5,6 +5,9 @@ import GlobalSvg from './assets/img/*.svg';
 import { branding } from './instance';
 import { GpxExporter} from './components/gpx/gpxExport';
 import { HeightChart } from './components/height/heightChart';
+import { ServiceWorkerHelper } from './unregister-service-worker';
+
+ServiceWorkerHelper.UnregisterAll();
 
 var jQuery = $;
 
