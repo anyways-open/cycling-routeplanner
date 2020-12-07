@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Login to Dock Hub
-      run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u anywaysopen --password-stdin
+      run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u anywaysbot --password-stdin
     - name: Prepare Brussels
       run: cp instance.bike4brussels.ts instance.ts & cp instance.bike4brussels.css instance.css
     - name: Build the Docker image
