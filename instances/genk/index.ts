@@ -82,7 +82,7 @@ export class Branding extends BrandingBase {
             routecolor: {
                 backend: true,
                 filter: {
-                    key: "_relation:genk:bicycle_network_by_operator",
+                    key: "_relation:client_network:bicycle_network_by_operator",
                     value: "yes"
                 },
                 color: "#000000"
