@@ -1249,9 +1249,9 @@ function AddMapLayers() {
         "filter": [
             "all",
             [
-                "!=",
-                "brussels",
-                "yes"
+                "==",
+                "network:type",
+                "node_network"
             ]
         ]
     }, labelLayer);
