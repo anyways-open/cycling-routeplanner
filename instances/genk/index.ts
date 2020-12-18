@@ -90,7 +90,7 @@ export class Branding extends BrandingBase {
             showHeight: false
         };
         this.profile2 = {
-            backendName: "bicycle.networks",
+            backendName: "bicycle.node_network",
             frontendName: { nl: "Knooppunten" },
             frontendSubtitle: { nl: profile2Explanation },
             frontendExplanation: { nl: profile2Explanation },
