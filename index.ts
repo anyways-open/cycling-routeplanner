@@ -447,9 +447,12 @@ function calculateRoute(origin, destination, profile = "bicycle.fastest") {
         }
         var profileDivId = profile + "-instruction";
         if (routeStops.length === 2) {
-            let totaltimeElectr = timeToText(routeStops[1].properties.time * 15 / 20);
+            let time = (routeStops[1].properties.distance / (15 / 3.6));
+            let totaltime = timeToText(time);
+            let totaltimeElectr = timeToText(time * 15 / 20);
+            
             $(`#${profileDivId} .distance`).html(`${formatDistance(routeStops[1].properties.distance)}`);
-            $(`#${profileDivId} .time`).html(`${timeToText(routeStops[1].properties.time)} min`);
+            $(`#${profileDivId} .time`).html(`${totaltime} min`);
             $(`#${profileDivId} .time-electric`).html(`${totaltimeElectr} min`);
             //$instrResume.html(`<div></div><div>min<br><div><img class="electricity" src="assets/img/electricity.svg"/>  </div></div>`);
 
@@ -1579,7 +1582,6 @@ function inlineAllSvgs() {
  * @returns {string}
  */
 function formatDistance(distance) {
-    console.log(distance)
     if (distance < 1000) {
         return Math.round(distance) + ' m';
     }
